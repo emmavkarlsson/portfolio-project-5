@@ -10,7 +10,7 @@ class PostSerializer(serializers.ModelSerializer):
 
     def validate_image(self, value):
         if value.size > 1024 * 1024 * 2:
-            raise.serializers.ValidationError(
+            raise serializers.ValidationError(
                 'Image size is larger than 2MB!'
             )
         if value.image.width > 4096:
