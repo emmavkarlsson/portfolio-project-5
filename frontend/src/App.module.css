@@ -1,6 +1,6 @@
 .App {
   font-family: "Montserrat", sans-serif;
-  background-color: #f8f8f8;
+  background-color: #fff;
   min-height: 100vh;
 }
 
@@ -10,4 +10,30 @@
 
 .Main {
   padding-top: 81px;
+}
+
+a {
+  color: #0b0b0b;
+  transition: color ease-in-out 0.3s;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #dd7979;
+}
+
+a:hover i {
+  color: #dd7979;
+  transition: color ease-in-out 0.3s;
+}
+
+i {
+  color: #0b0b0b;
+  vertical-align: middle;
+}
+
+i:hover {
+  cursor: pointer;
+  transition: color ease-in-out 0.3s;
+  color: #dd7979;
 }

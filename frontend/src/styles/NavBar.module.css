@@ -10,3 +10,7 @@
 .NavLink i {
     padding-right: 5px;
 }
+
+.Active i {
+    color: #dd7979;
+  }
