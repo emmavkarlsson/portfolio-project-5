@@ -1,13 +1,13 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Container, Navbar, Nav } from "react-bootstrap";
 import logo from "../assets/ekp-logo.png";
 import styles from "../styles/NavBar.module.css";
 import { NavLink } from "react-router-dom";
-import { CurrentUserContext } from "../App";
+import { useCurrentUser } from "../context/CurrentUserContext";
 
 const NavBar = () => {
 
-  const currentUser = useContext(CurrentUserContext);
+  const currentUser = useCurrentUser();
   const loggedInIcons = <>{currentUser?.username}</>
   const loggedOutIcons = (
     <>
