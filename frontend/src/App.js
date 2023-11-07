@@ -15,9 +15,9 @@ function App() {
 
   const [currentUser, setCurrentUser] = useState(null)
 
-  const [handleMount] = async () => {
+  const handleMount = async () => {
     try {
-      const {data} = await axios.get('dj-rest-auth/user/')
+      const {data} = await axios.get('/dj-rest-auth/user/')
       setCurrentUser(data)
     } catch(err) {
       console.log(err)
