@@ -1,14 +1,25 @@
 import React from "react";
 import { Container, Navbar, Nav } from "react-bootstrap";
+import axios from "axios";
 import logo from "../assets/ekp-logo.png";
 import styles from "../styles/NavBar.module.css";
 import { NavLink } from "react-router-dom";
-import { useCurrentUser } from "../context/CurrentUserContext";
+import { useCurrentUser, useSetCurrentUser } from "../context/CurrentUserContext";
 import Avatar from "./Avatar";
 
 const NavBar = () => {
 
   const currentUser = useCurrentUser();
+  const setCurrentUser = useSetCurrentUser();
+
+  const handleSignOut = async () => {
+    try {
+      await axios.post("dj-rest-auth/logout/");
+      setCurrentUser(null);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   const addPostIcon = (
     <NavLink
@@ -34,10 +45,10 @@ const NavBar = () => {
       >
         <i className="fas fa-heart"></i>Liked
       </NavLink>
-      <NavLink
-        to="/home"
-        className={styles.NavLink}
-        onClick={() => {}}
+      <NavLink 
+      to="/" 
+      className={styles.NavLink} 
+      onClick={handleSignOut}
       >
         <i className="fas fa-sign-out-alt"></i>Sign out
       </NavLink>
