@@ -89,7 +89,7 @@ const Post = (props) => {
                 handleEdit={handleEdit}
                 handleDelete={handleDelete}
               />
-            )};
+            )}
           </div>
         </Media>
       </Card.Body>
