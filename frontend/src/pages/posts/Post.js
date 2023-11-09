@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { useCurrentUser } from '../../context/CurrentUserContext';
 import { axiosRes } from "../../api/axiosDefaults";
+import { MoreDropdown } from '../../components/MoreDropdown';
 
 const Post = (props) => {
     const {
@@ -68,7 +69,7 @@ const Post = (props) => {
             </Link>
             <div className="d-flex align-items-center">
               <span>{updated_at}</span>
-              {is_owner && PostPage && "..."}
+              {is_owner && PostPage && <MoreDropdown />}
             </div>
           </Media>
         </Card.Body>
