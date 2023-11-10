@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Media } from "react-bootstrap";
+import { Media, Modal, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import styles from "../../styles/Comment.module.css";
@@ -21,11 +21,16 @@ const Comment = (props) => {
     } = props;
 
     const [showEditForm, setShowEditForm] = useState(false);
+    const [showConfirmDelete, setShowConfirmDelete] = useState(false);
 
     const currentUser = useCurrentUser();
     const is_owner = currentUser?.username === owner;
 
     const handleDelete = async () => {
+        setShowConfirmDelete(true);
+      };
+
+    const confirmDelete = async () => {
         try {
             await axiosRes.delete(`/comments/${id}/`);
             setPost((prevPost) => ({
@@ -74,6 +79,27 @@ const Comment = (props) => {
                     />
                 )}
             </Media>
+
+      {/* Modal to confirm deletion of post */}
+
+      <Modal show={showConfirmDelete} onHide={() => setShowConfirmDelete(false)}>
+        <Modal.Body className="text-center">Are you sure you want to delete?
+        </Modal.Body>
+        <Modal.Footer className="justify-content-center">
+          <Button
+            variant="secondary"
+            onClick={() => setShowConfirmDelete(false)}
+          >
+            Cancel
+          </Button>
+          <Button
+            variant="danger"
+            onClick={confirmDelete}
+          >
+            Delete
+          </Button>
+        </Modal.Footer>
+      </Modal>
         </>
     );
 };
