@@ -28,7 +28,7 @@ const Comment = (props) => {
 
     const handleDelete = async () => {
         setShowConfirmDelete(true);
-      };
+    };
 
     const confirmDelete = async () => {
         try {
@@ -61,13 +61,13 @@ const Comment = (props) => {
                     <span className={styles.Date}>{updated_at}</span>
                     {showEditForm ? (
                         <CommentEditForm
-                        id={id}
-                        profile_id={profile_id}
-                        content={content}
-                        profileImage={profile_image}
-                        setComments={setComments}
-                        setShowEditForm={setShowEditForm}
-                      />
+                            id={id}
+                            profile_id={profile_id}
+                            content={content}
+                            profileImage={profile_image}
+                            setComments={setComments}
+                            setShowEditForm={setShowEditForm}
+                        />
                     ) : (
                         <p>{content}</p>
                     )}
@@ -80,26 +80,26 @@ const Comment = (props) => {
                 )}
             </Media>
 
-      {/* Modal to confirm deletion of post */}
+            {/* Modal to confirm deletion of post */}
 
-      <Modal show={showConfirmDelete} onHide={() => setShowConfirmDelete(false)}>
-        <Modal.Body className="text-center">Are you sure you want to delete?
-        </Modal.Body>
-        <Modal.Footer className="justify-content-center">
-          <Button
-            variant="secondary"
-            onClick={() => setShowConfirmDelete(false)}
-          >
-            Cancel
-          </Button>
-          <Button
-            variant="danger"
-            onClick={confirmDelete}
-          >
-            Delete
-          </Button>
-        </Modal.Footer>
-      </Modal>
+            <Modal show={showConfirmDelete} onHide={() => setShowConfirmDelete(false)}>
+                <Modal.Body className="text-center">Are you sure you want to delete?
+                </Modal.Body>
+                <Modal.Footer className="justify-content-center">
+                    <Button
+                        variant="secondary"
+                        onClick={() => setShowConfirmDelete(false)}
+                    >
+                        Cancel
+                    </Button>
+                    <Button
+                        variant="danger"
+                        onClick={confirmDelete}
+                    >
+                        Delete
+                    </Button>
+                </Modal.Footer>
+            </Modal>
         </>
     );
 };
