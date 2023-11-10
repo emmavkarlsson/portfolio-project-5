@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from "../../styles/Post.module.css";
 import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
@@ -6,6 +6,7 @@ import Avatar from "../../components/Avatar";
 import { useCurrentUser } from '../../context/CurrentUserContext';
 import { axiosRes } from "../../api/axiosDefaults";
 import { MoreDropdown } from '../../components/MoreDropdown';
+import { Modal, Button } from "react-bootstrap";
 
 const Post = (props) => {
   const {
@@ -20,27 +21,32 @@ const Post = (props) => {
     content,
     image,
     updated_at,
-    PostPage,
+    postPage,
     setPosts,
   } = props;
 
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
   const history = useHistory();
+  const [showConfirmDelete, setShowConfirmDelete] = useState(false);
 
   const handleEdit = () => {
     history.push(`/posts/${id}/edit`);
   };
 
   const handleDelete = async () => {
+    setShowConfirmDelete(true);
+  };
+
+  const confirmDelete = async () => {
     try {
       await axiosRes.delete(`/posts/${id}/`);
       history.goBack();
     } catch (err) {
       console.log(err);
     }
+    setShowConfirmDelete(false);
   };
-
 
   const handleLike = async () => {
     try {
@@ -84,7 +90,7 @@ const Post = (props) => {
           </Link>
           <div className="d-flex align-items-center">
             <span>{updated_at}</span>
-            {is_owner && PostPage && (
+            {is_owner && postPage && (
               <MoreDropdown
                 handleEdit={handleEdit}
                 handleDelete={handleDelete}
@@ -130,6 +136,27 @@ const Post = (props) => {
           {comments_count}
         </div>
       </Card.Body>
+
+      {/* Modal to confirm deletion of post */}
+
+      <Modal show={showConfirmDelete} onHide={() => setShowConfirmDelete(false)}>
+        <Modal.Body className="text-center">Are you sure you want to delete?
+        </Modal.Body>
+        <Modal.Footer className="justify-content-center">
+          <Button
+            variant="secondary"
+            onClick={() => setShowConfirmDelete(false)}
+          >
+            Cancel
+          </Button>
+          <Button
+            variant="danger"
+            onClick={confirmDelete}
+          >
+            Delete
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </Card>
   );
 };

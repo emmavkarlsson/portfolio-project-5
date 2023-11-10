@@ -26,14 +26,14 @@ export const MoreDropdown = ({ handleEdit, handleDelete }) => {
                 popperConfig={{ strategy: "fixed" }}
             >
                 <Dropdown.Item
-                    className={`${styles.DropdownItem} ${styles.Edit}`}
+                    className={styles.DropdownItem}
                     onClick={handleEdit}
                     aria-label="edit"
                 >
                     <i className="fas fa-edit" />
                 </Dropdown.Item>
                 <Dropdown.Item
-                    className={`${styles.DropdownItem} ${styles.Delete}`}
+                    className={styles.DropdownItem}
                     onClick={handleDelete}
                     aria-label="delete"
                 >
