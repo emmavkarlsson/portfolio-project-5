@@ -10,5 +10,5 @@ class UserMessageSerializer(serializers.ModelSerializer):
         return request.user == obj.owner
 
     class Meta:
-        model = Message
+        model = UserMessage
         fields = ['id', 'owner', 'receiver', 'content', 'created_at']
