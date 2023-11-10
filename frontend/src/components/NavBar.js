@@ -82,7 +82,12 @@ const NavBar = () => {
   );
 
   return (
-    <Navbar className={styles.NavBar} expand="sm" fixed="top">
+    <Navbar 
+    expanded={expanded}
+    className={styles.NavBar}
+    expand="sm"
+    fixed="top"
+    >
       <Container>
         <NavLink to="/">
           <Navbar.Brand>
