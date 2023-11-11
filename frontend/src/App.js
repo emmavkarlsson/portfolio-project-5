@@ -15,6 +15,7 @@ import UsernameForm from "./pages/profiles/UsernameForm";
 import UserPasswordForm from "./pages/profiles/UserPasswordForm";
 import ProfileEditForm from "./pages/profiles/ProfileEditForm";
 import CreateMessageForm from './pages/usermessages/CreateMessageForm';
+import EditCoverImageForm from './pages/profiles/EditCoverImageForm';
 
 function App() {
   const currentUser = useCurrentUser();
@@ -69,6 +70,7 @@ function App() {
           <Route exact path="/profiles/:id/edit/username" render={() => <UsernameForm />} />
           <Route exact path="/profiles/:id/edit/password" render={() => <UserPasswordForm />} />
           <Route exact path="/profiles/:id/edit" render={() => <ProfileEditForm />} />
+          <Route exact path="/profiles/:id/edit_cover_image" render={() => <EditCoverImageForm />} />
           <Route exact path="/usermessages/" render={() => <CreateMessageForm />} />
 
           <Route render={() => <p>Page not found!</p>} />
