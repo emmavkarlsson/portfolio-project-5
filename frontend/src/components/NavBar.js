@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Navbar, Nav } from "react-bootstrap";
+import { Container, Navbar, Nav, NavDropdown } from "react-bootstrap";
 import axios from "axios";
 import logo from "../assets/ekp-logo.png";
 import styles from "../styles/NavBar.module.css";
@@ -33,42 +33,26 @@ const NavBar = () => {
       <i className="far fa-plus-square"></i>Add post
     </NavLink>
   )
-  const loggedInIcons = <>
-    <NavLink
-      to="/feed"
-      className={styles.NavLink}
-      activeClassName={styles.Active}
-    >
-      <i className="fas fa-stream"></i>Feed
-    </NavLink>
-    <NavLink
-      to="/liked"
-      className={styles.NavLink}
-      activeClassName={styles.Active}
-    >
-      <i className="fas fa-heart"></i>Liked
-    </NavLink>
-    <NavLink
-      to="/saved"
-      className={styles.NavLink}
-      activeClassName={styles.Active}
-    >
-      <i className="fa-solid fa-bookmark"></i>Saved
-    </NavLink>
-    <NavLink
-      to="/"
-      className={styles.NavLink}
-      onClick={handleSignOut}
-    >
-      <i className="fas fa-sign-out-alt"></i>Sign out
-    </NavLink>
-    <NavLink
-      to={`/profiles/${currentUser?.profile_id}`}
-      className={styles.NavLink}
-    >
-      <Avatar src={currentUser?.profile_image} text="Profile" height={40} />
-    </NavLink>
-  </>;
+
+  const loggedInIcons = (
+    <>
+      <NavDropdown
+        title={<Avatar src={currentUser?.profile_image} text="Profile" height={40} />}
+        id="basic-nav-dropdown"
+      >
+        <NavDropdown.Item as={NavLink} to={`/profiles/${currentUser?.profile_id}`}>
+          View Profile
+        </NavDropdown.Item>
+        <NavDropdown.Item as={NavLink} to={`/profiles/${currentUser?.profile_id}/edit`}>
+          Edit Profile
+        </NavDropdown.Item>
+        <NavDropdown.Divider />
+        <NavDropdown.Item onClick={handleSignOut}>Sign out</NavDropdown.Item>
+      </NavDropdown>
+    </>
+  );
+
+
   const loggedOutIcons = (
     <>
       <NavLink
