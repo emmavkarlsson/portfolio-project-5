@@ -12,6 +12,9 @@ class MessageListCreateView(generics.ListCreateAPIView):
     serializer_class = UserMessageSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
+    def perform_create(self, serializer):
+        serializer.save(owner=self.request.user)
+
 class MessageDetailView(generics.RetrieveUpdateDestroyAPIView):
     """
     Let's users update or delete their message
