@@ -4,8 +4,6 @@ from .models import Reports
 class ReportsSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.username')
     is_owner = serializers.SerializerMethodField()
-    report_status = serializers.SerializerMethodField()
-    report_reason = serializers.SerializerMethodField()
 
     def get_is_owner(self, obj):
         request = self.context['request']
