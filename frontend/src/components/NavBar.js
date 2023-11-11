@@ -13,7 +13,7 @@ const NavBar = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
 
-  const {expanded, setExpanded, ref} = useClickOutsideToggle();
+  const { expanded, setExpanded, ref } = useClickOutsideToggle();
 
   const handleSignOut = async () => {
     try {
@@ -26,41 +26,48 @@ const NavBar = () => {
 
   const addPostIcon = (
     <NavLink
-        to="/posts/create"
-        className={styles.NavLink}
-        activeClassName={styles.Active}
-      >
-        <i className="far fa-plus-square"></i>Add post
-      </NavLink>
+      to="/posts/create"
+      className={styles.NavLink}
+      activeClassName={styles.Active}
+    >
+      <i className="far fa-plus-square"></i>Add post
+    </NavLink>
   )
   const loggedInIcons = <>
-      <NavLink
-        to="/feed"
-        className={styles.NavLink}
-        activeClassName={styles.Active}
-      >
-        <i className="fas fa-stream"></i>Feed
-      </NavLink>
-      <NavLink
-        to="/liked"
-        className={styles.NavLink}
-        activeClassName={styles.Active}
-      >
-        <i className="fas fa-heart"></i>Liked
-      </NavLink>
-      <NavLink 
-      to="/" 
-      className={styles.NavLink} 
+    <NavLink
+      to="/feed"
+      className={styles.NavLink}
+      activeClassName={styles.Active}
+    >
+      <i className="fas fa-stream"></i>Feed
+    </NavLink>
+    <NavLink
+      to="/liked"
+      className={styles.NavLink}
+      activeClassName={styles.Active}
+    >
+      <i className="fas fa-heart"></i>Liked
+    </NavLink>
+    <NavLink
+      to="/saved"
+      className={styles.NavLink}
+      activeClassName={styles.Active}
+    >
+      <i className="fa-solid fa-bookmark"></i>Saved
+    </NavLink>
+    <NavLink
+      to="/"
+      className={styles.NavLink}
       onClick={handleSignOut}
-      >
-        <i className="fas fa-sign-out-alt"></i>Sign out
-      </NavLink>
-      <NavLink
-        to={`/profiles/${currentUser?.profile_id}`}
-        className={styles.NavLink}
-      >
-        <Avatar src={currentUser?.profile_image} text="Profile" height={40} />
-      </NavLink>
+    >
+      <i className="fas fa-sign-out-alt"></i>Sign out
+    </NavLink>
+    <NavLink
+      to={`/profiles/${currentUser?.profile_id}`}
+      className={styles.NavLink}
+    >
+      <Avatar src={currentUser?.profile_image} text="Profile" height={40} />
+    </NavLink>
   </>;
   const loggedOutIcons = (
     <>
@@ -82,11 +89,11 @@ const NavBar = () => {
   );
 
   return (
-    <Navbar 
-    expanded={expanded}
-    className={styles.NavBar}
-    expand="sm"
-    fixed="top"
+    <Navbar
+      expanded={expanded}
+      className={styles.NavBar}
+      expand="sm"
+      fixed="top"
     >
       <Container>
         <NavLink to="/">
