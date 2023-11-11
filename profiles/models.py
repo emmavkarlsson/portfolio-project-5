@@ -15,6 +15,9 @@ class Profile(models.Model):
     image = models.ImageField(
         upload_to='images/', default='../default_profile_hhowzl'
     )
+    cover_image = models.ImageField(
+        upload_to='images/', default='../default_post_eji6md'
+    )
 
     class Meta:
         ordering = ['-created_at']
