@@ -1,7 +1,7 @@
 from rest_framework import generics, permissions
 from drf_api.permissions import IsOwnerOrReadOnly
-from likes.models import Like
-from likes.serializers import LikeSerializer
+from saved.models import SavePost
+from saved.serializers import SavedSerializer
 
 
 class SavedList(generics.ListCreateAPIView):
