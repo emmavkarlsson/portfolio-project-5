@@ -11,4 +11,4 @@ class UserMessageSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = UserMessage
-        fields = ['id', 'owner', 'receiver', 'content', 'created_at']
+        fields = ['id', 'owner', 'is_owner', 'receiver', 'content', 'created_at']
