@@ -18,7 +18,7 @@ import {
     useProfileData,
     useSetProfileData,
 } from "../../context/ProfileDataContext";
-import { Button, Image } from "react-bootstrap";
+import { Button, Image, NavLink } from "react-bootstrap";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Post from "../posts/Post";
 import { fetchMoreData } from "../../utils/utils";
@@ -26,6 +26,7 @@ import NoResults from "../../assets/no-results.png";
 
 import { ProfileEditDropdown } from "../../components/MoreDropdown";
 import CreateMessageForm from "../usermessages/CreateMessageForm";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 function ProfilePage() {
     const [hasLoaded, setHasLoaded] = useState(false);
@@ -63,7 +64,7 @@ function ProfilePage() {
 
     const mainProfile = (
         <>
-        <CreateMessageForm profile_id={profile?.id}/>
+            <CreateMessageForm profile_id={profile?.id} />
             {profile?.is_owner && <ProfileEditDropdown id={profile?.id} />}
             <Row noGutters className="px-3 text-center">
                 <Col lg={3} className="text-lg-left">
@@ -114,6 +115,33 @@ function ProfilePage() {
         </>
     );
 
+    const profilePostLinks =
+        (
+            <Col lg={3} className="text-lg-right">
+                {currentUser &&
+                    is_owner &&
+                    (
+                        <>
+                            <Link
+                                to="/liked"
+                                className={styles.NavLink}
+                                activeClassName={styles.Active}
+                            >
+                                <i className="fas fa-heart"></i>Liked
+                            </Link>
+                            <Link
+                                to="/saved"
+                                className={styles.NavLink}
+                                activeClassName={styles.Active}
+                            >
+                                <i className="fa-solid fa-bookmark"></i>Saved
+                            </Link>
+                        </>
+                    )}
+            </Col>
+        );
+
+
     const mainProfilePosts = (
         <>
             <hr />
@@ -146,6 +174,7 @@ function ProfilePage() {
                     {hasLoaded ? (
                         <>
                             {mainProfile}
+                            {profilePostLinks}
                             {mainProfilePosts}
                         </>
                     ) : (
