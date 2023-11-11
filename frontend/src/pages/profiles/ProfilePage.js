@@ -25,6 +25,7 @@ import { fetchMoreData } from "../../utils/utils";
 import NoResults from "../../assets/no-results.png";
 
 import { ProfileEditDropdown } from "../../components/MoreDropdown";
+import CreateMessageForm from "../usermessages/CreateMessageForm";
 
 function ProfilePage() {
     const [hasLoaded, setHasLoaded] = useState(false);
@@ -62,6 +63,7 @@ function ProfilePage() {
 
     const mainProfile = (
         <>
+        <CreateMessageForm profile_id={profile?.id}/>
             {profile?.is_owner && <ProfileEditDropdown id={profile?.id} />}
             <Row noGutters className="px-3 text-center">
                 <Col lg={3} className="text-lg-left">
