@@ -1,5 +1,5 @@
 from django.urls import path
-from tickets import views
+from reports import views
 
 urlpatterns = [
     path('reports/', views.ReportsViewSet.as_view()),
