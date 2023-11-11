@@ -23,6 +23,7 @@ const Post = (props) => {
     updated_at,
     postPage,
     setPosts,
+    save_post_id,
   } = props;
 
   const currentUser = useCurrentUser();
@@ -72,6 +73,42 @@ const Post = (props) => {
         results: prevPosts.results.map((post) => {
           return post.id === id
             ? { ...post, likes_count: post.likes_count - 1, like_id: null }
+            : post;
+        }),
+      }));
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  // Let's users save posts
+
+  const handleSavePost = async () => {
+    try {
+      const { data } = await axiosRes.post("/saved_posts/", { post: id });
+      setPosts((prevPosts) => ({
+        ...prevPosts,
+        results: prevPosts.results.map((post) => {
+          return post.id === id
+            ? { ...post, save_post_id: data.id }
+            : post;
+        }),
+      }));
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  // Let's users unsave posts
+
+  const handleUnSavePost = async () => {
+    try {
+      await axiosRes.delete(`/saved_posts/${save_post_id}/`);
+      setPosts((prevPosts) => ({
+        ...prevPosts,
+        results: prevPosts.results.map((post) => {
+          return post.id === id
+            ? { ...post, save_post_id: null }
             : post;
         }),
       }));
@@ -130,6 +167,33 @@ const Post = (props) => {
             </OverlayTrigger>
           )}
           {likes_count}
+
+          {/* Icons to save and unsave posts */}
+
+          {is_owner ? (
+            <OverlayTrigger
+              placement="top"
+              overlay={<Tooltip>You can't save your own post!</Tooltip>}
+            >
+              <i className="fa-regular fa-bookmark" />
+            </OverlayTrigger>
+          ) : save_post_id ? (
+            <span onClick={handleUnSavePost}>
+              <i className={`fa-solid fa-bookmark ${styles.Bookmark}`} />
+            </span>
+          ) : currentUser ? (
+            <span onClick={handleSavePost}>
+              <i className={`fa-regular fa-bookmark ${styles.BookmarkOutline}`} />
+            </span>
+          ) : (
+            <OverlayTrigger
+              placement="top"
+              overlay={<Tooltip>Log in to save posts!</Tooltip>}
+            >
+              <i className="fa-regular fa-bookmark" />
+            </OverlayTrigger>
+          )}
+
           <Link to={`/posts/${id}`}>
             <i className="far fa-comments" />
           </Link>
