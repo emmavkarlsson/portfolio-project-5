@@ -4,6 +4,12 @@
     width: 120px;
     margin: 4px;
   }
+
+  .CoverImage {
+    object-fit: cover;
+    height: 200px;
+    width: 100%;
+  }
   
   @media screen and (max-width: 991px) {
     .ProfileImage {

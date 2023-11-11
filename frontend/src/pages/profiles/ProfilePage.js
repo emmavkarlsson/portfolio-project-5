@@ -69,6 +69,14 @@ function ProfilePage() {
                 <CreateMessageForm profile_id={profile?.id} />}
             {profile?.is_owner && <ProfileEditDropdown id={profile?.id} />}
             <Row noGutters className="px-3 text-center">
+                <Col className="text-lg-left">
+                    <Image
+                        className={styles.CoverImage}
+                        src={profile?.cover_image}
+                    />
+                </Col>
+            </Row>
+            <Row noGutters className="px-3 text-center">
                 <Col lg={3} className="text-lg-left">
                     <Image
                         className={styles.ProfileImage}
