@@ -179,22 +179,44 @@ function ProfilePage() {
     return (
         <Row>
             <Col className="py-2 p-0 p-lg-2" lg={8}>
-                <PopularProfiles mobile />
-                <Container className={appStyles.Content}>
-                    {hasLoaded ? (
-                        <>
+                {is_owner ? (
+                    <>
+                        <Container className={appStyles.Content}>
                             {mainProfile}
                             {profilePostLinks}
                             {mainProfilePosts}
-                        </>
-                    ) : (
-                        <Asset spinner />
-                    )}
-                </Container>
+                        </Container>
+                    </>
+                ) : (
+                    <>
+                        <PopularProfiles mobile />
+                        <Container className={appStyles.Content}>
+                            {hasLoaded ? (
+                                <>
+                                    {mainProfile}
+                                    {profilePostLinks}
+                                    {mainProfilePosts}
+                                </>
+                            ) : (
+                                <Asset spinner />
+                            )}
+                        </Container>
+                    </>
+                )}
             </Col>
-            <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
-                <PopularProfiles />
-            </Col>
+            {is_owner ? (
+                <Col lg={4} className="p-0 p-lg-2">
+                    <Container className={appStyles.Content}>
+                        <a href="/reports"><Button className={styles.SideBarLink}>
+                            My reports
+                        </Button></a>
+                    </Container>
+                </Col>
+            ) : (
+                <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
+                    <PopularProfiles />
+                </Col>
+            )}
         </Row>
     );
 }
