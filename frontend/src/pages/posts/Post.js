@@ -146,12 +146,12 @@ const Post = (props) => {
         </Media>
       </Card.Body>
       <Link to={`/posts/${id}`}>
-        <Card.Img src={image} alt={title} 
+        <Card.Img src={image} alt={title}
         />
       </Link>
 
       {/* Let's users report posts */}
-      
+
       <div className={styles.FlagContainer}>
         {is_owner ? (
           <OverlayTrigger
@@ -166,7 +166,7 @@ const Post = (props) => {
             overlay={<Tooltip>Report this post</Tooltip>}
           >
             <span onClick={handleReportPost}>
-            <i className={`fa-solid fa-flag ${styles.Flag}`} />
+              <i className={`fa-solid fa-flag ${styles.Flag}`} />
             </span>
           </OverlayTrigger>
         ) : (
@@ -179,65 +179,72 @@ const Post = (props) => {
         )}
       </div>
       <Card.Body>
+        <div className="row">
+
+          {/* Let's users like posts */}
+
+          <div className={`col-8 ${styles.LikeCommentPlacement}`}>
+            {is_owner ? (
+              <OverlayTrigger
+                placement="top"
+                overlay={<Tooltip>You can't like your own post!</Tooltip>}
+              >
+                <i className="far fa-heart" />
+              </OverlayTrigger>
+            ) : like_id ? (
+              <span onClick={handleUnlike}>
+                <i className={`fas fa-heart ${styles.Heart}`} />
+              </span>
+            ) : currentUser ? (
+              <span onClick={handleLike}>
+                <i className={`far fa-heart ${styles.HeartOutline}`} />
+              </span>
+            ) : (
+              <OverlayTrigger
+                placement="top"
+                overlay={<Tooltip>Log in to like posts!</Tooltip>}
+              >
+                <i className="far fa-heart" />
+              </OverlayTrigger>
+            )}
+            {likes_count}
+            <Link to={`/posts/${id}`}>
+              <i className="fa-regular fa-comment" />
+            </Link>
+            {comments_count}
+          </div>
+
+          {/* Let's users save posts */}
+
+          <div className={`col-4 ${styles.BookmarkPlacement}`}>
+            {is_owner ? (
+              <OverlayTrigger
+                placement="top"
+                overlay={<Tooltip>You can't save your own post!</Tooltip>}
+              >
+                <i className="fa-regular fa-bookmark" />
+              </OverlayTrigger>
+            ) : save_post_id ? (
+              <span onClick={handleUnSavePost}>
+                <i className={`fa-solid fa-bookmark ${styles.Bookmark}`} />
+              </span>
+            ) : currentUser ? (
+              <span onClick={handleSavePost}>
+                <i className={`fa-regular fa-bookmark ${styles.BookmarkOutline}`} />
+              </span>
+            ) : (
+              <OverlayTrigger
+                placement="top"
+                overlay={<Tooltip>Log in to save posts!</Tooltip>}
+              >
+                <i className="fa-regular fa-bookmark" />
+              </OverlayTrigger>
+            )}
+          </div>
+        </div>
+
         {title && <Card.Title className="text-center">{title}</Card.Title>}
         {content && <Card.Text>{content}</Card.Text>}
-        <div className={styles.PostBar}>
-          {is_owner ? (
-            <OverlayTrigger
-              placement="top"
-              overlay={<Tooltip>You can't like your own post!</Tooltip>}
-            >
-              <i className="far fa-heart" />
-            </OverlayTrigger>
-          ) : like_id ? (
-            <span onClick={handleUnlike}>
-              <i className={`fas fa-heart ${styles.Heart}`} />
-            </span>
-          ) : currentUser ? (
-            <span onClick={handleLike}>
-              <i className={`far fa-heart ${styles.HeartOutline}`} />
-            </span>
-          ) : (
-            <OverlayTrigger
-              placement="top"
-              overlay={<Tooltip>Log in to like posts!</Tooltip>}
-            >
-              <i className="far fa-heart" />
-            </OverlayTrigger>
-          )}
-          {likes_count}
-
-          {/* Icons to save and unsave posts */}
-
-          {is_owner ? (
-            <OverlayTrigger
-              placement="top"
-              overlay={<Tooltip>You can't save your own post!</Tooltip>}
-            >
-              <i className="fa-regular fa-bookmark" />
-            </OverlayTrigger>
-          ) : save_post_id ? (
-            <span onClick={handleUnSavePost}>
-              <i className={`fa-solid fa-bookmark ${styles.Bookmark}`} />
-            </span>
-          ) : currentUser ? (
-            <span onClick={handleSavePost}>
-              <i className={`fa-regular fa-bookmark ${styles.BookmarkOutline}`} />
-            </span>
-          ) : (
-            <OverlayTrigger
-              placement="top"
-              overlay={<Tooltip>Log in to save posts!</Tooltip>}
-            >
-              <i className="fa-regular fa-bookmark" />
-            </OverlayTrigger>
-          )}
-
-          <Link to={`/posts/${id}`}>
-            <i className="far fa-comments" />
-          </Link>
-          {comments_count}
-        </div>
       </Card.Body>
 
       {/* Modal to confirm deletion of post */}

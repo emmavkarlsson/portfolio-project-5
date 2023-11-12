@@ -40,3 +40,15 @@
   .Flag {
     color: #ffa500;
   }
+
+  .LikeCommentPlacement {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  
+  .BookmarkPlacement {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
