@@ -15,7 +15,7 @@ function ReportEditForm() {
     const [reportsData, setReportsData] = useState({
         subject: "",
         message: "",
-        report_reason: "spam",
+        report_reason: "",
         post: "",
     });
 
@@ -64,7 +64,7 @@ function ReportEditForm() {
 
             <Form.Group>
                 <Form.Label>Why do you wish to report this image?</Form.Label>
-                <select onChange={handleChange} name="report_reason" id="report_reason">
+                <select onChange={handleChange} name="report_reason" id="report_reason" value={reportsData.report_reason}>
                     <option value="spam">It's spam</option>
                     <option value="hate_speech">Hate speech or symbols</option>
                     <option value="false_information">False information</option>
