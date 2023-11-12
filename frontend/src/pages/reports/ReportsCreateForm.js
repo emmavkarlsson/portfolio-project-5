@@ -5,16 +5,21 @@ import { axiosReq } from "../../api/axiosDefaults";
 import { useCurrentUser } from "../../context/CurrentUserContext";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { Alert, Button } from "react-bootstrap";
+import { useLocation } from "react-router-dom";
 
 function ReportsCreateForm() {
     const currentUser = useCurrentUser();
     const history = useHistory();
     const [errors, setErrors] = useState({});
 
+    const location = useLocation();
+    const post = location.state.post_id;
+
     const [reportsData, setReportsData] = useState({
         subject: "",
         message: "",
         report_reason: "spam",
+        post: post,
     });
 
     const { subject, message } = reportsData;
@@ -30,8 +35,9 @@ function ReportsCreateForm() {
         setReportsData((prevState) => ({
             ...prevState,
             owner: currentUser?.id,
+            post: post,
         }));
-    }, [currentUser]);
+    }, [currentUser, post]);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
