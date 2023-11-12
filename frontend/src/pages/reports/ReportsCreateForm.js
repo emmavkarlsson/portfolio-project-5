@@ -21,6 +21,13 @@ function ReportsCreateForm() {
 
     const { subject, message } = reportsData;
 
+    const handleChange = (event) => {
+        setReportsData({
+            ...reportsData,
+            [event.target.name]: event.target.value,
+        });
+    };
+
     useEffect(() => {
         setReportsData((prevState) => ({
             ...prevState,
@@ -44,7 +51,7 @@ function ReportsCreateForm() {
 
             <Form.Group>
                 <Form.Label>Why do you wish to report this image?</Form.Label>
-                <select name="report_reason" id="report_reason">
+                <select onChange={handleChange} name="report_reason" id="report_reason">
                     <option value="spam">It's spam</option>
                     <option value="hate_speech">Hate speech or symbols</option>
                     <option value="false_information">False information</option>
@@ -60,6 +67,7 @@ function ReportsCreateForm() {
                     name="subject"
                     as="textarea"
                     value={subject}
+                    onChange={handleChange}
                     rows={1}
                 />
             </Form.Group>
@@ -71,6 +79,7 @@ function ReportsCreateForm() {
                     name="message"
                     as="textarea"
                     value={message}
+                    onChange={handleChange}
                     rows={2}
                 />
             </Form.Group>
