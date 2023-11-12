@@ -117,6 +117,15 @@ const Post = (props) => {
     }
   };
 
+  // Let's users report an image
+
+  const handleReportPost = () => {
+    history.push({
+      pathname: (`/createreport/posts/${id}`),
+      state: { post_id: id },
+    });
+  };
+
   return (
     <Card className={styles.Post}>
       <Card.Body>
@@ -191,6 +200,33 @@ const Post = (props) => {
               overlay={<Tooltip>Log in to save posts!</Tooltip>}
             >
               <i className="fa-regular fa-bookmark" />
+            </OverlayTrigger>
+          )}
+
+          {/* Icons to report an image */}
+
+          {is_owner ? (
+            <OverlayTrigger
+              placement="top"
+              overlay={<Tooltip>You can't report your own post!</Tooltip>}
+            >
+              <i className="fa-solid fa-flag" />
+            </OverlayTrigger>
+          ) : currentUser ? (
+            <OverlayTrigger
+              placement="top"
+              overlay={<Tooltip>Report this post</Tooltip>}
+            >
+              <span onClick={handleReportPost}>
+                <i className={`fa-solid fa-flag ${styles.BookmarkOutline}`} />
+              </span>
+            </OverlayTrigger>
+          ) : (
+            <OverlayTrigger
+              placement="top"
+              overlay={<Tooltip>Log in to report a post!</Tooltip>}
+            >
+              <i className="fa-solid fa-flag" />
             </OverlayTrigger>
           )}
 
