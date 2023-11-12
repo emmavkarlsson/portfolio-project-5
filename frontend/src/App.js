@@ -73,7 +73,7 @@ function App() {
           <Route exact path="/profiles/:id/edit" render={() => <ProfileEditForm />} />
           <Route exact path="/profiles/:id/edit_cover_image" render={() => <EditCoverImageForm />} />
           <Route exact path="/usermessages/" render={() => <CreateMessageForm />} />
-          <Route exact path="/reports/create" render={() => <ReportsCreateForm />} />
+          <Route path="/createreport/posts/:id" render={() => <ReportsCreateForm />} />
 
           <Route render={() => <p>Page not found!</p>} />
         </Switch>
