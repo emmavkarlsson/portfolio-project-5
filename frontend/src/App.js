@@ -17,6 +17,7 @@ import ProfileEditForm from "./pages/profiles/ProfileEditForm";
 import CreateMessageForm from './pages/usermessages/CreateMessageForm';
 import EditCoverImageForm from './pages/profiles/EditCoverImageForm';
 import ReportsCreateForm from './pages/reports/ReportsCreateForm';
+import ReportsList from './pages/reports/ReportsList';
 
 function App() {
   const currentUser = useCurrentUser();
@@ -74,6 +75,7 @@ function App() {
           <Route exact path="/profiles/:id/edit_cover_image" render={() => <EditCoverImageForm />} />
           <Route exact path="/usermessages/" render={() => <CreateMessageForm />} />
           <Route path="/createreport/posts/:id" render={() => <ReportsCreateForm />} />
+          <Route exact path="/reports/" render={() => <ReportsList />} />
 
           <Route render={() => <p>Page not found!</p>} />
         </Switch>
