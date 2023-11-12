@@ -18,4 +18,4 @@ class ReportsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Reports
         fields = ['owner', 'created_on', 'updated_on', 'subject',
-                  'message', 'report_status', 'report_reason', 'is_owner', 'id']
+                  'message', 'report_status', 'report_reason', 'is_owner', 'id', 'post']
