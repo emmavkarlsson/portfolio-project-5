@@ -30,3 +30,13 @@
   .BookmarkOutline:hover {
     color: #0b0b0b;
   }
+
+  .FlagContainer {
+    position: absolute;
+    top: 60px;
+    right: 20px;
+  }
+
+  .Flag {
+    color: #ffa500;
+  }

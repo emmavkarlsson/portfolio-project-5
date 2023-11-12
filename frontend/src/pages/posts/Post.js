@@ -146,8 +146,38 @@ const Post = (props) => {
         </Media>
       </Card.Body>
       <Link to={`/posts/${id}`}>
-        <Card.Img src={image} alt={title} />
+        <Card.Img src={image} alt={title} 
+        />
       </Link>
+
+      {/* Let's users report posts */}
+      
+      <div className={styles.FlagContainer}>
+        {is_owner ? (
+          <OverlayTrigger
+            placement="top"
+            overlay={<Tooltip>You can't report your own post!</Tooltip>}
+          >
+            <i className={`fa-solid fa-flag ${styles.Flag}`} />
+          </OverlayTrigger>
+        ) : currentUser ? (
+          <OverlayTrigger
+            placement="top"
+            overlay={<Tooltip>Report this post</Tooltip>}
+          >
+            <span onClick={handleReportPost}>
+            <i className={`fa-solid fa-flag ${styles.Flag}`} />
+            </span>
+          </OverlayTrigger>
+        ) : (
+          <OverlayTrigger
+            placement="top"
+            overlay={<Tooltip>Log in to report a post!</Tooltip>}
+          >
+            <i className={`fa-solid fa-flag ${styles.Flag}`} />
+          </OverlayTrigger>
+        )}
+      </div>
       <Card.Body>
         {title && <Card.Title className="text-center">{title}</Card.Title>}
         {content && <Card.Text>{content}</Card.Text>}
@@ -200,33 +230,6 @@ const Post = (props) => {
               overlay={<Tooltip>Log in to save posts!</Tooltip>}
             >
               <i className="fa-regular fa-bookmark" />
-            </OverlayTrigger>
-          )}
-
-          {/* Icons to report an image */}
-
-          {is_owner ? (
-            <OverlayTrigger
-              placement="top"
-              overlay={<Tooltip>You can't report your own post!</Tooltip>}
-            >
-              <i className="fa-solid fa-flag" />
-            </OverlayTrigger>
-          ) : currentUser ? (
-            <OverlayTrigger
-              placement="top"
-              overlay={<Tooltip>Report this post</Tooltip>}
-            >
-              <span onClick={handleReportPost}>
-                <i className={`fa-solid fa-flag ${styles.BookmarkOutline}`} />
-              </span>
-            </OverlayTrigger>
-          ) : (
-            <OverlayTrigger
-              placement="top"
-              overlay={<Tooltip>Log in to report a post!</Tooltip>}
-            >
-              <i className="fa-solid fa-flag" />
             </OverlayTrigger>
           )}
 
