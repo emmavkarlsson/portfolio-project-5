@@ -4,11 +4,14 @@ import Container from "react-bootstrap/Container";
 
 import { axiosReq } from "../../api/axiosDefaults";
 import Asset from "../../components/Asset";
-import { Col, Row } from "react-bootstrap";
+import { Button, Col, Row } from "react-bootstrap";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import styles from "../../styles/PostCreateEditForm.module.css";
 
 function ReportsList() {
     const [reportsData, setReportsData] = useState([]);
     const [hasLoaded, setHasLoaded] = useState(false);
+    const history = useHistory();
 
     const REPORT_STATUS = {
         "awaiting_review": "Awaiting Review",
@@ -27,6 +30,10 @@ function ReportsList() {
             setHasLoaded(true);
         });
     }, []);
+
+    const handleEdit = (id) => {
+        history.push(`/reports/${id}/edit`);
+    };
 
 
     return (
@@ -59,7 +66,11 @@ function ReportsList() {
                                 <Col>{REPORT_STATUS[reports.report_status]}</Col>
                                 {reports.is_owner && (
                                     <Col>
-                                        <i className="fa-regular fa-pen-to-square"></i>
+                                        <Button className={styles.DropdownItem}
+                                        onClick={() => handleEdit(reports.id)}
+                                        >
+                                            <i className="fas fa-edit" />
+                                        </Button>
                                     </Col>
                                 )}
                             </Row>
