@@ -1,17 +1,15 @@
 import React, { useEffect, useState } from "react";
-
 import Form from "react-bootstrap/Form";
-
 import styles from "../../styles/CommentCreateEditForm.module.css";
-import Avatar from "../../components/Avatar";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useCurrentUser } from "../../context/CurrentUserContext";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-import { Button } from "react-bootstrap";
+import { Alert, Button } from "react-bootstrap";
 
 function ReportsCreateForm() {
     const currentUser = useCurrentUser();
     const history = useHistory();
+    const [errors, setErrors] = useState({});
 
     const [reportsData, setReportsData] = useState({
         subject: "",
@@ -41,9 +39,11 @@ function ReportsCreateForm() {
         try {
             await axiosReq.post("/reports/", reportsData);
         } catch (err) {
-            console.log(err);
-        }
-    };
+            if (err.response?.status !== 401) {
+              setErrors(err.response?.data);
+            }
+          }
+        };
 
     return (
 
@@ -71,6 +71,11 @@ function ReportsCreateForm() {
                     rows={1}
                 />
             </Form.Group>
+            {errors?.subject?.map((message, idx) => (
+                <Alert variant="warning" key={idx}>
+                    {message}
+                </Alert>
+            ))}
             <Form.Group>
                 <Form.Label>Message</Form.Label>
                 <Form.Control
@@ -83,12 +88,17 @@ function ReportsCreateForm() {
                     rows={2}
                 />
             </Form.Group>
+            {errors?.subject?.map((message, idx) => (
+                <Alert variant="warning" key={idx}>
+                    {message}
+                </Alert>
+            ))}
             <Button
                 className={`${styles.Button} btn d-block ml-auto`}
                 disabled={!subject.trim()}
                 type="submit"
             >
-                send
+                Report
             </Button>
         </Form>
     );
