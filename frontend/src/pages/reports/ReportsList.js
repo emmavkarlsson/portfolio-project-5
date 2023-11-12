@@ -1,10 +1,9 @@
-// React imports
 import React, { useEffect, useState } from "react";
 import Container from "react-bootstrap/Container";
 
-import { axiosReq } from "../../api/axiosDefaults";
+import { axiosReq, axiosRes } from "../../api/axiosDefaults";
 import Asset from "../../components/Asset";
-import { Button, Col, Row } from "react-bootstrap";
+import { Button, Col, Modal, Row } from "react-bootstrap";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import styles from "../../styles/PostCreateEditForm.module.css";
 
@@ -12,6 +11,9 @@ function ReportsList() {
     const [reportsData, setReportsData] = useState([]);
     const [hasLoaded, setHasLoaded] = useState(false);
     const history = useHistory();
+    const [showConfirmDelete, setShowConfirmDelete] = useState(false);
+    const [deleteId, setDeleteId] = useState(null);
+    const [isDeleted, setIsDeleted] = useState(false);
 
     const REPORT_STATUS = {
         "awaiting_review": "Awaiting Review",
@@ -29,12 +31,31 @@ function ReportsList() {
             }
             setHasLoaded(true);
         });
-    }, []);
+    }, [isDeleted]);
+
+    useEffect(() => {
+        setIsDeleted(false);
+    }, [reportsData]);
 
     const handleEdit = (id) => {
         history.push(`/reports/${id}/edit`);
     };
 
+    const handleDelete = async (id) => {
+        setShowConfirmDelete(true);
+        setDeleteId(id);
+    };
+
+    const confirmDelete = async () => {
+        try {
+            await axiosRes.delete(`/reports/${deleteId}/`);
+            setIsDeleted(true);
+            history.push('/reports');
+        } catch (err) {
+            console.log(err);
+        }
+        setShowConfirmDelete(false);
+    };
 
     return (
         <Container>
@@ -54,7 +75,14 @@ function ReportsList() {
                             {reportsData.some((reports) => reports.is_owner) && (
                                 <Col>
                                     <h5>
-                                        <i className="fa-regular fa-pen-to-square"></i>
+                                        Edit
+                                    </h5>
+                                </Col>
+                            )}
+                            {reportsData.some((reports) => reports.is_owner) && (
+                                <Col>
+                                    <h5>
+                                        Delete
                                     </h5>
                                 </Col>
                             )}
@@ -67,14 +95,41 @@ function ReportsList() {
                                 {reports.is_owner && (
                                     <Col>
                                         <Button className={styles.DropdownItem}
-                                        onClick={() => handleEdit(reports.id)}
+                                            onClick={() => handleEdit(reports.id)}
                                         >
                                             <i className="fas fa-edit" />
                                         </Button>
                                     </Col>
                                 )}
+                                {reports.is_owner && (
+                                    <Col>
+                                        <Button className={styles.DropdownItem}
+                                            onClick={() => handleDelete(reports.id)}
+                                        >
+                                            <i className="fas fa-trash-alt" />
+                                        </Button>
+                                    </Col>
+                                )}
                             </Row>
                         ))}
+                        <Modal show={showConfirmDelete} onHide={() => setShowConfirmDelete(false)}>
+                            <Modal.Body className="text-center">Are you sure you want to delete the report?
+                            </Modal.Body>
+                            <Modal.Footer className="justify-content-center">
+                                <Button
+                                    variant="secondary"
+                                    onClick={() => setShowConfirmDelete(false)}
+                                >
+                                    Cancel
+                                </Button>
+                                <Button
+                                    variant="danger"
+                                    onClick={confirmDelete}
+                                >
+                                    Delete
+                                </Button>
+                            </Modal.Footer>
+                        </Modal>
                     </div>
                 ) : (
                     <p>You haven't reported any pictures.</p>
