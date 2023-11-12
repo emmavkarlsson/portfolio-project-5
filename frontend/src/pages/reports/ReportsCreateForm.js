@@ -35,15 +35,16 @@ function ReportsCreateForm() {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+        history.push("/");
 
         try {
             await axiosReq.post("/reports/", reportsData);
         } catch (err) {
             if (err.response?.status !== 401) {
-              setErrors(err.response?.data);
+                setErrors(err.response?.data);
             }
-          }
-        };
+        }
+    };
 
     return (
 
