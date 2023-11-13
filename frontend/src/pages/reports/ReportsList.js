@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import Container from "react-bootstrap/Container";
 
 import { axiosReq, axiosRes } from "../../api/axiosDefaults";
@@ -6,6 +6,7 @@ import Asset from "../../components/Asset";
 import { Button, Col, Modal, Row } from "react-bootstrap";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import styles from "../../styles/PostCreateEditForm.module.css";
+import { AlertContext } from "../../context/AlertContext";
 
 function ReportsList() {
     const [reportsData, setReportsData] = useState([]);
@@ -14,6 +15,7 @@ function ReportsList() {
     const [showConfirmDelete, setShowConfirmDelete] = useState(false);
     const [deleteId, setDeleteId] = useState(null);
     const [isDeleted, setIsDeleted] = useState(false);
+    const { setAlert } = useContext(AlertContext);
 
     const REPORT_STATUS = {
         "awaiting_review": "Awaiting Review",
@@ -51,6 +53,7 @@ function ReportsList() {
             await axiosRes.delete(`/reports/${deleteId}/`);
             setIsDeleted(true);
             history.push('/reports');
+            setAlert("Your report has been deleted!");
         } catch (err) {
             console.log(err);
         }
