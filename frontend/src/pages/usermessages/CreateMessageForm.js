@@ -1,5 +1,4 @@
 import React, { useState, useContext } from "react";
-import styles from "../../styles/ProfilePage.module.css";
 import btnStyles from "../../styles/Button.module.css";
 
 import Form from "react-bootstrap/Form";

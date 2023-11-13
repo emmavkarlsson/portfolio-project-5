@@ -11,7 +11,6 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { toast } from "react-toastify";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { removeTokenTimestamp } from "../utils/utils";
 import { AlertContext } from "../context/AlertContext";
 
 const NavBar = () => {
