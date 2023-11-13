@@ -130,14 +130,14 @@ function ProfilePage() {
                         <>                    
                         <Row>
                         <Col>
-                        <a href="/usermessages">
+                        <a href="/liked">
                         <Button className={`${btnStyles.ProfileButton} ${btnStyles.Beige}`}>
-                            My messages
+                            Liked posts
                         </Button></a>
                     </Col>
                     <Col>
-                        <a href="/reports"><Button className={`${btnStyles.ProfileButton} ${btnStyles.Beige}`}>
-                            My reports
+                        <a href="/saved"><Button className={`${btnStyles.ProfileButton} ${btnStyles.Beige}`}>
+                            Saved posts
                         </Button></a>
                     </Col>
                     </Row>
