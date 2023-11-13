@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Container, Navbar, Nav, NavDropdown, Modal, Button } from "react-bootstrap";
 import axios from "axios";
 import logo from "../assets/ekp-logo.png";
@@ -8,6 +8,11 @@ import { useCurrentUser, useSetCurrentUser } from "../context/CurrentUserContext
 import Avatar from "./Avatar";
 import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { removeTokenTimestamp } from "../utils/utils";
+import { AlertContext } from "../context/AlertContext";
 
 const NavBar = () => {
 
@@ -18,6 +23,7 @@ const NavBar = () => {
   const [showConfirmSignout, setShowConfirmSignout] = useState(false);
 
   const { expanded, setExpanded, ref } = useClickOutsideToggle();
+  const { alert, setAlert } = useContext(AlertContext);
 
   const handleSignout = async () => {
     setShowConfirmSignout(true);
@@ -32,7 +38,6 @@ const NavBar = () => {
       console.log(err);
     } setShowConfirmSignout(false)
   };
-
 
   const addPostIcon = (
     <NavLink
@@ -82,6 +87,13 @@ const NavBar = () => {
     </>
   );
 
+  useEffect(() => {
+    if (alert && typeof alert === "string" && alert !== "null") {
+      toast(alert);
+      setAlert(null);
+    }
+  }, [alert, setAlert]);
+
   return (
     <>
       <Navbar
@@ -91,6 +103,7 @@ const NavBar = () => {
         fixed="top"
       >
         <Container>
+        <ToastContainer position="top-center" />
           <NavLink to="/">
             <Navbar.Brand>
               <img src={logo} alt="logo" height="45" />
