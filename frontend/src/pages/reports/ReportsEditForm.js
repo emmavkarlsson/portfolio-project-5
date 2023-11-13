@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -8,9 +8,11 @@ import styles from "../../styles/PostCreateEditForm.module.css";
 
 import { useHistory, useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
+import { AlertContext } from "../../context/AlertContext";
 
 function ReportEditForm() {
     const [errors, setErrors] = useState({});
+    const { setAlert } = useContext(AlertContext);
 
     const [reportsData, setReportsData] = useState({
         subject: "",
@@ -50,6 +52,7 @@ function ReportEditForm() {
         try {
             await axiosReq.put(`/reports/${id}/`, reportsData);
             history.goBack();
+            setAlert("Your report has been edited!");
         } catch (err) {
             console.log(err);
             if (err.response?.status !== 401) {
