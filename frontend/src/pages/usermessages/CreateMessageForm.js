@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import styles from "../../styles/ProfilePage.module.css";
+import btnStyles from "../../styles/Button.module.css";
 
 import Form from "react-bootstrap/Form";
 import { axiosReq } from "../../api/axiosDefaults";
@@ -37,9 +39,11 @@ function CreateMessageForm({ profile_id }) {
                     placeholder="Type your message..."
                 />
             </Form.Group>
-            <Button variant="primary" type="submit">
+            <div className="d-flex justify-content-center">
+            <Button className={btnStyles.Beige} type="submit">
                 Send Message
             </Button>
+            </div>
         </Form>
     );
 }
