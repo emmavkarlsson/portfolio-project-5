@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useContext } from "react";
 
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -19,10 +19,12 @@ import btnStyles from "../../styles/Button.module.css";
 import { useHistory } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useRedirect } from "../../hooks/useRedirect";
+import { AlertContext } from "../../context/AlertContext";
 
 function PostCreateForm() {
   useRedirect('loggedOut');
   const [errors, setErrors] = useState({});
+  const { setAlert } = useContext(AlertContext);
 
   const [postData, setPostData] = useState({
     title: "",
@@ -62,6 +64,7 @@ function PostCreateForm() {
     try {
       const { data } = await axiosReq.post("/posts/", formData);
       history.push(`/posts/${data.id}`);
+      setAlert("Your post has been uploaded!");
     } catch (err) {
       console.log(err);
       if (err.response?.status !== 401) {
