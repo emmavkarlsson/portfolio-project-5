@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import styles from "../../styles/Post.module.css";
 import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
@@ -7,6 +7,7 @@ import { useCurrentUser } from '../../context/CurrentUserContext';
 import { axiosRes } from "../../api/axiosDefaults";
 import { MoreDropdown } from '../../components/MoreDropdown';
 import { Modal, Button } from "react-bootstrap";
+import { AlertContext } from "../../context/AlertContext";
 
 const Post = (props) => {
   const {
@@ -30,6 +31,7 @@ const Post = (props) => {
   const is_owner = currentUser?.username === owner;
   const history = useHistory();
   const [showConfirmDelete, setShowConfirmDelete] = useState(false);
+  const { setAlert } = useContext(AlertContext);
 
   const handleEdit = () => {
     history.push(`/posts/${id}/edit`);
@@ -43,6 +45,7 @@ const Post = (props) => {
     try {
       await axiosRes.delete(`/posts/${id}/`);
       history.goBack();
+      setAlert("Your post has been deleted!");
     } catch (err) {
       console.log(err);
     }

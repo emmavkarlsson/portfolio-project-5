@@ -77,7 +77,7 @@ function PostEditForm() {
         try {
             await axiosReq.put(`/posts/${id}/`, formData);
             history.push(`/posts/${id}`);
-            setAlert("Your post was updated!");
+            setAlert("Your post has been updated!");
         } catch (err) {
             console.log(err);
             if (err.response?.status !== 401) {
