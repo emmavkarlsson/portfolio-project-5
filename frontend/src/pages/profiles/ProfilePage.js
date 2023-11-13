@@ -64,9 +64,6 @@ function ProfilePage() {
 
     const mainProfile = (
         <>
-            {currentUser &&
-                !is_owner &&
-                <CreateMessageForm profile_id={profile?.id} />}
             {profile?.is_owner && <ProfileEditDropdown id={profile?.id} />}
             <Row noGutters className="px-3 text-center">
                 <Col className="text-lg-left">
@@ -151,6 +148,16 @@ function ProfilePage() {
             </Col>
         );
 
+    const sendUserMessage = (
+        <>
+        <hr />
+        {currentUser &&
+            !is_owner &&
+            <CreateMessageForm profile_id={profile?.id} />}
+            <hr />
+            </>
+    );
+
 
     const mainProfilePosts = (
         <>
@@ -194,7 +201,7 @@ function ProfilePage() {
                             {hasLoaded ? (
                                 <>
                                     {mainProfile}
-                                    {profilePostLinks}
+                                    {sendUserMessage}
                                     {mainProfilePosts}
                                 </>
                             ) : (
