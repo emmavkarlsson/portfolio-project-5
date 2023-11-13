@@ -67,3 +67,17 @@
     background-color: #2ed9ff;
     color: #2142b2;
   }
+
+  .Beige {
+    background-color: #efede6;
+    color: #0b0b0b;
+    border: none;
+  }
+
+  .Beige:hover,
+  .Beige:active,
+  .Beige:focus {
+    background-color: #d9d6cd;
+    color: #0b0b0b;
+    border: none;
+  }

@@ -207,7 +207,12 @@ function ProfilePage() {
             {is_owner ? (
                 <Col lg={4} className="p-0 p-lg-2">
                     <Container className={appStyles.Content}>
-                        <a href="/reports"><Button className={styles.SideBarLink}>
+                        <a href="/usermessages"><Button className={`${styles.SideBarLink} ${btnStyles.Beige}`}>
+                            My messages
+                        </Button></a>
+                    </Container>
+                    <Container className={`${appStyles.Content} my-2`}>
+                        <a href="/reports"><Button className={`${styles.SideBarLink} ${btnStyles.Beige}`}>
                             My reports
                         </Button></a>
                     </Container>
