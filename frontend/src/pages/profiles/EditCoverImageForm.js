@@ -51,13 +51,6 @@ const EditCoverImageForm = () => {
         handleMount();
     }, [currentUser, history, id]);
 
-    const handleChange = (event) => {
-        setProfileData({
-            ...profileData,
-            [event.target.name]: event.target.value,
-        });
-    };
-
     const handleSubmit = async (event) => {
         event.preventDefault();
         const formData = new FormData();
