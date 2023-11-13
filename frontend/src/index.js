@@ -6,13 +6,16 @@ import { BrowserRouter as Router } from "react-router-dom";
 import reportWebVitals from './reportWebVitals';
 import { CurrentUserProvider } from './context/CurrentUserContext';
 import { ProfileDataProvider } from './context/ProfileDataContext';
+import { AlertProvider } from './context/AlertContext';
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
       <CurrentUserProvider>
       <ProfileDataProvider>
+        <AlertProvider>
         <App />
+        </AlertProvider>
         </ProfileDataProvider>
       </CurrentUserProvider>
     </Router>
