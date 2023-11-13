@@ -81,3 +81,7 @@
     color: #0b0b0b;
     border: none;
   }
+
+  .ProfileButton {
+    width: 100%;
+  }
