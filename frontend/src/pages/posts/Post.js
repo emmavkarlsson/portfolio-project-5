@@ -156,14 +156,7 @@ const Post = (props) => {
       {/* Let's users report posts */}
 
       <div className={styles.FlagContainer}>
-        {is_owner ? (
-          <OverlayTrigger
-            placement="top"
-            overlay={<Tooltip>You can't report your own post!</Tooltip>}
-          >
-            <i className={`fa-solid fa-flag ${styles.Flag}`} />
-          </OverlayTrigger>
-        ) : currentUser ? (
+        {!is_owner && currentUser ? (
           <OverlayTrigger
             placement="top"
             overlay={<Tooltip>Report this post</Tooltip>}
@@ -172,53 +165,53 @@ const Post = (props) => {
               <i className={`fa-solid fa-flag ${styles.Flag}`} />
             </span>
           </OverlayTrigger>
-        ) : (
+        ) : !is_owner && !currentUser ? (
           <OverlayTrigger
             placement="top"
             overlay={<Tooltip>Log in to report a post!</Tooltip>}
           >
             <i className={`fa-solid fa-flag ${styles.Flag}`} />
           </OverlayTrigger>
-        )}
+        ) : null}
       </div>
+
+      {/* Let's users like posts */}
+
       <Card.Body>
         <div className="row">
-
-          {/* Let's users like posts */}
-          
           <div className={`col-8 ${styles.LikeCommentPlacement}`}>
             <span className={styles.LikePost}>
-            {is_owner ? (
-              <OverlayTrigger
-                placement="top"
-                overlay={<Tooltip>You can't like your own post!</Tooltip>}
-              >
-                <i className="far fa-heart" />
-              </OverlayTrigger>
-            ) : like_id ? (
-              <span onClick={handleUnlike}>
-                <i className={`fas fa-heart ${styles.Heart}`} />
-              </span>
-            ) : currentUser ? (
-              <span onClick={handleLike}>
-                <i className={`far fa-heart ${styles.HeartOutline}`} />
-              </span>
-            ) : (
-              <OverlayTrigger
-                placement="top"
-                overlay={<Tooltip>Log in to like posts!</Tooltip>}
-              >
-                <i className="far fa-heart" />
-              </OverlayTrigger>
-            )}
-            {likes_count}
+              {is_owner ? (
+                <OverlayTrigger
+                  placement="top"
+                  overlay={<Tooltip>You can't like your own post!</Tooltip>}
+                >
+                  <i className="far fa-heart" />
+                </OverlayTrigger>
+              ) : like_id ? (
+                <span onClick={handleUnlike}>
+                  <i className={`fas fa-heart ${styles.Heart}`} />
+                </span>
+              ) : currentUser ? (
+                <span onClick={handleLike}>
+                  <i className={`far fa-heart ${styles.HeartOutline}`} />
+                </span>
+              ) : (
+                <OverlayTrigger
+                  placement="top"
+                  overlay={<Tooltip>Log in to like posts!</Tooltip>}
+                >
+                  <i className="far fa-heart" />
+                </OverlayTrigger>
+              )}
+              {likes_count}
             </span>
             {/* comment count  */}
             <span className={styles.CommentPost}>
-            <Link to={`/posts/${id}`}>
-              <i className="fa-regular fa-comment" />
-            </Link>
-            {comments_count}
+              <Link to={`/posts/${id}`}>
+                <i className="fa-regular fa-comment" />
+              </Link>
+              {comments_count}
             </span>
           </div>
 
