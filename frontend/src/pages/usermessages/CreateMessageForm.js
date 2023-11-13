@@ -1,29 +1,36 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import btnStyles from "../../styles/Button.module.css";
 
 import Form from "react-bootstrap/Form";
 import { axiosReq } from "../../api/axiosDefaults";
 import { Button } from "react-bootstrap";
-import { AlertContext } from "../../context/AlertContext";
+import { useHistory } from "react-router";
 
 function CreateMessageForm({ profile_id }) {
 
-    const [content, setContent] = useState("");
-    const { setAlert } = useContext(AlertContext);
+    const [userMessageData, setUserMessageData] = useState({
+        content: "",
+        receiver: profile_id,
+    });
+    const { content } = userMessageData;
+    const { history } = useHistory;
 
     const handleChange = (event) => {
-        setContent(event.target.value);
+        setUserMessageData({
+            ...userMessageData,
+            [event.target.name]: event.target.value,
+        })
     };
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+        const formData = new FormData();
+
+        formData.append("content", content);
+
         try {
-            await axiosReq.post("/usermessages/", {
-                content,
-                receiver: profile_id,
-            });
-            setContent("");
-            setAlert("Your message has been sent!");
+            await axiosReq.post("/usermessages/", userMessageData);
+            history.push("/");
         } catch (err) {
             console.log(err);
         }
