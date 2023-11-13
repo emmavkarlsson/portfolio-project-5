@@ -26,7 +26,6 @@ import NoResults from "../../assets/no-results.png";
 
 import { ProfileEditDropdown } from "../../components/MoreDropdown";
 import CreateMessageForm from "../usermessages/CreateMessageForm";
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 function ProfilePage() {
     const [hasLoaded, setHasLoaded] = useState(false);
@@ -124,25 +123,24 @@ function ProfilePage() {
 
     const profilePostLinks =
         (
-            <Col lg={3} className="text-lg-right">
+            <Col>
                 {currentUser &&
                     is_owner &&
                     (
-                        <>
-                            <Link
-                                to="/liked"
-                                className={styles.NavLink}
-                                activeClassName={styles.Active}
-                            >
-                                <i className="fas fa-heart"></i>Liked
-                            </Link>
-                            <Link
-                                to="/saved"
-                                className={styles.NavLink}
-                                activeClassName={styles.Active}
-                            >
-                                <i className="fa-solid fa-bookmark"></i>Saved
-                            </Link>
+                        <>                    
+                        <Row>
+                        <Col>
+                        <a href="/usermessages">
+                        <Button className={`${btnStyles.ProfileButton} ${btnStyles.Beige}`}>
+                            My messages
+                        </Button></a>
+                    </Col>
+                    <Col>
+                        <a href="/reports"><Button className={`${btnStyles.ProfileButton} ${btnStyles.Beige}`}>
+                            My reports
+                        </Button></a>
+                    </Col>
+                    </Row>
                         </>
                     )}
             </Col>
@@ -212,12 +210,12 @@ function ProfilePage() {
             {is_owner ? (
                 <Col lg={4} className="p-0 p-lg-2">
                     <Container className={appStyles.Content}>
-                        <a href="/usermessages"><Button className={`${styles.SideBarLink} ${btnStyles.Beige}`}>
+                        <a href="/usermessages"><Button className={`${btnStyles.ProfileButton} ${btnStyles.Beige}`}>
                             My messages
                         </Button></a>
                     </Container>
                     <Container className={`${appStyles.Content} my-2`}>
-                        <a href="/reports"><Button className={`${styles.SideBarLink} ${btnStyles.Beige}`}>
+                        <a href="/reports"><Button className={`${btnStyles.ProfileButton} ${btnStyles.Beige}`}>
                             My reports
                         </Button></a>
                     </Container>
