@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Form from "react-bootstrap/Form";
 import styles from "../../styles/CommentCreateEditForm.module.css";
 import { axiosReq } from "../../api/axiosDefaults";
@@ -6,11 +6,13 @@ import { useCurrentUser } from "../../context/CurrentUserContext";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { Alert, Button } from "react-bootstrap";
 import { useLocation } from "react-router-dom";
+import { AlertContext } from "../../context/AlertContext";
 
 function ReportsCreateForm() {
     const currentUser = useCurrentUser();
     const history = useHistory();
     const [errors, setErrors] = useState({});
+    const { setAlert } = useContext(AlertContext);
 
     const location = useLocation();
     const post = location.state.post_id;
@@ -41,10 +43,11 @@ function ReportsCreateForm() {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        history.push("/");
 
         try {
             await axiosReq.post("/reports/", reportsData);
+            history.push("/");
+            setAlert("Your report has been sent for review!");
         } catch (err) {
             if (err.response?.status !== 401) {
                 setErrors(err.response?.data);
