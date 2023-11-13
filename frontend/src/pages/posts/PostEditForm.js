@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -14,9 +14,11 @@ import btnStyles from "../../styles/Button.module.css";
 
 import { useHistory, useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
+import { AlertContext } from "../../context/AlertContext";
 
 function PostEditForm() {
     const [errors, setErrors] = useState({});
+    const { setAlert } = useContext(AlertContext);
 
     const [postData, setPostData] = useState({
         title: "",
@@ -75,6 +77,7 @@ function PostEditForm() {
         try {
             await axiosReq.put(`/posts/${id}/`, formData);
             history.push(`/posts/${id}`);
+            setAlert("Your post was updated!");
         } catch (err) {
             console.log(err);
             if (err.response?.status !== 401) {
