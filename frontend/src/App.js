@@ -14,11 +14,11 @@ import ProfilePage from './pages/profiles/ProfilePage';
 import UsernameForm from "./pages/profiles/UsernameForm";
 import UserPasswordForm from "./pages/profiles/UserPasswordForm";
 import ProfileEditForm from "./pages/profiles/ProfileEditForm";
-import CreateMessageForm from './pages/usermessages/CreateMessageForm';
 import EditCoverImageForm from './pages/profiles/EditCoverImageForm';
 import ReportsCreateForm from './pages/reports/ReportsCreateForm';
 import ReportsList from './pages/reports/ReportsList';
 import ReportEditForm from './pages/reports/ReportsEditForm';
+import UserMessagesList from './pages/usermessages/UserMessageList';
 
 function App() {
   const currentUser = useCurrentUser();
@@ -74,7 +74,7 @@ function App() {
           <Route exact path="/profiles/:id/edit/password" render={() => <UserPasswordForm />} />
           <Route exact path="/profiles/:id/edit" render={() => <ProfileEditForm />} />
           <Route exact path="/profiles/:id/edit_cover_image" render={() => <EditCoverImageForm />} />
-          <Route exact path="/usermessages/" render={() => <CreateMessageForm />} />
+          <Route exact path="/usermessages/" render={() => <UserMessagesList />} />
           <Route path="/createreport/posts/:id" render={() => <ReportsCreateForm />} />
           <Route path="/reports/:id/edit" render={() => <ReportEditForm />} />
           <Route exact path="/reports/" render={() => <ReportsList />} />
