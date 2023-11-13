@@ -19,7 +19,7 @@ function CreateMessageForm({ profile_id }) {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            const { data } = await axiosReq.post("/usermessages/", {
+            await axiosReq.post("/usermessages/", {
                 content,
                 receiver: profile_id,
             });
@@ -43,9 +43,9 @@ function CreateMessageForm({ profile_id }) {
                 />
             </Form.Group>
             <div className="d-flex justify-content-center">
-            <Button className={btnStyles.Beige} type="submit">
-                Send Message
-            </Button>
+                <Button className={btnStyles.Beige} type="submit">
+                    Send Message
+                </Button>
             </div>
         </Form>
     );
