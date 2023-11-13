@@ -52,3 +52,15 @@
     align-items: center;
     justify-content: flex-end;
   }
+
+  .LikePost {
+    padding-right: 5px;
+  }
+
+  .CommentPost {
+    padding: 0 5px;
+  }
+
+  i {
+    padding: 0 5px;
+  }

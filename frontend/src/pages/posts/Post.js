@@ -182,8 +182,9 @@ const Post = (props) => {
         <div className="row">
 
           {/* Let's users like posts */}
-
+          
           <div className={`col-8 ${styles.LikeCommentPlacement}`}>
+            <span className={styles.LikePost}>
             {is_owner ? (
               <OverlayTrigger
                 placement="top"
@@ -208,10 +209,14 @@ const Post = (props) => {
               </OverlayTrigger>
             )}
             {likes_count}
+            </span>
+            {/* comment count  */}
+            <span className={styles.CommentPost}>
             <Link to={`/posts/${id}`}>
               <i className="fa-regular fa-comment" />
             </Link>
             {comments_count}
+            </span>
           </div>
 
           {/* Let's users save posts */}
