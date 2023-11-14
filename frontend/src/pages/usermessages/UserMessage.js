@@ -10,20 +10,21 @@ import { MoreDropdown } from '../../components/MoreDropdown';
 
 const UserMessage = (props) => {
     const {
+        id,
         owner,
         receiver,
         created_at,
         content,
         profile_image,
         profile_id,
-        setUserMessages
+        setUserMessages,
     } = props;
 
-    const { id } = useParams();
+    const [showEditForm, setShowEditForm] = useState(false);
+
     const currentUser = useCurrentUser();
     const is_owner = currentUser.username === owner;
     const is_receiver = currentUser.profile_id === receiver;
-    const [showEditForm, setShowEditForm] = useState(false);
 
     return (
         <Card className={styles.Post}>
@@ -50,14 +51,12 @@ const UserMessage = (props) => {
                         id={id}
                         profile_id={profile_id}
                         content={content}
-                        setUserMessages={setUserMessages}
                         setShowEditForm={setShowEditForm}
+                        setUserMessages={setUserMessages}
                     />
                 ) : (
                     <>{content && <Card.Text>{content}</Card.Text>}</>
                 )}
-
-
             </Card.Body>
         </Card>
     );
