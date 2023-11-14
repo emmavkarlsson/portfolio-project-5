@@ -13,7 +13,7 @@ function CreateMessageForm({ profile_id }) {
         receiver: profile_id,
     });
     const { content } = userMessageData;
-    const { history } = useHistory;
+    const history = useHistory();
 
     const handleChange = (event) => {
         setUserMessageData({
@@ -30,7 +30,7 @@ function CreateMessageForm({ profile_id }) {
 
         try {
             await axiosReq.post("/usermessages/", userMessageData);
-            history.push("/");
+            history.go();
         } catch (err) {
             console.log(err);
         }
