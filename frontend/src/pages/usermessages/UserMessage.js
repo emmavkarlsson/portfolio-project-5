@@ -44,7 +44,6 @@ const UserMessage = (props) => {
         setShowConfirmDelete(false);
     };
 
-
     return (
         <Container>
             <Row>

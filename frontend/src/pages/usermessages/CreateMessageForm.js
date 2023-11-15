@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import btnStyles from "../../styles/Button.module.css";
 
 import Form from "react-bootstrap/Form";
 import { axiosReq } from "../../api/axiosDefaults";
 import { Button } from "react-bootstrap";
 import { useHistory } from "react-router";
+import { AlertContext } from "../../context/AlertContext";
+import { useParams } from "react-router-dom/cjs/react-router-dom.min";
+
 
 function CreateMessageForm({ profile_id }) {
 
@@ -14,6 +17,8 @@ function CreateMessageForm({ profile_id }) {
     });
     const { content } = userMessageData;
     const history = useHistory();
+    const { id } = useParams();
+    const { setAlert } = useContext(AlertContext);
 
     const handleChange = (event) => {
         setUserMessageData({
@@ -25,12 +30,12 @@ function CreateMessageForm({ profile_id }) {
     const handleSubmit = async (event) => {
         event.preventDefault();
         const formData = new FormData();
-
         formData.append("content", content);
-
         try {
             await axiosReq.post("/usermessages/", userMessageData);
-            history.go();
+            setUserMessageData({ content: "", receiver: profile_id });
+            history.push(`/profiles/${id}`);
+            setAlert("Your message has been sent!");
         } catch (err) {}
     };
 
