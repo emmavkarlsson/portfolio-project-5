@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import styles from "../../styles/Post.module.css";
-import { Button, Card, Media, Modal } from "react-bootstrap";
+import styles from "../../styles/UserMessage.module.css";
+import { Button, Card, Col, Container, Media, Modal, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { useCurrentUser } from '../../context/CurrentUserContext';
@@ -19,6 +19,9 @@ const UserMessage = (props) => {
         profile_image,
         profile_id,
         setUserMessages,
+        receiver_profile_image,
+        receiver_username,
+        receiver_profile_id,
     } = props;
 
     const [showEditForm, setShowEditForm] = useState(false);
@@ -31,73 +34,93 @@ const UserMessage = (props) => {
 
     const handleDelete = async () => {
         setShowConfirmDelete(true);
-      };
-    
-      const confirmDelete = async () => {
+    };
+
+    const confirmDelete = async () => {
         try {
-          await axiosRes.delete(`/usermessages/${id}/`);
-          history.go();
+            await axiosRes.delete(`/usermessages/${id}/`);
+            history.go();
         } catch (err) {
-          console.log(err);
+            console.log(err);
         }
         setShowConfirmDelete(false);
-      };
-    
+    };
+
 
     return (
-        <Card className={styles.Post}>
-            <Card.Body>
-                <Media className="align-items-center justify-content-between">
-                    <Link to={`/profiles/${profile_id}`}>
-                        <Avatar src={profile_image} height={55} />
-                        {owner}
-                    </Link>
-                    <div className="d-flex align-items-center">
-                        <span>{created_at}</span>
-                        - <span>{is_owner ? "owner" : is_receiver ? "receiver" : ""}</span>
-                    </div>
-                    {is_owner && !showEditForm && (
-                        <MoreDropdown
-                            handleEdit={() => setShowEditForm(true)}
-                            handleDelete={handleDelete}
-                        />
-                    )}
-                </Media>
-            </Card.Body>
-            <Card.Body>
-                {showEditForm ? (
-                    <EditUserMessage
-                        id={id}
-                        profile_id={profile_id}
-                        content={content}
-                        setShowEditForm={setShowEditForm}
-                        setUserMessages={setUserMessages}
-                    />
-                ) : (
-                    <>{content && <Card.Text>{content}</Card.Text>}</>
+        <Container>
+            <Row>
+                {/* Sent messages */}
+                {is_owner && (
+                    <Col>
+                        <Media className="align-items-center justify-content-between">
+                            <Link to={`/profiles/${receiver_profile_id}`}>
+                                <Avatar src={receiver_profile_image} height={55} />
+                                {receiver_username}
+                            </Link>
+                            <div className="d-flex align-items-center">
+                                <span>{created_at}</span>
+                            </div>
+                            {is_owner && !showEditForm && (
+                                <MoreDropdown
+                                    handleEdit={() => setShowEditForm(true)}
+                                    handleDelete={handleDelete}
+                                />
+                            )}
+                        </Media>
+                        <Card.Body>
+                            {showEditForm ? (
+                                <EditUserMessage
+                                    id={id}
+                                    profile_id={profile_id}
+                                    content={content}
+                                    setShowEditForm={setShowEditForm}
+                                    setUserMessages={setUserMessages}
+                                />
+                            ) : (
+                                <>{is_owner && content && <Card.Text>{content}</Card.Text>}</>
+                            )}
+                        </Card.Body>
+                    </Col>
                 )}
-            </Card.Body>
+                {/* Received messages */}
+                {is_receiver && (
+                    <Col>
+                        <Media className="align-items-center justify-content-between">
+                            <Link to={`/profiles/${profile_id}`}>
+                                <Avatar src={profile_image} height={55} />
+                                {owner}
+                            </Link>
+                            <div className="d-flex align-items-center">
+                                <span>{created_at}</span>
+                            </div>
+                        </Media>
+                        <Card.Body>
+                            <>{is_receiver && content && <Card.Text>{content}</Card.Text>}</>
+                        </Card.Body>
+                    </Col>
+                )}
+            </Row>
 
             <Modal show={showConfirmDelete} onHide={() => setShowConfirmDelete(false)}>
-        <Modal.Body className="text-center">Are you sure you want to delete?
-        </Modal.Body>
-        <Modal.Footer className="justify-content-center">
-          <Button
-            variant="secondary"
-            onClick={() => setShowConfirmDelete(false)}
-          >
-            Cancel
-          </Button>
-          <Button
-            variant="danger"
-            onClick={confirmDelete}
-          >
-            Delete
-          </Button>
-        </Modal.Footer>
-      </Modal>
-
-        </Card>
+                <Modal.Body className="text-center">Are you sure you want to delete?
+                </Modal.Body>
+                <Modal.Footer className="justify-content-center">
+                    <Button
+                        variant="secondary"
+                        onClick={() => setShowConfirmDelete(false)}
+                    >
+                        Cancel
+                    </Button>
+                    <Button
+                        variant="danger"
+                        onClick={confirmDelete}
+                    >
+                        Delete
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+        </Container>
     );
 };
 

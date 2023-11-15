@@ -6,7 +6,7 @@ import { axiosReq } from "../../api/axiosDefaults";
 import NoResults from "../../assets/no-results.png";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
-import styles from "../../styles/Post.module.css";
+import styles from "../../styles/UserMessage.module.css";
 
 import UserMessage from "./UserMessage";
 import { Col, Row } from "react-bootstrap";
