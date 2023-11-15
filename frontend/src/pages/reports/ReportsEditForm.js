@@ -54,7 +54,6 @@ function ReportEditForm() {
             history.goBack();
             setAlert("Your report has been edited!");
         } catch (err) {
-            console.log(err);
             if (err.response?.status !== 401) {
                 setErrors(err.response?.data);
             }

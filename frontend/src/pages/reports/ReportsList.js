@@ -54,9 +54,7 @@ function ReportsList() {
             setIsDeleted(true);
             history.push('/reports');
             setAlert("Your report has been deleted!");
-        } catch (err) {
-            console.log(err);
-        }
+        } catch (err) {}
         setShowConfirmDelete(false);
     };
 
