@@ -54,9 +54,7 @@ function ProfilePage() {
                 }));
                 setProfilePosts(profilePosts);
                 setHasLoaded(true);
-            } catch (err) {
-                console.log(err);
-            }
+            } catch (err) {}
         };
         fetchData();
     }, [id, setProfileData]);

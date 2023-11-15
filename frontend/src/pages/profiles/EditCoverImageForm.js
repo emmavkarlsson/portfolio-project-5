@@ -40,7 +40,6 @@ const EditCoverImageForm = () => {
                     const { cover_image } = data;
                     setProfileData({ cover_image });
                 } catch (err) {
-                    console.log(err);
                     history.push("/");
                 }
             } else {
@@ -68,7 +67,6 @@ const EditCoverImageForm = () => {
             }));
             history.goBack();
         } catch (err) {
-            console.log(err);
             setErrors(err.response?.data);
         }
     };
