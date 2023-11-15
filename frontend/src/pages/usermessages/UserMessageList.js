@@ -12,15 +12,14 @@ import UserMessage from "./UserMessage";
 
 function UserMessagesList({ message }) {
 
-
-    const [usermessages, setUsermessages] = useState({ results: [] });
+    const [userMessages, setUserMessages] = useState({ results: [] });
     const [hasLoaded, setHasLoaded] = useState(false);
 
     useEffect(() => {
-        const fetchUsermessages = async () => {
+        const fetchUserMessages = async () => {
             try {
                 const { data } = await axiosReq.get(`/usermessages/`);
-                setUsermessages(data);
+                setUserMessages(data);
                 setHasLoaded(true);
             } catch (err) {
                 console.log(err);
@@ -28,7 +27,7 @@ function UserMessagesList({ message }) {
         };
         setHasLoaded(false);
         const timer = setTimeout(() => {
-            fetchUsermessages();
+            fetchUserMessages();
         }, 1000);
         return () => {
             clearTimeout(timer);
@@ -40,15 +39,15 @@ function UserMessagesList({ message }) {
         <div>
             {hasLoaded ? (
                 <>
-                    {usermessages.results.length ? (
+                    {userMessages.results.length ? (
                         <InfiniteScroll
-                            children={usermessages.results.map((message) => (
-                                <UserMessage key={message.id} {...message} />
+                            children={userMessages.results.map((userMessage) => (
+                                <UserMessage key={userMessage.id} {...userMessage} setUserMessages={setUserMessages} />
                             ))}
-                            dataLength={usermessages.results.length}
+                            dataLength={userMessages.results.length}
                             loader={<Asset spinner />}
-                            hasMore={!!usermessages.next}
-                            next={() => fetchMoreData(usermessages, setUsermessages)}
+                            hasMore={!!userMessages.next}
+                            next={() => fetchMoreData(userMessages, setUserMessages)}
                         />
                     ) : (
                         <Container className={appStyles.Content}>

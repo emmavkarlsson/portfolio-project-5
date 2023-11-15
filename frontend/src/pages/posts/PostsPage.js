@@ -11,7 +11,7 @@ import Asset from "../../components/Asset";
 import appStyles from "../../App.module.css";
 import styles from "../../styles/PostsPage.module.css";
 
-import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
+import { useLocation } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 
 import NoResults from "../../assets/no-results.png";
