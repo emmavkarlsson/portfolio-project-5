@@ -46,9 +46,7 @@ const Post = (props) => {
       await axiosRes.delete(`/posts/${id}/`);
       history.goBack();
       setAlert("Your post has been deleted!");
-    } catch (err) {
-      console.log(err);
-    }
+    } catch (err) {}
     setShowConfirmDelete(false);
   };
 
@@ -63,9 +61,7 @@ const Post = (props) => {
             : post;
         }),
       }));
-    } catch (err) {
-      console.log(err);
-    }
+    } catch (err) {}
   };
 
   const handleUnlike = async () => {
@@ -79,9 +75,7 @@ const Post = (props) => {
             : post;
         }),
       }));
-    } catch (err) {
-      console.log(err);
-    }
+    } catch (err) {}
   };
 
   // Let's users save posts
@@ -97,9 +91,7 @@ const Post = (props) => {
             : post;
         }),
       }));
-    } catch (err) {
-      console.log(err);
-    }
+    } catch (err) {}
   };
 
   // Let's users unsave posts
@@ -115,9 +107,7 @@ const Post = (props) => {
             : post;
         }),
       }));
-    } catch (err) {
-      console.log(err);
-    }
+    } catch (err) {}
   };
 
   // Let's users report an image
