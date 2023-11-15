@@ -1,0 +1,19 @@
+.Sent {
+    background-color: lightblue;
+    border: 1px solid #dadadf;
+    border-radius: 2px;
+    margin-bottom: 16px;
+    text-align: center;
+    max-height: 400px;
+    overflow-y: scroll;
+  }
+
+  .Received {
+    background-color: lightgray;
+    border: 1px solid #dadadf;
+    border-radius: 2px;
+    margin-bottom: 16px;
+    text-align: center;
+    max-height: 400px;
+    overflow-y: scroll;
+  }
