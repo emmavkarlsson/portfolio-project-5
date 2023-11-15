@@ -17,24 +17,32 @@ function EditUserMessage(props) {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
+            // Fetch the current state of the usermessage
+            const response = await axiosRes.get(`/usermessages/${id}/`);
+            const currentUsermessage = response.data;
+      
+            // Update the usermessage
             await axiosRes.put(`/usermessages/${id}/`, {
-                receiver: profile_id,
+                ...currentUsermessage,
                 content: formContent.trim(),
             });
+      
+            // Update the local state
             setUserMessages((prevUserMessages) => ({
                 ...prevUserMessages,
                 results: prevUserMessages.results.map((usermessage) => {
                     return usermessage.id === id
-                        ? {
-                            ...usermessage,
-                            content: formContent.trim(),
-                        }
-                        : usermessage;
+                      ? {
+                          ...usermessage,
+                          content: formContent.trim(),
+                      }
+                      : usermessage;
                 }),
             }));
+      
             setShowEditForm(false);
         } catch (err) {}
-    };
+      };
 
     return (
         <Form onSubmit={handleSubmit}>
