@@ -51,7 +51,15 @@ function EditUserMessage(props) {
                 />
             </Form.Group>
             <div className="d-flex justify-content-center">
-                <Button className={btnStyles.Beige} type="submit">
+                <Button
+                    className={btnStyles.Beige}
+                    type="button"
+                    onClick={() => setShowEditForm(false)}>
+                    Cancel
+                </Button>
+                <Button
+                    className={btnStyles.Beige}
+                    type="submit">
                     Update message
                 </Button>
             </div>
