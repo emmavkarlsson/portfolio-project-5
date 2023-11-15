@@ -31,9 +31,7 @@ function CreateMessageForm({ profile_id }) {
         try {
             await axiosReq.post("/usermessages/", userMessageData);
             history.go();
-        } catch (err) {
-            console.log(err);
-        }
+        } catch (err) {}
     };
 
     return (

@@ -40,9 +40,7 @@ const UserMessage = (props) => {
         try {
             await axiosRes.delete(`/usermessages/${id}/`);
             history.go();
-        } catch (err) {
-            console.log(err);
-        }
+        } catch (err) {}
         setShowConfirmDelete(false);
     };
 

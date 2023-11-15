@@ -23,9 +23,7 @@ function UserMessagesList({ message }) {
                 const { data } = await axiosReq.get(`/usermessages/`);
                 setUserMessages(data);
                 setHasLoaded(true);
-            } catch (err) {
-                console.log(err);
-            }
+            } catch (err) {}
         };
         setHasLoaded(false);
         const timer = setTimeout(() => {
