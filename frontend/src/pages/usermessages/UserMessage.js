@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import styles from "../../styles/UserMessage.module.css";
 import { Button, Card, Col, Container, Media, Modal, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
@@ -8,6 +8,7 @@ import EditUserMessage from './EditUserMessage';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import { MoreDropdown } from '../../components/MoreDropdown';
 import { axiosRes } from '../../api/axiosDefaults';
+import { AlertContext } from "../../context/AlertContext";
 
 const UserMessage = (props) => {
     const {
@@ -30,7 +31,7 @@ const UserMessage = (props) => {
     const currentUser = useCurrentUser();
     const is_owner = currentUser.username === owner;
     const is_receiver = currentUser.profile_id === receiver;
-    const history = useHistory();
+    const { setAlert } = useContext(AlertContext);
 
     const handleDelete = async () => {
         setShowConfirmDelete(true);
@@ -39,7 +40,11 @@ const UserMessage = (props) => {
     const confirmDelete = async () => {
         try {
             await axiosRes.delete(`/usermessages/${id}/`);
-            history.go();
+            setUserMessages(prevMessages => ({
+                ...prevMessages,
+                results: prevMessages.results.filter(message => message.id !== id)
+            }));
+            setAlert("Your message has been deleted!");
         } catch (err) {}
         setShowConfirmDelete(false);
     };
