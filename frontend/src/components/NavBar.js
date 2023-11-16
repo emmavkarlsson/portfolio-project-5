@@ -50,6 +50,20 @@ const NavBar = () => {
 
   const loggedInIcons = (
     <>
+      <NavLink
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+        to="/feed"
+      >
+        <i className="fas fa-stream"></i>Feed
+      </NavLink>
+      <NavLink
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+        to="/usermessages"
+      >
+        <i className="fa-solid fa-message"></i>Messages
+      </NavLink>
       <NavDropdown
         title={<Avatar src={currentUser?.profile_image} text="Profile" height={40} />}
         id="basic-nav-dropdown"
@@ -102,7 +116,7 @@ const NavBar = () => {
         fixed="top"
       >
         <Container>
-        <ToastContainer position="top-center" />
+          <ToastContainer position="top-center" />
           <NavLink to="/">
             <Navbar.Brand>
               <img src={logo} alt="logo" height="45" />
