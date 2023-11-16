@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Container, Navbar, Nav, NavDropdown, Modal, Button } from "react-bootstrap";
 import axios from "axios";
-import logo from "../assets/ekp-logo.png";
+import logo from "../assets/photostream-logo-simple.png";
 import styles from "../styles/NavBar.module.css";
 import { NavLink } from "react-router-dom";
 import { useCurrentUser, useSetCurrentUser } from "../context/CurrentUserContext";
