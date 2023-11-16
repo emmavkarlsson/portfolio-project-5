@@ -28,60 +28,64 @@ function App() {
   return (
     <div className={styles.App}>
       <NavBar />
-      <Container className={styles.Main}>
-        <Switch>
-          <Route
-            exact
-            path="/"
-            render={() => (
-              <PostsPage message="No results found. Adjust the search keyword." />
-            )}
-          />
-          <Route
-            exact
-            path="/feed"
-            render={() => (
+      <Switch>
+        <Route
+          exact
+          path="/"
+          render={() => (
+            <PostsPage message="No results found. Adjust the search keyword." />
+          )}
+        />
+        <Route
+          exact
+          path="/feed"
+          render={() => (
+            <Container className={styles.Main}>
               <PostsPage message="No results found. Adjust the search keyword or follow a user."
                 filter={`owner__followed__owner__profile=${profile_id}&`}
               />
-            )}
-          />
-          <Route
-            exact
-            path="/liked"
-            render={() => (
+            </Container>
+          )}
+        />
+        <Route
+          exact
+          path="/liked"
+          render={() => (
+            <Container className={styles.Main}>
               <PostsPage message="No results found. Adjust the search keyword or like a post."
                 filter={`likes__owner__profile=${profile_id}&ordering=-likes__created_at&`}
               />
-            )}
-          />
-          <Route
-            exact
-            path="/saved"
-            render={() => (
+            </Container>
+          )}
+        />
+        <Route
+          exact
+          path="/saved"
+          render={() => (
+            <Container className={styles.Main}>
               <PostsPage message="No results found. Adjust the search keyword or save a post."
                 filter={`saved__owner__profile=${profile_id}&ordering=-saved_posts__created_at&`}
               />
-            )}
-          />
-          <Route exact path="/signin" render={() => <SignInForm />} />
-          <Route exact path="/signup" render={() => <SignUpForm />} />
-          <Route exact path="/posts/create" render={() => <PostCreateForm />} />
-          <Route exact path="/posts/:id" render={() => <PostPage />} />
-          <Route exact path="/posts/:id/edit" render={() => <PostEditForm />} />
-          <Route exact path="/profiles/:id" render={() => <ProfilePage />} />
-          <Route exact path="/profiles/:id/edit/username" render={() => <UsernameForm />} />
-          <Route exact path="/profiles/:id/edit/password" render={() => <UserPasswordForm />} />
-          <Route exact path="/profiles/:id/edit" render={() => <ProfileEditForm />} />
-          <Route exact path="/profiles/:id/edit_cover_image" render={() => <EditCoverImageForm />} />
-          <Route exact path="/usermessages/" render={() => <UserMessagesList />} />
-          <Route path="/createreport/posts/:id" render={() => <ReportsCreateForm />} />
-          <Route path="/reports/:id/edit" render={() => <ReportEditForm />} />
-          <Route exact path="/reports/" render={() => <ReportsList />} />
+            </Container>
+          )}
+        />
+        <Route exact path="/signin" render={() => <Container className={styles.Main}><SignInForm /></Container>} />
+        <Route exact path="/signup" render={() => <Container className={styles.Main}><SignUpForm /></Container>} />
+        <Route exact path="/posts/create" render={() => <Container className={styles.Main}><PostCreateForm /></Container>} />
+        <Route exact path="/posts/:id" render={() => <Container className={styles.Main}><PostPage /></Container>} />
+        <Route exact path="/posts/:id/edit" render={() => <Container className={styles.Main}><PostEditForm /></Container>} />
+        <Route exact path="/profiles/:id" render={() => <Container className={styles.Main}><ProfilePage /></Container>} />
+        <Route exact path="/profiles/:id/edit/username" render={() => <Container className={styles.Main}><UsernameForm /></Container>} />
+        <Route exact path="/profiles/:id/edit/password" render={() => <Container className={styles.Main}><UserPasswordForm /></Container>} />
+        <Route exact path="/profiles/:id/edit" render={() => <Container className={styles.Main}><ProfileEditForm /></Container>} />
+        <Route exact path="/profiles/:id/edit_cover_image" render={() => <Container className={styles.Main}><EditCoverImageForm /></Container>} />
+        <Route exact path="/usermessages/" render={() => <Container className={styles.Main}><UserMessagesList /></Container>} />
+        <Route path="/createreport/posts/:id" render={() => <Container className={styles.Main}><ReportsCreateForm /></Container>} />
+        <Route path="/reports/:id/edit" render={() => <Container className={styles.Main}><ReportEditForm /></Container>} />
+        <Route exact path="/reports/" render={() => <Container className={styles.Main}><ReportsList /></Container>} />
 
-          <Route render={() => <p>Page not found!</p>} />
-        </Switch>
-      </Container>
+        <Route render={() => <Container className={styles.Main}><p>Page not found!</p></Container>} />
+      </Switch>
     </div>
   );
 }
