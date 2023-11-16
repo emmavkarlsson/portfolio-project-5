@@ -84,6 +84,22 @@ const ProfileEditForm = () => {
     const textFields = (
         <>
             <Form.Group>
+                <Form.Label>Name</Form.Label>
+                <Form.Control
+                    as="textarea"
+                    value={name}
+                    onChange={handleChange}
+                    name="name"
+                    rows={1}
+                />
+            </Form.Group>
+
+            {errors?.content?.map((message, idx) => (
+                <Alert variant="warning" key={idx}>
+                    {message}
+                </Alert>
+            ))}
+            <Form.Group>
                 <Form.Label>Bio</Form.Label>
                 <Form.Control
                     as="textarea"
