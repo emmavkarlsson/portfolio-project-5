@@ -54,7 +54,7 @@ const UserMessage = (props) => {
             <Row>
                 {/* Sent messages */}
                 {is_owner && (
-                    <Col>
+                    <Col className={styles.SentMessages}>
                         <Media className="align-items-center justify-content-between">
                             <Link to={`/profiles/${receiver_profile_id}`}>
                                 <Avatar src={receiver_profile_image} height={55} />
@@ -87,7 +87,7 @@ const UserMessage = (props) => {
                 )}
                 {/* Received messages */}
                 {is_receiver && (
-                    <Col>
+                    <Col className={styles.ReceivedMessages}>
                         <Media className="align-items-center justify-content-between">
                             <Link to={`/profiles/${profile_id}`}>
                                 <Avatar src={profile_image} height={55} />

@@ -43,7 +43,7 @@ function UserMessagesList({ message }) {
                         <>
                             <Container>
                                 <Row>
-                                    <Col sm={6} className={styles.Received}>
+                                    <Col sm={6} className={styles.MessageContainer}>
                                         <InfiniteScroll
                                             children={userMessages.results.filter(userMessage => !userMessage.is_owner).map((userMessage) => (
                                                 <UserMessage key={userMessage.id} {...userMessage} setUserMessages={setUserMessages} />
@@ -54,7 +54,7 @@ function UserMessagesList({ message }) {
                                             next={() => fetchMoreData(userMessages, setUserMessages)}
                                         />
                                     </Col>
-                                    <Col sm={6} className={styles.Sent}>
+                                    <Col sm={6} className={styles.MessageContainer}>
                                         <InfiniteScroll
                                             children={userMessages.results.filter(userMessage => userMessage.is_owner).map((userMessage) => (
                                                 <UserMessage key={userMessage.id} {...userMessage} setUserMessages={setUserMessages} />
