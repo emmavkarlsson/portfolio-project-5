@@ -16,7 +16,7 @@
 
   .MessageContainer {
     margin: 0 16px;
-    max-height: 60vh;
+    height: 60vh;
     overflow-y: scroll;
   }
 
