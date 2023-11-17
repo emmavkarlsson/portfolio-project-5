@@ -25,7 +25,16 @@
     display: flex;
     flex-wrap: nowrap;
     overflow-x: auto;
+
+    /* hide scrollbar for IE, Edge and Firefox */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
+
+    /* hide scrollbar for chrome, safari and opera */
+    .horizontalScroll::-webkit-scrollbar {
+      display: none;
+    }
 
   .heroImage {
     height: 100%;
@@ -36,10 +45,11 @@
   .displayFlex {
     display: flex;
     flex-direction: column;
-    height: 89vh;
+    height: 88.6vh;
   }
 
   .postsRow {
     margin-top: auto;
   }
+
  
