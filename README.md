@@ -297,3 +297,21 @@ I have used the W3C Validator to validate my CSS. All CSS files came back with n
 | Post | Click | Unsaving a post makes the post disappear when I refresh the page | Pass |
 | Search | Click | Search results only include posts I have saved | Pass |
 | Post | Display/Click | All other functionality displays and works as on the home page | Pass |
+
+
+#### Post Detail Page
+|Feature  | Action | Expected result | Pass/Fail |
+|--|--|--|--|
+| Post | Display | I can view comments if there is any | Pass |
+| Post | Comment | I can comment on the post | Pass |
+| Post | Comment | My post shows up when I have commented | Pass |
+| Post | Comment | I can see a three dots icon on my comment | Pass |
+| Post | Comment | I can edit my comment | Pass |
+| Post | Comment | I can delete my comment | Pass |
+| Post | Comment | I can not see a three dots icon on other users comments | Pass |
+| Dropdown | Display | I can see a three dots icon above the post on my own post | Pass |
+| Dropdown | Click | Clicking the three dots icon opens a dropdown of edit and delete | Pass |
+| Dropdown | Click | Clicking the three dots icon opens a dropdown of edit and delete | Pass |
+| Dropdown | Click | Clicking the edit icon leads me to the edit post page | Pass |
+| Dropdown | Click | Clicking the trash icon lets me delete my comment | Pass |
+| Post | Display/Click | All other functionality displays and works as on the home page | Pass |
