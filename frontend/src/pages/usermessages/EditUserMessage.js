@@ -58,13 +58,13 @@ function EditUserMessage(props) {
             </Form.Group>
             <div className="d-flex justify-content-center">
                 <Button
-                    className={btnStyles.Beige}
+                    className={`${btnStyles.Button} ${btnStyles.DarkBeige}`}
                     type="button"
                     onClick={() => setShowEditForm(false)}>
                     Cancel
                 </Button>
                 <Button
-                    className={btnStyles.Beige}
+                    className={`${btnStyles.Button} ${btnStyles.Brown}`}
                     type="submit">
                     Update message
                 </Button>

@@ -58,7 +58,8 @@
   }
 
   .Beige,
-  .Brown:disabled {
+  .Brown:disabled,
+  .DarkBeige:hover {
     background-color: #efede6;
     color: #0b0b0b;
     border: none;
@@ -66,8 +67,15 @@
 
   .Beige:hover,
   .Beige:active,
-  .Beige:focus {
+  .Beige:focus,
+  .DarkBeige {
     background-color: #d9d6cd;
+    color: #0b0b0b;
+    border: none;
+  }
+
+  .Brown:disabled {
+    background-color: #efede6;
     color: #0b0b0b;
     border: none;
   }
