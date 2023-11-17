@@ -26,4 +26,20 @@
     flex-wrap: nowrap;
     overflow-x: auto;
   }
+
+  .heroImage {
+    height: 100%;
+    width: 100%;
+    background-image: url("https://images.unsplash.com/photo-1682686578601-e7851641d52c?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  }
+
+  .displayFlex {
+    display: flex;
+    flex-direction: column;
+    height: 89vh;
+  }
+
+  .postsRow {
+    margin-top: auto;
+  }
  

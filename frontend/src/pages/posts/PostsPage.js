@@ -102,8 +102,9 @@ function PostsPage({ message, filter = "" }) {
 
   const loggedOutView = (
     <>
+    <div class={styles.heroImage}>
       <div className={appStyles.Main}>
-        <Col>
+        <Col className={styles.displayFlex}>
           <Row className="h-100">
             <Col>
               <i className={`fas fa-search ${styles.SearchIcon}`} />
@@ -122,7 +123,7 @@ function PostsPage({ message, filter = "" }) {
             </Col>
           </Row>
 
-          <Row>
+          <Row className={`${styles.postsRow}`}>
             <Col>
               {hasLoaded ? (
                 <>
@@ -153,6 +154,7 @@ function PostsPage({ message, filter = "" }) {
             </Col>
           </Row>
         </Col>
+      </div>
       </div>
     </>
   );
