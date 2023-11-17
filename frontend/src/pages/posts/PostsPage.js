@@ -6,6 +6,7 @@ import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 
 import Post from "./Post";
+import PostSmall from "./PostSmall";
 import Asset from "../../components/Asset";
 
 import appStyles from "../../App.module.css";
@@ -128,7 +129,7 @@ function PostsPage({ message, filter = "" }) {
                   {posts.results.length ? (
                     <InfiniteScroll
                       children={posts.results.map((post) => (
-                        <Post key={post.id} {...post} setPosts={setPosts} />
+                        <PostSmall key={post.id} {...post} setPosts={setPosts} />
                       ))}
                       dataLength={posts.results.length}
                       loader={<Asset spinner />}
