@@ -116,3 +116,86 @@ I have a couple different components that I have separated into their own files 
 * Asset - the asset is a spinner which is used when something is loading. It is used on the Home Page, Posts Page and Profile Page when loading posts, Messages Page when loading messages and on the Reports Page when loading reports. 
 
 Besides from these, I have multiple other components like Popular Profiles, which is imported to the Home Page as well as the Profile Page (when viewing someone else's profile).
+
+## Testing
+### Automated testing
+#### HTML
+I have used the W3C Code Validator to test my HTML. The results showed no errors or warnings, but 9 info messages all informing about trailing slashes.
+<details>
+<summary>W3C HTML Validation</summary>
+<img src="documentation/testing/validation/html1.png">
+<img src="documentation/testing/validation/html2.png">
+</details>
+
+#### CSS
+I have used the W3C Validator to validate my CSS. All CSS files came back with no errors.
+
+<details>
+<summary>App.module.css</summary>
+<img src="documentation/testing/validation/css/app.png">
+</details>
+<details>
+<summary>index.module.css</summary>
+<img src="documentation/testing/validation/css/index.png">
+</details>
+<details>
+<summary>Asset.module.css</summary>
+<img src="documentation/testing/validation/css/asset.png">
+</details>
+<details>
+<summary>Avatar.module.css</summary>
+<img src="documentation/testing/validation/css/avatar.png">
+</details>
+<details>
+<summary>Button.module.css</summary>
+<img src="documentation/testing/validation/css/button.png">
+</details>
+<details>
+<summary>Comment.module.css</summary>
+<img src="documentation/testing/validation/css/comment.png">
+</details>
+<details>
+<summary>CommentCreateEditForm.module.css</summary>
+<img src="documentation/testing/validation/css/commentcreateedit.png">
+</details>
+<details>
+<summary>MoreDropDown.module.css</summary>
+<img src="documentation/testing/validation/css/moredropdown.png">
+</details>
+<details>
+<summary>NavBar.module.css</summary>
+<img src="documentation/testing/validation/css/navbar.png">
+</details>
+<details>
+<summary>Post.module.css</summary>
+<img src="documentation/testing/validation/css/post.png">
+</details>
+<details>
+<summary>PostCreateEditForm.module.css</summary>
+<img src="documentation/testing/validation/css/postcreateedit.png">
+</details>
+<details>
+<summary>PostsPage.module.css</summary>
+<img src="documentation/testing/validation/css/postspage.png">
+</details>
+<details>
+<summary>Profile.module.css</summary>
+<img src="documentation/testing/validation/css/profile.png">
+</details>
+<details>
+<summary>ProfilePage.module.css</summary>
+<img src="documentation/testing/validation/css/profilepage.png">
+</details>
+<details>
+<summary>Reports.module.css</summary>
+<img src="documentation/testing/validation/css/reports.png">
+</details>
+<details>
+<summary>SignInUpForm.module.css</summary>
+<img src="documentation/testing/validation/css/signinupform.png">
+</details>
+<details>
+<summary>UserMessage.module.css</summary>
+<img src="documentation/testing/validation/css/usermessage.png">
+</details>
+
