@@ -105,7 +105,7 @@ function PostsPage({ message, filter = "" }) {
     <div class={styles.heroImage}>
       <div className={appStyles.Main}>
         <Col className={styles.displayFlex}>
-          <Row className="h-100">
+          <Row className="h-50">
             <Col>
               <i className={`fas fa-search ${styles.SearchIcon}`} />
               <Form
@@ -122,6 +122,13 @@ function PostsPage({ message, filter = "" }) {
               </Form>
             </Col>
           </Row>
+
+          <Row className="h-100">
+            <Col className="text-center">
+            <h2 className={styles.HeroH2}>Welcome to</h2>
+            <h1 className={styles.HeroH1}>PhotoStream</h1>
+            </Col>
+            </Row>
 
           <Row className={`${styles.postsRow}`}>
             <Col>
