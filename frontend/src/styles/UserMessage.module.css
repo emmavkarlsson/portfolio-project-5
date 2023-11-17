@@ -1,23 +1,34 @@
 .SentMessages {
-    background-color: lightblue;
-    border: 1px solid #dadadf;
-    border-radius: 2px;
+    background-color: #efede6;
+    border-radius: 20px;
     margin-bottom: 16px;
+    padding: 10px;
     text-align: center;
-    max-height: 400px;
-    overflow-y: scroll;
   }
 
   .ReceivedMessages {
-    background-color: lightgray;
-    border: 1px solid #dadadf;
-    border-radius: 2px;
+    background-color: #d9d6cd;
+    border-radius: 20px;
     margin-bottom: 16px;
+    padding: 10px;
     text-align: center;
   }
 
   .MessageContainer {
-    margin-top: 60px;
-    max-height: 400px;
+    margin: 0 16px;
+    max-height: 60vh;
     overflow-y: scroll;
+  }
+
+  .Date {
+    font-weight: lighter;
+    color: #0b0b0b;
+    margin-left: 8px;
+  }
+
+  /* makes the sent messages appear first on smaller screens */
+  @media screen and (max-width: 768px) {
+    .flexRow {
+      flex-direction: column-reverse;
+    }
   }

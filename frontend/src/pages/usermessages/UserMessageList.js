@@ -8,14 +8,19 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 import styles from "../../styles/UserMessage.module.css";
 
+
 import UserMessage from "./UserMessage";
-import { Col, Row } from "react-bootstrap";
+import { Card, Col, Row } from "react-bootstrap";
+
+
 
 
 function UserMessagesList({ message }) {
 
+
     const [userMessages, setUserMessages] = useState({ results: [] });
     const [hasLoaded, setHasLoaded] = useState(false);
+
 
     useEffect(() => {
         const fetchUserMessages = async () => {
@@ -23,7 +28,7 @@ function UserMessagesList({ message }) {
                 const { data } = await axiosReq.get(`/usermessages/`);
                 setUserMessages(data);
                 setHasLoaded(true);
-            } catch (err) {}
+            } catch (err) { }
         };
         setHasLoaded(false);
         const timer = setTimeout(() => {
@@ -35,6 +40,8 @@ function UserMessagesList({ message }) {
     }, []);
 
 
+
+
     return (
         <div>
             {hasLoaded ? (
@@ -42,28 +49,50 @@ function UserMessagesList({ message }) {
                     {userMessages.results.length ? (
                         <>
                             <Container>
-                                <Row>
-                                    <Col sm={6} className={styles.MessageContainer}>
-                                        <InfiniteScroll
-                                            children={userMessages.results.filter(userMessage => !userMessage.is_owner).map((userMessage) => (
-                                                <UserMessage key={userMessage.id} {...userMessage} setUserMessages={setUserMessages} />
-                                            ))}
-                                            dataLength={userMessages.results.filter(userMessage => !userMessage.is_owner).length}
-                                            loader={<Asset spinner />}
-                                            hasMore={!!userMessages.next}
-                                            next={() => fetchMoreData(userMessages, setUserMessages)}
-                                        />
+                                <Row className="mt-3 mb-3 text-center">
+                                    <Col>
+                                        <h3>My messages</h3>
                                     </Col>
-                                    <Col sm={6} className={styles.MessageContainer}>
-                                        <InfiniteScroll
-                                            children={userMessages.results.filter(userMessage => userMessage.is_owner).map((userMessage) => (
-                                                <UserMessage key={userMessage.id} {...userMessage} setUserMessages={setUserMessages} />
-                                            ))}
-                                            dataLength={userMessages.results.filter(userMessage => userMessage.is_owner).length}
-                                            loader={<Asset spinner />}
-                                            hasMore={!!userMessages.next}
-                                            next={() => fetchMoreData(userMessages, setUserMessages)}
-                                        />
+                                </Row>
+                                <Row className={styles.flexRow}>
+                                    {/* displays the messages the user has sent */}
+                                    <Col lg={6} className="mt-2">
+                                        <Card>
+                                            <Card.Title className={`text-center ${appStyles.Content}`}>SENT</Card.Title>
+                                            <Card.Body>
+                                                <div className={styles.MessageContainer}>
+                                                    <InfiniteScroll
+                                                        children={userMessages.results.filter(userMessage => userMessage.is_owner).map((userMessage) => (
+                                                            <UserMessage key={userMessage.id} {...userMessage} setUserMessages={setUserMessages} />
+                                                        ))}
+                                                        dataLength={userMessages.results.filter(userMessage => userMessage.is_owner).length}
+                                                        loader={<Asset spinner />}
+                                                        hasMore={!!userMessages.next}
+                                                        next={() => fetchMoreData(userMessages, setUserMessages)}
+                                                    />
+                                                </div>
+                                            </Card.Body>
+                                        </Card>
+                                    </Col>
+
+                                    {/* displays the messages the user has received */}
+                                    <Col lg={6} className="mt-2">
+                                        <Card>
+                                            <Card.Title className={`text-center ${appStyles.Content}`}>RECEIVED</Card.Title>
+                                            <Card.Body>
+                                                <div className={styles.MessageContainer}>
+                                                    <InfiniteScroll
+                                                        children={userMessages.results.filter(userMessage => !userMessage.is_owner).map((userMessage) => (
+                                                            <UserMessage key={userMessage.id} {...userMessage} setUserMessages={setUserMessages} />
+                                                        ))}
+                                                        dataLength={userMessages.results.filter(userMessage => !userMessage.is_owner).length}
+                                                        loader={<Asset spinner />}
+                                                        hasMore={!!userMessages.next}
+                                                        next={() => fetchMoreData(userMessages, setUserMessages)}
+                                                    />
+                                                </div>
+                                            </Card.Body>
+                                        </Card>
                                     </Col>
                                 </Row>
                             </Container>
@@ -82,6 +111,8 @@ function UserMessagesList({ message }) {
         </div>
     );
 }
+
+
 
 
 export default UserMessagesList;

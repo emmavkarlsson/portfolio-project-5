@@ -45,24 +45,22 @@ const UserMessage = (props) => {
                 results: prevMessages.results.filter(message => message.id !== id)
             }));
             setAlert("Your message has been deleted!");
-        } catch (err) {}
+        } catch (err) { }
         setShowConfirmDelete(false);
     };
 
     return (
         <Container>
             <Row>
-                {/* Sent messages */}
+                {/* function to return sent messages */}
                 {is_owner && (
                     <Col className={styles.SentMessages}>
-                        <Media className="align-items-center justify-content-between">
+                        <Media className="align-items-center">
                             <Link to={`/profiles/${receiver_profile_id}`}>
-                                <Avatar src={receiver_profile_image} height={55} />
+                                <Avatar src={receiver_profile_image} height={35} />
                                 {receiver_username}
                             </Link>
-                            <div className="d-flex align-items-center">
-                                <span>{created_at}</span>
-                            </div>
+                            <span className={styles.Date}>{created_at}</span>
                             {is_owner && !showEditForm && (
                                 <MoreDropdown
                                     handleEdit={() => setShowEditForm(true)}
@@ -85,17 +83,15 @@ const UserMessage = (props) => {
                         </Card.Body>
                     </Col>
                 )}
-                {/* Received messages */}
+                {/* function to return received messages */}
                 {is_receiver && (
                     <Col className={styles.ReceivedMessages}>
-                        <Media className="align-items-center justify-content-between">
+                        <Media className="align-items-center">
                             <Link to={`/profiles/${profile_id}`}>
-                                <Avatar src={profile_image} height={55} />
+                                <Avatar src={profile_image} height={35} />
                                 {owner}
                             </Link>
-                            <div className="d-flex align-items-center">
-                                <span>{created_at}</span>
-                            </div>
+                            <span className={styles.Date}>{created_at}</span>
                         </Media>
                         <Card.Body>
                             <>{is_receiver && content && <Card.Text>{content}</Card.Text>}</>
