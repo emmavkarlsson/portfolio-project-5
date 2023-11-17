@@ -402,3 +402,28 @@ I have used the W3C Validator to validate my CSS. All CSS files came back with n
 | Profile sidebar | Display | I can see a profile sidebar to the right, with My Messages and My reports | Pass |
 | Profile buttons | Click | Clicking My Messages takes me to the Messages Page | Pass |
 | Profile buttons | Click | Clicking My Reports takes me to the Messages Page | Pass |
+
+
+#### Messages page
+
+|Feature  | Action | Expected result | Pass/Fail |
+|--|--|--|--|
+| Messages | Display | I can see a container of sent messages if I have any | Pass |
+| Messages | Display | I can see a container of received messages if I have any | Pass |
+| Messages | Display | I can scroll through the messages infinitely if I have enough messages | Pass |
+| Messages | Display | I can scroll through the messages infinitely if I have enough messages | Pass |
+| Messages | Click | I can scroll through the messages infinitely if I have enough messages | Pass |
+| Messages | Display | I see the avatar and username of the user who has received my message | Pass |
+| Messages | Display | I see the avatar and username of the user who has sent me a message | Pass |
+| Messages | Click | Clicking the avatar or username of the user who has received my message takes me to their profile | Pass |
+| Messages | Click | Clicking the avatar or username of the user who has sent me a message takes me to their profile | Pass |
+| Messages | Display | I can see the content of my sent and received messages | Pass |
+| Menu | Display | I can see a three dot menu on the sent messages | Pass |
+| Menu | Click | Clicking the three dot menu opens a dropdown of edit and delete | Pass |
+| Menu | Click | Clicking the trash can opens a model to confirm the deletion | Pass |
+| Modal| Click | Clicking cancel does not delete my sent message | Pass |
+| Modal| Click | Clicking Delete in the modal deletes my sent message and removes it | Pass |
+| Alert | Display | I get an Alert when my message has been deleted | Pass |
+| Menu | Click | Clicking the pen opens the form and let's me type | Pass |
+| Update message | Click | Clicking cancel does not change the message and closes the form | Pass |
+| Update message | Click | Clicking update changes the message and closes the form | Pass |
