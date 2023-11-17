@@ -132,8 +132,8 @@ function PostsPage({ message, filter = "" }) {
             </Row>
 
             <Row className={`h-100 ${styles.postsRow}`}>
-              <Col> Hi
-                {/* {hasLoaded ? (
+              <Col>
+                {hasLoaded ? (
                   <>
                     {posts.results.length ? (
                       <InfiniteScroll
@@ -158,7 +158,7 @@ function PostsPage({ message, filter = "" }) {
                   <Container className={appStyles.Content}>
                     <Asset spinner />
                   </Container>
-                )} */}
+                )}
               </Col>
             </Row>
           </Container>
