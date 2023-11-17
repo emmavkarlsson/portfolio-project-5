@@ -74,12 +74,12 @@ const EditCoverImageForm = () => {
     const textFields = (
         <>
             <Button
-                className={`${btnStyles.Button} ${btnStyles.Blue}`}
+                className={`${btnStyles.Button} ${btnStyles.Beige}`}
                 onClick={() => history.goBack()}
             >
                 cancel
             </Button>
-            <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
+            <Button className={`${btnStyles.Button} ${btnStyles.Brown}`} type="submit">
                 save
             </Button>
         </>
@@ -103,7 +103,7 @@ const EditCoverImageForm = () => {
                             ))}
                             <div>
                                 <Form.Label
-                                    className={`${btnStyles.Button} ${btnStyles.Blue} btn my-auto`}
+                                    className={`${btnStyles.Button} ${btnStyles.Beige} btn my-auto`}
                                     htmlFor="cover_image-upload"
                                 >
                                     Change the Cover Image
