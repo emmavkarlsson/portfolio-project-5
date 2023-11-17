@@ -334,3 +334,20 @@ I have used the W3C Validator to validate my CSS. All CSS files came back with n
 | Error messages | Display | An error message shows up if my file is too big | Pass |
 | Error messages | Display | An error message shows up if I haven't added a title | Pass |
 | Error messages | Display | An error message shows up does not show up if I haven't added any text content | Pass |
+
+
+#### Edit post page
+|Feature  | Action | Expected result | Pass/Fail |
+|--|--|--|--|
+| Form | Display | I can see the image for my post | Pass |
+| Form | Display | I can see the title for my post | Pass |
+| Form | Display | I can see the content for my post | Pass |
+| Button | Click | Clicking "change the image" opens a file browser window | Pass |
+| Form | Click | Choosing a new file replaces the image | Pass |
+| Form | Typing | Typing in the Title field works | Pass |
+| Form | Typing | Typing in the Content field works | Pass |
+| Button | Click | Clicking Cancel takes me back to the post page | Pass |
+| Button | Click | Clicking Save takes me back to the post page | Pass |
+| Button | Click | Clicking Save updates the post content that I changed | Pass |
+| Alert | Display | Clicking Save shows me an alert saying my post has been updated | Pass |
+| Error messages | Display | Error messages works as they do in the Create Post Page | Pass |
