@@ -102,73 +102,74 @@ function PostsPage({ message, filter = "" }) {
 
   const loggedOutView = (
     <>
-    <div class={styles.heroImage}>
-      <div className={appStyles.Main}>
-        <Col className={styles.displayFlex}>
-          <Row className="h-50">
-            <Col>
-              <i className={`fas fa-search ${styles.SearchIcon}`} />
-              <Form
-                className={styles.SearchBar}
-                onSubmit={(event) => event.preventDefault()}
-              >
-                <Form.Control
-                  value={query}
-                  onChange={(event) => setQuery(event.target.value)}
-                  type="text"
-                  className="mr-sm-2"
-                  placeholder="Search posts"
-                />
-              </Form>
-            </Col>
-          </Row>
+      <div className={styles.heroImage}>
+        <div className={appStyles.Main}>
 
-          <Row className="h-100">
-            <Col className="text-center">
-            <h2 className={styles.HeroH2}>Welcome to</h2>
-            <h1 className={styles.HeroH1}>PhotoStream</h1>
-            </Col>
+          <Container className={styles.displayFlex}>
+            <Row className="h-50">
+              <Col>
+                <i className={`fas fa-search ${styles.SearchIcon}`} />
+                <Form
+                  className={styles.SearchBar}
+                  onSubmit={(event) => event.preventDefault()}
+                >
+                  <Form.Control
+                    value={query}
+                    onChange={(event) => setQuery(event.target.value)}
+                    type="text"
+                    className="mr-sm-2"
+                    placeholder="Search posts"
+                  />
+                </Form>
+              </Col>
             </Row>
 
-          <Row className={`${styles.postsRow}`}>
-            <Col>
-              {hasLoaded ? (
-                <>
-                  {posts.results.length ? (
-                    <InfiniteScroll
-                      className={styles.horizontalScroll}
-                      children={posts.results.map((post) => (
-                        <Container className={styles.postContainer} >
-                          <PostSmall key={post.id} {...post} setPosts={setPosts} />
-                        </Container>
-                      ))}
-                      dataLength={posts.results.length}
-                      loader={<Asset spinner />}
-                      hasMore={!!posts.next}
-                      next={() => fetchMoreData(posts, setPosts)}
-                    />
-                  ) : (
-                    <Container className={appStyles.Content}>
-                      <Asset src={NoResults} message={message} />
-                    </Container>
-                  )}
-                </>
-              ) : (
-                <Container className={appStyles.Content}>
-                  <Asset spinner />
-                </Container>
-              )}
-            </Col>
-          </Row>
-        </Col>
-      </div>
+            <Row className="h-100">
+              <Col className="text-center">
+                <h2 className={styles.HeroH2}>Welcome to</h2>
+                <h1 className={styles.HeroH1}>PhotoStream</h1>
+              </Col>
+            </Row>
+
+            <Row className={`h-100 ${styles.postsRow}`}>
+              <Col> Hi
+                {/* {hasLoaded ? (
+                  <>
+                    {posts.results.length ? (
+                      <InfiniteScroll
+                        className={styles.horizontalScroll}
+                        children={posts.results.map((post) => (
+                          <Container className={styles.postContainer} >
+                            <PostSmall key={post.id} {...post} setPosts={setPosts} />
+                          </Container>
+                        ))}
+                        dataLength={posts.results.length}
+                        loader={<Asset spinner />}
+                        hasMore={!!posts.next}
+                        next={() => fetchMoreData(posts, setPosts)}
+                      />
+                    ) : (
+                      <Container className={appStyles.Content}>
+                        <Asset src={NoResults} message={message} />
+                      </Container>
+                    )}
+                  </>
+                ) : (
+                  <Container className={appStyles.Content}>
+                    <Asset spinner />
+                  </Container>
+                )} */}
+              </Col>
+            </Row>
+          </Container>
+        </div>
       </div>
     </>
   );
 
   return (
     <div>
-      {currentUser ? loggedInView : loggedOutView}
+      {!currentUser ? loggedOutView : loggedInView}
     </div>
   );
 }

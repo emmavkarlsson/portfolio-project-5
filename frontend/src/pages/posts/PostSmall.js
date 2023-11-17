@@ -25,7 +25,7 @@ const PostSmall = (props) => {
                     </Link>
                 </Media>
             </Card.Body>
-            <Card.Body className={`p-0 ${styles.imageSquare}`}>
+            <Card.Body className={`d-flex align-items-center p-0 ${styles.imageSquare}`}>
                 <Link to={`/posts/${id}`}>
                     <Card.Img className="rounded-0" src={image} alt={title}
                     />
