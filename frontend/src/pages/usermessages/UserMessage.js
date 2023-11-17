@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { useCurrentUser } from '../../context/CurrentUserContext';
 import EditUserMessage from './EditUserMessage';
-import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import { MoreDropdown } from '../../components/MoreDropdown';
 import { axiosRes } from '../../api/axiosDefaults';
 import { AlertContext } from "../../context/AlertContext";

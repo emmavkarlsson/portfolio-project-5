@@ -5,7 +5,6 @@ import { axiosReq, axiosRes } from "../../api/axiosDefaults";
 import Asset from "../../components/Asset";
 import { Button, Col, Modal, Row } from "react-bootstrap";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-import styles from "../../styles/PostCreateEditForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import { AlertContext } from "../../context/AlertContext";
 

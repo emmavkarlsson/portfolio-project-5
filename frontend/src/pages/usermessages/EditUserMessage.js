@@ -6,7 +6,7 @@ import btnStyles from "../../styles/Button.module.css";
 import { axiosRes } from "../../api/axiosDefaults";
 
 function EditUserMessage(props) {
-    const { id, content, profile_id, setShowEditForm, setUserMessages } = props;
+    const { id, content, setShowEditForm, setUserMessages } = props;
 
     const [formContent, setFormContent] = useState(content);
 
