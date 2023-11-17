@@ -1,0 +1,8 @@
+.Form {
+    border: none;
+    border-bottom: 2px #efede6 solid;
+  }
+
+  .Form:focus {
+    border-bottom: 2px #efede6 solid;
+  }
