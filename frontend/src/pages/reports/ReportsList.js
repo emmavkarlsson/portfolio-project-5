@@ -6,6 +6,7 @@ import Asset from "../../components/Asset";
 import { Button, Col, Modal, Row } from "react-bootstrap";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import styles from "../../styles/PostCreateEditForm.module.css";
+import btnStyles from "../../styles/Button.module.css";
 import { AlertContext } from "../../context/AlertContext";
 
 function ReportsList() {
@@ -54,7 +55,7 @@ function ReportsList() {
             setIsDeleted(true);
             history.push('/reports');
             setAlert("Your report has been deleted!");
-        } catch (err) {}
+        } catch (err) { }
         setShowConfirmDelete(false);
     };
 
@@ -63,7 +64,12 @@ function ReportsList() {
             {hasLoaded ? (
                 reportsData.length ? (
                     <div>
-                        <Row>
+                        <Row className="mt-3 mb-3">
+                            <Col>
+                                <h3>My reports</h3>
+                            </Col>
+                        </Row>
+                        <Row className="mt-3 mb-3">
                             <Col>
                                 <h5>Subject</h5>
                             </Col>
@@ -90,12 +96,12 @@ function ReportsList() {
                         </Row>
                         {reportsData.map((reports) => (
                             <Row key={reports.id}>
-                                <Col>{reports.subject}</Col>
-                                <Col>{reports.message}</Col>
-                                <Col>{REPORT_STATUS[reports.report_status]}</Col>
+                                <Col className="mt-2">{reports.subject}</Col>
+                                <Col className="mt-2">{reports.message}</Col>
+                                <Col className="mt-2">{REPORT_STATUS[reports.report_status]}</Col>
                                 {reports.is_owner && (
                                     <Col>
-                                        <Button className={styles.DropdownItem}
+                                        <Button className={btnStyles.EditDelete}
                                             onClick={() => handleEdit(reports.id)}
                                         >
                                             <i className="fas fa-edit" />
@@ -104,7 +110,7 @@ function ReportsList() {
                                 )}
                                 {reports.is_owner && (
                                     <Col>
-                                        <Button className={styles.DropdownItem}
+                                        <Button className={btnStyles.EditDelete}
                                             onClick={() => handleDelete(reports.id)}
                                         >
                                             <i className="fas fa-trash-alt" />

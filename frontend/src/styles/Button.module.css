@@ -75,3 +75,11 @@
   .ProfileButton {
     width: 100%;
   }
+
+  .EditDelete,
+  .EditDelete:hover,
+  .EditDelete:focus,
+  .EditDelete:active {
+    background-color: transparent !important;
+    border: none;
+  }
