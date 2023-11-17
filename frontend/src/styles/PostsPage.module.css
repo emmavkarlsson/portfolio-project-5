@@ -37,14 +37,15 @@
     }
 
   .heroImage {
-    height: 100%;
+    height: 100vh;
+    width: 100vw;
     background-color: #efede6;
   }
 
   .displayFlex {
     display: flex;
     flex-direction: column;
-    height: 88.6vh;
+    height: calc(100vh - 81px);
   }
 
   .postsRow {
@@ -61,5 +62,3 @@
     text-transform: uppercase;
     font-size: 5em;
   }
-
- 
