@@ -199,3 +199,70 @@ I have used the W3C Validator to validate my CSS. All CSS files came back with n
 <img src="documentation/testing/validation/css/usermessage.png">
 </details>
 
+
+### Manual testing
+#### Home Page
+
+* User is not logged in
+
+|Feature  | Action | Expected result | Pass/Fail |
+|--|--|--|--|
+| Navbar | Display | The Brand logo is visible | Pass |
+| Navbar | Display | The Home button is visible | Pass |
+| Navbar | Display | The Sign in link is visible | Pass |
+| Navbar | Display | The Sign up link is visible | Pass |
+| Navbar | Display | No other icons are visible | Pass |
+| Content | Display | The latest posts are visible | Pass |
+| Content | Display | The welcome message is visible | Pass |
+| Content | Display | The Search Bar is visible | Pass |
+| Navbar | Click | The Brand Logo leads to the home page | Pass |
+| Navbar | Click | The Home link leads to the home page | Pass |
+| Navbar | Click | The Sign In link leads to the Sign In Page | Pass |
+| Navbar | Click | The Sign Up link leads to the Sign Up page | Pass |
+| Search bar | Search | Images related to the search word shows up when searched | Pass |
+| Content | InfiniteScroll | The posts loads infinitely when scrolling through them | Pass |
+
+
+* User is logged in
+
+|Feature  | Action | Expected result | Pass/Fail |
+|--|--|--|--|
+| Navbar | Display | The Brand logo is visible | Pass |
+| Navbar | Display | The Add post icon is visible | Pass |
+| Navbar | Display | The Home button is visible | Pass |
+| Navbar | Display | The Feed link/icon is visible | Pass |
+| Navbar | Display | The Messages link/icon is visible | Pass |
+| Navbar | Display | The Signout link/icon is visible | Pass |
+| Navbar | Display | The user avatar is visible | Pass |
+| Navbar | Display | The username is visible | Pass |
+| Navbar | Display | No other icons are visible | Pass |
+| Content | Display | The latest posts are visible | Pass |
+| Content | Display | The Most Popular Profiles are visible | Pass |
+| Content | Display | The Search Bar is visible | Pass |
+| Navbar | Click | The Brand Logo leads to the home page | Pass |
+| Navbar | Click | The Add Post link leads to the create post page | Pass |
+| Navbar | Click | The Home link leads to the home page | Pass |
+| Navbar | Click | The Feed link leads to the Feed Page | Pass |
+| Navbar | Click | The Messages link leads to the Messages page | Pass |
+| Navbar | Click | The Sign Out link opens a modal to confirm the signout | Pass |
+| Navbar | Click | The Avatar & username link leads to the profile page | Pass |
+| Sign out modal | Click | Clicking sign out logs me out | Pass |
+| Sign out modal | Click | Clicking sign out sends me to the home page | Pass |
+| Sign out modal | Click | Clicking cancel leaves me logged in | Pass |
+| Search bar | Search | Images related to the search word shows up when searched | Pass |
+| Content | InfiniteScroll | The posts loads infinitely when scrolling through them | Pass |
+| Post | Click | Clicking the heart icon likes the posts if it's someone else's post | Pass |
+| Post | Click | Clicking the heart icon adds to the likes count if it's someone else's post | Pass |
+| Post | Click | Clicking the heart icon doesn't like the posts if it's my post | Pass |
+| Post | Click | Clicking the heart icon doesn't add to the likes count if it's my post | Pass |
+| Post | Click | Clicking the comment icon sends me to the post page | Pass |
+| Post | Click | Clicking the saved icon saves the posts if it's someone else's post | Pass |
+| Post | Click | Clicking the saved icon doesn't save the posts if it's my post | Pass |
+| Post | Click | Clicking the report icon sends me to the create report page if it's not my post | Pass |
+| Post | Click | Clicking the Image of a posts sends me to the Post Detail Page | Pass |
+| Post | Click | Clicking the Avatar/Username of the post owner sends me to the Profile Page of the user | Pass |
+| Popular Profiles | Click | Clicking the Avatar of a user sends me to the Profile Page | Pass |
+| Popular Profiles | Click | Clicking the username of a user sends me to the Profile Page | Pass |
+| Popular Profiles | Click | Clicking follow makes the user follow a profile | Pass |
+| Popular Profiles | Click | Clicking unfollow makes the user unfollow the profile | Pass |
+| Popular Profiles | Display | No follow button appears next to my own profile | Pass |
