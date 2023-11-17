@@ -48,57 +48,61 @@ function PostsPage({ message, filter = "" }) {
 
   const loggedInView = (
     <>
-        <Col>
-          <PopularProfiles mobile />
-          <i className={`fas fa-search ${styles.SearchIcon}`} />
-          <Form
-            className={styles.SearchBar}
-            onSubmit={(event) => event.preventDefault()}
-          >
-            <Form.Control
-              value={query}
-              onChange={(event) => setQuery(event.target.value)}
-              type="text"
-              className="mr-sm-2"
-              placeholder="Search posts"
-            />
-          </Form>
-          {hasLoaded ? (
-            <>
-              {posts.results.length ? (
-                <InfiniteScroll
-                  children={posts.results.map((post) => (
-                    <Post key={post.id} {...post} setPosts={setPosts} />
-                  ))}
-                  dataLength={posts.results.length}
-                  loader={<Asset spinner />}
-                  hasMore={!!posts.next}
-                  next={() => fetchMoreData(posts, setPosts)}
-                />
-              ) : (
-                <Container className={appStyles.Content}>
-                  <Asset src={NoResults} message={message} />
-                </Container>
-              )}
-            </>
-          ) : (
-            <Container className={appStyles.Content}>
-              <Asset spinner />
-            </Container>
-          )}
-        </Col>
-        <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
-          <PopularProfiles />
-        </Col>
+      <Container className={appStyles.Main}>
+        <Row className="h-100">
+          <Col>
+            <PopularProfiles mobile />
+            <i className={`fas fa-search ${styles.SearchIcon}`} />
+            <Form
+              className={styles.SearchBar}
+              onSubmit={(event) => event.preventDefault()}
+            >
+              <Form.Control
+                value={query}
+                onChange={(event) => setQuery(event.target.value)}
+                type="text"
+                className="mr-sm-2"
+                placeholder="Search posts"
+              />
+            </Form>
+            {hasLoaded ? (
+              <>
+                {posts.results.length ? (
+                  <InfiniteScroll
+                    children={posts.results.map((post) => (
+                      <Post key={post.id} {...post} setPosts={setPosts} />
+                    ))}
+                    dataLength={posts.results.length}
+                    loader={<Asset spinner />}
+                    hasMore={!!posts.next}
+                    next={() => fetchMoreData(posts, setPosts)}
+                  />
+                ) : (
+                  <Container className={appStyles.Content}>
+                    <Asset src={NoResults} message={message} />
+                  </Container>
+                )}
+              </>
+            ) : (
+              <Container className={appStyles.Content}>
+                <Asset spinner />
+              </Container>
+            )}
+          </Col>
+          <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
+            <PopularProfiles />
+          </Col>
+        </Row>
+      </Container>
     </>
   );
 
+  // const loggedOutView = (
+
+  // );
+
   return (
-    <Container className={appStyles.Main}>
-      <Row className="h-100">
-        {loggedInView}
-      </Row>
-    </Container>
+    { loggedInView }
   );
 }
 
