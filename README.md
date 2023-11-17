@@ -476,3 +476,31 @@ I have used the W3C Validator to validate my CSS. All CSS files came back with n
 | Button | Click | Clicking update report takes me back to the reports list page and I can see my updated report | Pass |
 | Error | Display | I get an error alert if I delete the subject and/or message and don't provide new content | Pass |
 | Alert | Display | I get an alert when I have updated the form, telling me my report has been updated | Pass |
+
+
+#### Edit Profile
+
+|Feature  | Action | Expected result | Pass/Fail |
+|--|--|--|--|
+| Form | Display | I can see my profile picture if I have one | Pass |
+| Form | Display | I can see a default profile picture if I don't have one | Pass |
+| Form | Display | I can see fields for name and bio | Pass |
+| Button | Click | Clicking "change the image" opens a file browser window | Pass |
+| Form | Display | I can see the image changing if I have selected an accepted image | Pass |
+| Form | Click | I can write in the input fields for name and bio | Pass |
+| Button | Click | Clicking cancel takes me back to my profile page | Pass |
+| Button | Click | Clicking save takes me back to my profile page | Pass |
+| Button | Click | Clicking save updates my profile if I have made changes | Pass |
+
+
+#### Edit Cover Photo
+
+|Feature  | Action | Expected result | Pass/Fail |
+|--|--|--|--|
+| Form | Display | I can see my cover photo if I have one | Pass |
+ Form | Display | I can see a default cover photo if I don't have one | Pass |
+| Button | Click | Clicking "change the cover photo" opens a file browser window | Pass |
+| Form | Display | I can see the image changing if I have selected an accepted image | Pass |
+| Button | Click | Clicking cancel takes me back to my profile page | Pass |
+| Button | Click | Clicking save takes me back to my profile page | Pass |
+| Button | Click | Clicking save updates my cover photo if I have made changes | Pass |
