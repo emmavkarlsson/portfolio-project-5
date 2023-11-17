@@ -16,7 +16,7 @@ const PostSmall = (props) => {
     } = props;
 
     return (
-        <Card className={styles.Post}>
+        <Card className={styles.PostSmall}>
             <Card.Body className="p-1">
                 <Media className="align-items-center justify-content-between">
                     <Link to={`/profiles/${profile_id}`}>
@@ -27,7 +27,7 @@ const PostSmall = (props) => {
             </Card.Body>
             <Card.Body className={`p-0 ${styles.imageSquare}`}>
                 <Link to={`/posts/${id}`}>
-                    <Card.Img src={image} alt={title}
+                    <Card.Img className="rounded-0" src={image} alt={title}
                     />
                 </Link>
             </Card.Body>
