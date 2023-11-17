@@ -504,3 +504,28 @@ I have used the W3C Validator to validate my CSS. All CSS files came back with n
 | Button | Click | Clicking cancel takes me back to my profile page | Pass |
 | Button | Click | Clicking save takes me back to my profile page | Pass |
 | Button | Click | Clicking save updates my cover photo if I have made changes | Pass |
+
+
+#### Change username
+
+|Feature  | Action | Expected result | Pass/Fail |
+|--|--|--|--|
+| Form | Display | I can see my username in the input field | Pass |
+| Form | Click | I can make changes in the input field | Pass |
+| Button | Click | Clicking cancel takes me back to my profile page | Pass |
+| Button | Click | Clicking save takes me back to my profile page | Pass |
+| Button | Click | Clicking save updates username | Pass |
+| Error | Display | I get an error if the username I have chosen doesn't meet the requirements | Pass |
+
+
+#### Change password
+
+|Feature  | Action | Expected result | Pass/Fail |
+|--|--|--|--|
+| Form | Display | I can see a password field | Pass |
+| Form | Display | I can see a confirm password field | Pass |
+| Form | Click | I can make changes both the fields | Pass |
+| Button | Click | Clicking cancel takes me back to my profile page | Pass |
+| Button | Click | Clicking save takes me back to my profile page | Pass |
+| Button | Click | Clicking save updates username | Pass |
+| Error | Display | I get an error if passwords don't match or don't meet the requirements | Pass |
