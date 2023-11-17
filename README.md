@@ -280,3 +280,20 @@ I have used the W3C Validator to validate my CSS. All CSS files came back with n
 | Post | Click | Clicking the Avatar/Username of the post owner sends me to the Profile Page of the user | Pass |
 | Post | Click | Clicking the heart, comment, saved and report icons works in the same way as on the Home Page | Pass |
 
+
+#### Liked Posts
+|Feature  | Action | Expected result | Pass/Fail |
+|--|--|--|--|
+| Post | Display | Only posts that I have liked show up | Pass |
+| Post | Click | Unliking a post makes the post disappear when I refresh the page | Pass |
+| Search | Click | Search results only include posts I have liked | Pass |
+| Post | Display/Click | All other functionality displays and works as on the home page | Pass |
+
+
+#### Saved Posts
+|Feature  | Action | Expected result | Pass/Fail |
+|--|--|--|--|
+| Post | Display | Only posts that I have saved show up | Pass |
+| Post | Click | Unsaving a post makes the post disappear when I refresh the page | Pass |
+| Search | Click | Search results only include posts I have saved | Pass |
+| Post | Display/Click | All other functionality displays and works as on the home page | Pass |
