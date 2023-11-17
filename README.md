@@ -315,3 +315,22 @@ I have used the W3C Validator to validate my CSS. All CSS files came back with n
 | Dropdown | Click | Clicking the edit icon leads me to the edit post page | Pass |
 | Dropdown | Click | Clicking the trash icon lets me delete my comment | Pass |
 | Post | Display/Click | All other functionality displays and works as on the home page | Pass |
+
+
+#### Create post page
+|Feature  | Action | Expected result | Pass/Fail |
+|--|--|--|--|
+| Form | Display | I can see an icon and a text telling me to click to choose an image | Pass |
+| Button | Click | Clicking it opens a file browser window | Pass |
+| Form | Click | I can choose I file | Pass |
+| Form | Display | I can see a title field for my post | Pass |
+| Form | Display | I can see a content field for my post | Pass |
+| Form | Typing | Typing in the Title field works | Pass |
+| Form | Typing | Typing in the Content field works | Pass |
+| Button | Click | Clicking Cancel takes me back to the last visited page | Pass |
+| Button | Click | Clicking Create takes me to the post page | Pass |
+| Button | Click | Clicking Create adds a new post | Pass |
+| Alert | Display | Clicking Create shows me an alert saying my post has been uploaded | Pass |
+| Error messages | Display | An error message shows up if my file is too big | Pass |
+| Error messages | Display | An error message shows up if I haven't added a title | Pass |
+| Error messages | Display | An error message shows up does not show up if I haven't added any text content | Pass |
