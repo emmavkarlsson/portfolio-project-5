@@ -57,7 +57,8 @@
     color: #0b0b0b;
   }
 
-  .Beige {
+  .Beige,
+  .Brown:disabled {
     background-color: #efede6;
     color: #0b0b0b;
     border: none;

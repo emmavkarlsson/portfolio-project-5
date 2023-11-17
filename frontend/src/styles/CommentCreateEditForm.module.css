@@ -6,19 +6,3 @@
   .Form:focus {
     border-bottom: 2px #efede6 solid;
   }
-  
-  .Button {
-    border: none;
-    background-color: #7b6557;
-    color: #fff;
-    border-radius: 100px;
-    padding: 4px 10px;
-    min-width: 75px;
-    margin: 5px;
-  }
-  
-  .Button:hover {
-    cursor: pointer;
-    background-color: #efede6;
-    color: #0b0b0b;
-  }
