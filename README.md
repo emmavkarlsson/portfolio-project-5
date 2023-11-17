@@ -351,3 +351,54 @@ I have used the W3C Validator to validate my CSS. All CSS files came back with n
 | Button | Click | Clicking Save updates the post content that I changed | Pass |
 | Alert | Display | Clicking Save shows me an alert saying my post has been updated | Pass |
 | Error messages | Display | Error messages works as they do in the Create Post Page | Pass |
+
+
+#### Profile Page
+* General
+
+|Feature  | Action | Expected result | Pass/Fail |
+|--|--|--|--|
+| Profile | Display | I can see an avatar | Pass |
+| Profile | Display | I can see a cover photo | Pass |
+| Profile | Display | I can see the username | Pass |
+| Profile | Display | I can see the users´ name if they have added it | Pass |
+| Profile | Display | I can see the users´ bio if they have added it | Pass |
+| Profile | Display | I can see the users´ posts if they have added any | Pass |
+| Profile | Display | I can see a "no results found" if they have not added any posts | Pass |
+| Profile | Display | I can see the number of post the user has | Pass |
+| Profile | Display | I can see the number of followers the user has | Pass |
+| Profile | Display | I can see the how many people the user is following | Pass |
+| Popular profiles | Display | Popular profiles is displayed on the left and works as on other pages | Pass |
+
+* Logged in viewing someone else's profile
+
+|Feature  | Action | Expected result | Pass/Fail |
+|--|--|--|--|
+| Button | Display | I can see a follow button if I don't follow the user | Pass |
+| Button | Display | I can see an ufollow button if I follow the user | Pass |
+| Button | Click | Clicking the follow button makes me follow the user | Pass |
+| Button | Click | Clicking the follow changes the fullow button to an unfollow button | Pass |
+| Button | Click | Clicking the unfollow button makes me unfollow the user | Pass |
+| Button | Click | Clicking the follow changes the unfullow button to an follow button | Pass |
+| Message | Display | I can see a message form with button | Pass |
+| Message | Click | I can type in the message form | Pass |
+| Message | Click | Clicking the send message button sends a message to the user | Pass |
+| Alert | Display | Clicking the send message button gives me an alert saying the message has been sent | Pass |
+
+* Logged in viewing my own profile
+
+|Feature  | Action | Expected result | Pass/Fail |
+|--|--|--|--|
+| Menu | Display | I can see a three dot menu next to my cover photo | Pass |
+| Menu | Click | Clicking the three dot menu opens up a dropdown | Pass |
+| Menu | Click | Clicking "edit profile" sends me to the Edit Profile page | Pass |
+| Menu | Click | Clicking "edit cover photo" sends me to the Edit Coverphoto page | Pass |
+| Menu | Click | Clicking "change username" sends me to the Change Username page | Pass |
+| Menu | Click | Clicking "change password" sends me to the Change Password page | Pass |
+| Profile buttons | Display | I can see the Liked Posts button | Pass |
+| Profile buttons | Click | Clicking the Liked Posts button takes me to the Liked posts page | Pass |
+| Profile buttons | Display | I can see the Saved Posts button | Pass |
+| Profile buttons | Click | Clicking the Saved Posts button takes me to the Saved posts page | Pass |
+| Profile sidebar | Display | I can see a profile sidebar to the right, with My Messages and My reports | Pass |
+| Profile buttons | Click | Clicking My Messages takes me to the Messages Page | Pass |
+| Profile buttons | Click | Clicking My Reports takes me to the Messages Page | Pass |
