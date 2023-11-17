@@ -64,19 +64,18 @@ const NavBar = () => {
       >
         <i className="fa-solid fa-message"></i>Messages
       </NavLink>
-      <NavDropdown
-        title={<Avatar src={currentUser?.profile_image} text="Profile" height={40} />}
-        id="basic-nav-dropdown"
+      <NavLink
+        className={styles.NavLink}
+        onClick={handleSignout}
+        to="/"
       >
-        <NavDropdown.Item as={NavLink} to={`/profiles/${currentUser?.profile_id}`}>
-          View Profile
-        </NavDropdown.Item>
-        <NavDropdown.Item as={NavLink} to={`/profiles/${currentUser?.profile_id}/edit`}>
-          Edit Profile
-        </NavDropdown.Item>
-        <NavDropdown.Divider />
-        <NavDropdown.Item onClick={handleSignout}>Sign out</NavDropdown.Item>
-      </NavDropdown>
+        <i className="fas fa-sign-out-alt"></i>Sign out
+      </NavLink>
+      <NavLink
+      to={`/profiles/${currentUser?.profile_id}`}
+    >
+      <Avatar src={currentUser?.profile_image} text={currentUser?.username} height={40} />
+    </NavLink>
     </>
   );
 
@@ -112,7 +111,7 @@ const NavBar = () => {
       <Navbar
         expanded={expanded}
         className={styles.NavBar}
-        expand="sm"
+        expand="lg"
         fixed="top"
       >
         <Container>
