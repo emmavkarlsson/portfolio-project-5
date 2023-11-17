@@ -128,8 +128,11 @@ function PostsPage({ message, filter = "" }) {
                 <>
                   {posts.results.length ? (
                     <InfiniteScroll
+                      className={styles.horizontalScroll}
                       children={posts.results.map((post) => (
-                        <PostSmall key={post.id} {...post} setPosts={setPosts} />
+                        <Container className={styles.postContainer} >
+                          <PostSmall key={post.id} {...post} setPosts={setPosts} />
+                        </Container>
                       ))}
                       dataLength={posts.results.length}
                       loader={<Asset spinner />}

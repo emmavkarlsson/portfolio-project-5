@@ -16,3 +16,14 @@
     cursor: default;
     color: #cfced3;
   }
+
+  .postContainer {
+    transform: scale(0.9);
+  }
+ 
+  .horizontalScroll {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+ 
