@@ -60,9 +60,10 @@ function ReportsCreateForm() {
         <Row>
             <Col className="my-auto p-0 p-md-2" md={6}>
                 <Container className={`${appStyles.Content} p-4 `}>
-                    <Form className="mt-2" onSubmit={handleSubmit}>
+                    <h4>Why do you wish to report this image?</h4>
+                    <Form className="mt-4" onSubmit={handleSubmit}>
                         <Form.Group>
-                            <Form.Label>Why do you wish to report this image?</Form.Label>
+                            <Form.Label>Select a reason for reporting: </Form.Label>
                             <select onChange={handleChange} name="report_reason" id="report_reason" value={report_reason}>
                                 <option value="spam">It's spam</option>
                                 <option value="hate_speech">Hate speech or symbols</option>
@@ -130,7 +131,7 @@ function ReportsCreateForm() {
             </Col>
             <Col
                 md={6}
-                className={`my-auto d-none d-md-block p-2 ${styles.SignInCol}`}
+                className="my-auto d-none d-md-block p-2"
             >
                 <Image
                     className={`${appStyles.FillerImage}`}
