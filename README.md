@@ -266,3 +266,17 @@ I have used the W3C Validator to validate my CSS. All CSS files came back with n
 | Popular Profiles | Click | Clicking follow makes the user follow a profile | Pass |
 | Popular Profiles | Click | Clicking unfollow makes the user unfollow the profile | Pass |
 | Popular Profiles | Display | No follow button appears next to my own profile | Pass |
+
+
+#### Feed Page
+|Feature  | Action | Expected result | Pass/Fail |
+|--|--|--|--|
+| Post | Display | Only posts by followed users shows up | Pass |
+| Search bar | Display | The display bar is displayed | Pass |
+| Search bar | Search | Only posts by followed users shows up | Pass |
+| Search bar | Search | The "no posts found" shows up if there's no match to the search | Pass |
+| Popular Profiles | Display | Popular profiles show up | Pass |
+| Popular Profiles | Click | The same functionality as on the Home Page works for Popular Profiles | Pass |
+| Post | Click | Clicking the Avatar/Username of the post owner sends me to the Profile Page of the user | Pass |
+| Post | Click | Clicking the heart, comment, saved and report icons works in the same way as on the Home Page | Pass |
+
