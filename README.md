@@ -427,3 +427,52 @@ I have used the W3C Validator to validate my CSS. All CSS files came back with n
 | Menu | Click | Clicking the pen opens the form and let's me type | Pass |
 | Update message | Click | Clicking cancel does not change the message and closes the form | Pass |
 | Update message | Click | Clicking update changes the message and closes the form | Pass |
+
+
+#### Create Report Page
+
+|Feature  | Action | Expected result | Pass/Fail |
+|--|--|--|--|
+| Form | Display | I can see a select dropdown for report reasons | Pass |
+| Form | Click | Clicking the select dropdown opens the different select options | Pass |
+| Form | Click | Clicking on a different option changes the report reason | Pass |
+| Form | Display | I can see a subject field and a message field | Pass |
+| Form | Click | I can type in the subject field and message field | Pass |
+| Button | Click | Clicking cancel takes me back to the page I last visited | Pass |
+| Button | Click | Clicking report submits the report | Pass |
+| Button | Click | Clicking report takes me to the home page | Pass |
+| Error | Display | I get an error alert if I don't supply a subject or a message | Pass |
+| Alert | Display | I get an alert when I have submitted the form, telling me my report has been sent for review | Pass |
+
+
+#### Reports List Page
+
+|Feature  | Action | Expected result | Pass/Fail |
+|--|--|--|--|
+| Form | Display | I can see a list of all my reports if I have any | Pass |
+| Form | Display | I can see the subject line of my sent reports | Pass |
+| Form | Display | I can see the message line of my sent reports | Pass |
+| Form | Display | I can see the Status of my sent reports | Pass |
+| Form | Display | I can see an edit icon | Pass |
+| Form | Display | I can see a trash can icon | Pass |
+| Form | Click | Clicking the edit icon takes me to the Edit Reports Page | Pass |
+| Form | Click | Clicking the trash can icon shows me a modal to confirm deletion | Pass |
+| Modal | Click | Clicking cancel does not delete my report | Pass |
+| Modal | Click | Clicking Delete deleted the report | Pass |
+| Alert | Display | I get an Alert when I delete my report informing me my report has been deleted | Pass |
+
+
+#### Edit Report Page
+
+|Feature  | Action | Expected result | Pass/Fail |
+|--|--|--|--|
+| Form | Display | I can see a select dropdown for report reasons where my reason is selected | Pass |
+| Form | Click | Clicking the select dropdown opens the different select options | Pass |
+| Form | Click | Clicking on a different option changes the report reason | Pass |
+| Form | Display | The subject and message field displays the information I had already provided | Pass |
+| Form | Click | I can type in the subject field and message field | Pass |
+| Button | Click | Clicking cancel takes me back to the reports list page | Pass |
+| Button | Click | Clicking update report updates my report | Pass |
+| Button | Click | Clicking update report takes me back to the reports list page and I can see my updated report | Pass |
+| Error | Display | I get an error alert if I delete the subject and/or message and don't provide new content | Pass |
+| Alert | Display | I get an alert when I have updated the form, telling me my report has been updated | Pass |
