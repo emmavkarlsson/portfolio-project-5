@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import styles from "../../styles/SignInUpForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
@@ -14,6 +14,7 @@ import {
 } from "react-bootstrap";
 import axios from "axios";
 import { useRedirect } from "../../hooks/useRedirect";
+import { AlertContext } from "../../context/AlertContext";
 
 const SignUpForm = () => {
     useRedirect('loggedIn');
@@ -25,6 +26,7 @@ const SignUpForm = () => {
     const { username, password1, password2 } = signUpData;
 
     const [errors, setErrors] = useState({});
+    const { setAlert } = useContext(AlertContext);
 
     const history = useHistory();
 
@@ -40,6 +42,7 @@ const SignUpForm = () => {
         try {
             await axios.post("/dj-rest-auth/registration/", signUpData);
             history.push("/signin");
+            setAlert("Your account has been created!");
         } catch (err) {
             setErrors(err.response?.data);
         }

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import axios from "axios";
 
 import Form from "react-bootstrap/Form";
@@ -16,6 +16,7 @@ import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 import { useSetCurrentUser } from "../../context/CurrentUserContext";
 import { useRedirect } from "../../hooks/useRedirect";
+import { AlertContext } from "../../context/AlertContext";
 
 function SignInForm() {
     useRedirect('loggedIn');
@@ -29,6 +30,7 @@ function SignInForm() {
     const { username, password } = signInData;
 
     const [errors, setErrors] = useState({});
+    const { setAlert } = useContext(AlertContext);
 
     const history = useHistory();
     const handleSubmit = async (event) => {
@@ -37,6 +39,7 @@ function SignInForm() {
             const {data} = await axios.post("/dj-rest-auth/login/", signInData);
             setCurrentUser(data.user)
             history.goBack();
+            setAlert("You've been logged in!");
         } catch (err) {
             setErrors(err.response?.data);
         }
