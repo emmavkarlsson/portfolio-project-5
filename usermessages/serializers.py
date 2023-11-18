@@ -11,7 +11,9 @@ class UserMessageSerializer(serializers.ModelSerializer):
         source="receiver.profile.image.url"
     )
     receiver_username = serializers.ReadOnlyField(source="receiver.username")
-    receiver_profile_id = serializers.ReadOnlyField(source="receiver.profile.id")
+    receiver_profile_id = serializers.ReadOnlyField(
+        source="receiver.profile.id"
+        )
 
     def get_is_owner(self, obj):
         request = self.context["request"]
