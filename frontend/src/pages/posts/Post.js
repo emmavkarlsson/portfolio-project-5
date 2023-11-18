@@ -1,12 +1,19 @@
-import React, { useState, useContext } from 'react';
-import styles from "../../styles/Post.module.css";
-import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
+// React imports
+import React, { useState, useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
-import Avatar from "../../components/Avatar";
-import { useCurrentUser } from '../../context/CurrentUserContext';
-import { axiosRes } from "../../api/axiosDefaults";
-import { MoreDropdown } from '../../components/MoreDropdown';
+
+// React Bootstrap imports
+import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Modal, Button } from "react-bootstrap";
+
+// Styling imports
+import styles from "../../styles/Post.module.css";
+
+// Other imports
+import Avatar from "../../components/Avatar";
+import { useCurrentUser } from "../../context/CurrentUserContext";
+import { axiosRes } from "../../api/axiosDefaults";
+import { MoreDropdown } from "../../components/MoreDropdown";
 import { AlertContext } from "../../context/AlertContext";
 
 const Post = (props) => {
@@ -86,9 +93,7 @@ const Post = (props) => {
       setPosts((prevPosts) => ({
         ...prevPosts,
         results: prevPosts.results.map((post) => {
-          return post.id === id
-            ? { ...post, save_post_id: data.id }
-            : post;
+          return post.id === id ? { ...post, save_post_id: data.id } : post;
         }),
       }));
     } catch (err) {}
@@ -102,9 +107,7 @@ const Post = (props) => {
       setPosts((prevPosts) => ({
         ...prevPosts,
         results: prevPosts.results.map((post) => {
-          return post.id === id
-            ? { ...post, save_post_id: null }
-            : post;
+          return post.id === id ? { ...post, save_post_id: null } : post;
         }),
       }));
     } catch (err) {}
@@ -114,7 +117,7 @@ const Post = (props) => {
 
   const handleReportPost = () => {
     history.push({
-      pathname: (`/createreport/posts/${id}`),
+      pathname: `/createreport/posts/${id}`,
       state: { post_id: id },
     });
   };
@@ -139,8 +142,7 @@ const Post = (props) => {
         </Media>
       </Card.Body>
       <Link to={`/posts/${id}`}>
-        <Card.Img src={image} alt={title}
-        />
+        <Card.Img src={image} alt={title} />
       </Link>
 
       {/* Let's users report posts */}
@@ -221,7 +223,9 @@ const Post = (props) => {
               </span>
             ) : currentUser ? (
               <span onClick={handleSavePost}>
-                <i className={`fa-regular fa-bookmark ${styles.BookmarkOutline}`} />
+                <i
+                  className={`fa-regular fa-bookmark ${styles.BookmarkOutline}`}
+                />
               </span>
             ) : (
               <OverlayTrigger
@@ -240,8 +244,12 @@ const Post = (props) => {
 
       {/* Modal to confirm deletion of post */}
 
-      <Modal show={showConfirmDelete} onHide={() => setShowConfirmDelete(false)}>
-        <Modal.Body className="text-center">Are you sure you want to delete?
+      <Modal
+        show={showConfirmDelete}
+        onHide={() => setShowConfirmDelete(false)}
+      >
+        <Modal.Body className="text-center">
+          Are you sure you want to delete?
         </Modal.Body>
         <Modal.Footer className="justify-content-center">
           <Button
@@ -250,10 +258,7 @@ const Post = (props) => {
           >
             Cancel
           </Button>
-          <Button
-            variant="danger"
-            onClick={confirmDelete}
-          >
+          <Button variant="danger" onClick={confirmDelete}>
             Delete
           </Button>
         </Modal.Footer>

@@ -1,28 +1,29 @@
+// React imports
 import React, { useEffect, useState } from "react";
+import InfiniteScroll from "react-infinite-scroll-component";
+import { useLocation } from "react-router-dom";
 
+// React Bootstrap imports
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 
-import Post from "./Post";
-import PostSmall from "./PostSmall";
-import Asset from "../../components/Asset";
-
+// Styling imports
 import appStyles from "../../App.module.css";
 import styles from "../../styles/PostsPage.module.css";
 
-import { useLocation } from "react-router-dom";
+// Other imports
 import { axiosReq } from "../../api/axiosDefaults";
-
-import NoResults from "../../assets/no-results.png";
-import InfiniteScroll from "react-infinite-scroll-component";
-import { fetchMoreData } from "../../utils/utils";
-import PopularProfiles from "../profiles/PopularProfiles";
 import { useCurrentUser } from "../../context/CurrentUserContext";
+import { fetchMoreData } from "../../utils/utils";
+import Post from "./Post";
+import PostSmall from "./PostSmall";
+import Asset from "../../components/Asset";
+import NoResults from "../../assets/no-results.png";
+import PopularProfiles from "../profiles/PopularProfiles";
 
 function PostsPage({ message, filter = "" }) {
-
   const [posts, setPosts] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
@@ -36,7 +37,7 @@ function PostsPage({ message, filter = "" }) {
         const { data } = await axiosReq.get(`/posts/?${filter}search=${query}`);
         setPosts(data);
         setHasLoaded(true);
-      } catch (err) { }
+      } catch (err) {}
     };
 
     setHasLoaded(false);
@@ -104,7 +105,6 @@ function PostsPage({ message, filter = "" }) {
     <>
       <div className={styles.heroImage}>
         <div className={appStyles.Main}>
-
           <Container className={styles.displayFlex}>
             <Row className="h-50">
               <Col>
@@ -139,8 +139,12 @@ function PostsPage({ message, filter = "" }) {
                       <InfiniteScroll
                         className={styles.horizontalScroll}
                         children={posts.results.map((post) => (
-                          <Container className={styles.postContainer} >
-                            <PostSmall key={post.id} {...post} setPosts={setPosts} />
+                          <Container className={styles.postContainer}>
+                            <PostSmall
+                              key={post.id}
+                              {...post}
+                              setPosts={setPosts}
+                            />
                           </Container>
                         ))}
                         dataLength={posts.results.length}
@@ -167,11 +171,7 @@ function PostsPage({ message, filter = "" }) {
     </>
   );
 
-  return (
-    <div>
-      {!currentUser ? loggedOutView : loggedInView}
-    </div>
-  );
+  return <div>{!currentUser ? loggedOutView : loggedInView}</div>;
 }
 
 export default PostsPage;

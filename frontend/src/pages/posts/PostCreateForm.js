@@ -1,5 +1,8 @@
+// React imports
 import React, { useRef, useState, useContext } from "react";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
+// React Bootstrap imports
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
@@ -8,21 +11,20 @@ import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
 import Image from "react-bootstrap/Image";
 
-import Asset from "../../components/Asset";
-
-import Upload from "../../assets/upload.png";
-
+// Styling imports
 import styles from "../../styles/PostCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+// Other imports
+import Asset from "../../components/Asset";
+import Upload from "../../assets/upload.png";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useRedirect } from "../../hooks/useRedirect";
 import { AlertContext } from "../../context/AlertContext";
 
 function PostCreateForm() {
-  useRedirect('loggedOut');
+  useRedirect("loggedOut");
   const [errors, setErrors] = useState({});
   const { setAlert } = useContext(AlertContext);
 
@@ -111,7 +113,10 @@ function PostCreateForm() {
       >
         cancel
       </Button>
-      <Button className={`${btnStyles.Button} ${btnStyles.Brown}`} type="submit">
+      <Button
+        className={`${btnStyles.Button} ${btnStyles.Brown}`}
+        type="submit"
+      >
         create
       </Button>
     </div>
