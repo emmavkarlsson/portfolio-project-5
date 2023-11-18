@@ -53,9 +53,10 @@
   } */
 
   .heroImage {
-    height: 100%;
+    height: 100vh;
     width: 100vw;
-    background-color: #efede6;
+    background: url(https://res.cloudinary.com/emmavkarlsson/image/upload/v1700300462/hero-image_aedohm.png) no-repeat center center fixed;
+    background-size: cover;
   }
 
   .displayFlex {
