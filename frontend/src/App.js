@@ -19,6 +19,7 @@ import ReportsCreateForm from './pages/reports/ReportsCreateForm';
 import ReportsList from './pages/reports/ReportsList';
 import ReportEditForm from './pages/reports/ReportsEditForm';
 import UserMessagesList from './pages/usermessages/UserMessageList';
+import NotFound from './components/NotFound';
 
 function App() {
   const currentUser = useCurrentUser();
@@ -91,7 +92,7 @@ function App() {
         <Route path="/reports/:id/edit" render={() => <Container className={styles.Main}><ReportEditForm /></Container>} />
         <Route exact path="/reports/" render={() => <Container className={styles.Main}><ReportsList /></Container>} />
 
-        <Route render={() => <Container className={styles.Main}><p>Page not found!</p></Container>} />
+        <Route render={() => <Container className={styles.Main}><NotFound /></Container>} />
       </Switch>
     </div>
   );
