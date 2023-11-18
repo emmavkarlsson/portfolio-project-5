@@ -950,3 +950,40 @@ All python files have been tested using the CI Python Linter, and came back with
 <summary>views.py</summary>
 <img src="documentation/testing/validation/python/usermessages/views.png">
 </details>
+
+### Manual testing
+#### Comments
+|Feature  | Action | Expected result | Pass/Fail |
+|--|--|--|--|
+| Comments | using api/comments | I can see all comments | Pass |
+| Comments | using api/comments/{id} | I can see a specific comment | Pass |
+| Comments | using api/comments/ | I can see is_owner:True to a comment I have created | Pass |
+| Comments | using api/comments/ | I can see is_owner:False to a comment I have not created | Pass |
+| Comments | using api/comments/ | I can see the comment owner | Pass |
+| Comments | using api/comments/ | I can see the the profile id of the comments owner | Pass |
+| Comments | using api/comments/ | I can when a comment was created and updated | Pass |
+| Comments | using api/comments/ | I can see what post the comment is left on | Pass |
+| Comments | using api/comments/ | I can see the content of the comment | Pass |
+| Comments | using api/comments/ | Updated_at changes when the comment is updated | Pass |
+| Comments | using api/comments/ | The content of the comment changes when the comment is updated | Pass |
+| Comments | using api/comments/ | The comment is removed when the comment is deleted | Pass |
+| Comments | using api/comments/id | Detail not found is displayed when the comment has been deleted | Pass |
+
+#### Posts
+|Feature  | Action | Expected result | Pass/Fail |
+|--|--|--|--|
+| Posts | using api/posts | I can see all posts | Pass |
+| Posts | using api/posts/{id} | I can see a specific post | Pass |
+| Posts| using api/posts/ | I can see is_owner:True to a post I have created | Pass |
+| Posts | using api/posts/ | I can see is_owner:False to a post I have not created | Pass |
+| Posts | using api/posts/ | I can see the post owner | Pass |
+| Posts | using api/posts/ | I can see the the profile id of the posts´ owner | Pass |
+| Posts | using api/posts/ | I can when a post was created and updated | Pass |
+| Posts | using api/posts/ | I can see the title of the post | Pass |
+| Posts | using api/posts/ | I can see the content of the post | Pass |
+| Posts | using api/posts/ | Updated_at changes when the post is updated | Pass |
+| Posts | using api/posts/ | The title of the post changes when the title is updated | Pass |
+| Posts | using api/posts/ | The content of the post changes when the content is updated | Pass |
+| Posts | using api/posts/ | The image url of the post changes when the image is updated | Pass |
+| Posts | using api/posts/ | The post is removed when the post is deleted | Pass |
+| Posts | using api/posts/id | Detail not found is displayed when the post has been deleted | Pass |
