@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import { useHistory, useParams } from "react-router-dom";
 
 import Form from "react-bootstrap/Form";
@@ -17,6 +17,7 @@ import {
 
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
+import { AlertContext } from "../../context/AlertContext";
 
 const ProfileEditForm = () => {
     const currentUser = useCurrentUser();
@@ -33,6 +34,7 @@ const ProfileEditForm = () => {
     const { name, content, image } = profileData;
 
     const [errors, setErrors] = useState({});
+    const { setAlert } = useContext(AlertContext);
 
     useEffect(() => {
         const handleMount = async () => {
@@ -76,6 +78,7 @@ const ProfileEditForm = () => {
                 profile_image: data.image,
             }));
             history.goBack();
+            setAlert("Your profile has been updated!");
         } catch (err) {
             setErrors(err.response?.data);
         }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 import Alert from "react-bootstrap/Alert";
 import Button from "react-bootstrap/Button";
@@ -16,10 +16,12 @@ import {
 
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
+import { AlertContext } from "../../context/AlertContext";
 
 const UsernameForm = () => {
   const [username, setUsername] = useState("");
   const [errors, setErrors] = useState({});
+  const { setAlert } = useContext(AlertContext);
 
   const history = useHistory();
   const { id } = useParams();
@@ -46,6 +48,7 @@ const UsernameForm = () => {
         username,
       }));
       history.goBack();
+      setAlert("Your username was changed!");
     } catch (err) {
       setErrors(err.response?.data);
     }

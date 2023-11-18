@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import { useHistory, useParams } from "react-router-dom";
 
 import Form from "react-bootstrap/Form";
@@ -17,6 +17,7 @@ import {
 
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
+import { AlertContext } from "../../context/AlertContext";
 
 const EditCoverImageForm = () => {
     const currentUser = useCurrentUser();
@@ -31,6 +32,7 @@ const EditCoverImageForm = () => {
     const { cover_image } = profileData;
 
     const [errors, setErrors] = useState({});
+    const { setAlert } = useContext(AlertContext);
 
     useEffect(() => {
         const handleMount = async () => {
@@ -66,6 +68,7 @@ const EditCoverImageForm = () => {
                 profile_cover_image: data.cover_image,
             }));
             history.goBack();
+            setAlert("Your cover photo has been updated!");
         } catch (err) {
             setErrors(err.response?.data);
         }

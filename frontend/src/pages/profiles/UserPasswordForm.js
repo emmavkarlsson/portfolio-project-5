@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 import Alert from "react-bootstrap/Alert";
 import Button from "react-bootstrap/Button";
@@ -13,6 +13,7 @@ import { useCurrentUser } from "../../context/CurrentUserContext";
 
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
+import { AlertContext } from "../../context/AlertContext";
 
 const UserPasswordForm = () => {
     const history = useHistory();
@@ -26,6 +27,7 @@ const UserPasswordForm = () => {
     const { new_password1, new_password2 } = userData;
 
     const [errors, setErrors] = useState({});
+    const { setAlert } = useContext(AlertContext);
 
     const handleChange = (event) => {
         setUserData({
@@ -46,6 +48,7 @@ const UserPasswordForm = () => {
         try {
             await axiosRes.post("/dj-rest-auth/password/change/", userData);
             history.goBack();
+            setAlert("Your password has been changed!");
         } catch (err) {
             setErrors(err.response?.data);
         }
