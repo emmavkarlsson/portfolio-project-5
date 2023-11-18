@@ -12,6 +12,7 @@ import { toast } from "react-toastify";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AlertContext } from "../context/AlertContext";
+import { removeTokenTimestamp } from "../utils/utils";
 
 const NavBar = () => {
 
@@ -33,6 +34,7 @@ const NavBar = () => {
       await axios.post("dj-rest-auth/logout/");
       history.push("/");
       setCurrentUser(null);
+      removeTokenTimestamp();
     } catch (err) {
       console.log(err);
     } setShowConfirmSignout(false)
