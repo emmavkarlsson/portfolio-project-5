@@ -220,11 +220,72 @@ The update password page is a simple page with a two field form, where users can
 Components are extremely handy to use, as every react component acts separately and you can import the component wherever you like. This means, you can change a part of your code in one place, and don't have to do the same update in multiple different files. This also means you can use the same component in each area of the app and change the individual pieces. Updates become more streamlined, reducing the overall update workload and enhancing efficiency. It also makes it a lot easier to fix errors, as you only have to fix it in one place. 
 
 I have a couple different components that I have separated into their own files and then reused on other pages. These are:
-* Navbar - the navbar is a component that is used on all pages across the platform.
-* Avatar - the avatar is displayed on Posts, People's profiles, in Comments, Messages, the Popular Profiles as well as in the Navbar.
-* MoreDropDown - the MoreDropDown component is used on Posts, in the Profile, on Sent Messages, Reports and Comments.
-* Asset - the asset is a spinner which is used when something is loading. It is used on the Home Page, Posts Page and Profile Page when loading posts, Messages Page when loading messages and on the Reports Page when loading reports. 
+* Navbar
+	* Is used on all pages on the platform
+* Avatar - the avatar is displayed on 
+	* Posts
+	* Profile page
+	* Comments
+	* Messages
+	* Popular Profiles
+	* Navbar.
+* MoreDropDown - the MoreDropDown component is used on
+	* Posts
+	* Profile
+	* Sent Messages
+	* Comments.
+* Asset - the asset is a spinner which is used when something is loading. It is used on the
+	* Home Page when loading posts
+	* Posts Page when loading posts
+	* Profile Page when loading posts
+	* Messages Page when loading messages
+	* Reports Page when loading reports. 
 
+<details>
+<summary>Navbar component</summary>
+<img src="documentation/images/navbar_loggedin.png">
+</details>
+<details>
+<summary>Avatar component post</summary>
+<img src="documentation/images/avatarcomponent_post.png">
+</details>
+<details>
+<summary>Avatar component profile</summary>
+<img src="documentation/images/avatarcomponent_profile.png">
+</details>
+<details>
+<summary>Avatar component comment</summary>
+<img src="documentation/images/avatarcomponent_comment.png">
+</details>
+<details>
+<summary>Avatar component messages</summary>
+<img src="documentation/images/avatarcomponent_messages.png">
+</details>
+<details>
+<summary>Avatar component popular profiles</summary>
+<img src="documentation/images/avatarcomponent_popularprofiles.png">
+</details>
+<details>
+<summary>More dropdown component profile</summary>
+<img src="documentation/images/moredropdown_profile.png">
+</details>
+<details>
+<summary>More dropdown component comment</summary>
+<img src="documentation/images/moredropdown_comment.png">
+</details>
+<details>
+<summary>More dropdown component messages</summary>
+<img src="documentation/images/moredropdown__messages.png">
+</details>
+<details>
+<summary>More dropdown component posts</summary>
+<img src="documentation/images/moredropdown_post.png">
+</details>
+<details>
+<summary>Asset spinner</summary>
+<img src="documentation/images/asset.png">
+</details>
+<br>
 Besides from these, I have multiple other components like Popular Profiles, which is imported to the Home Page as well as the Profile Page (when viewing someone else's profile).
 
 ## Testing
