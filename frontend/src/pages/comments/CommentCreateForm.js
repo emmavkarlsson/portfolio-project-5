@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 
 import Form from "react-bootstrap/Form";
@@ -9,10 +9,12 @@ import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
 import btnStyles from "../../styles/Button.module.css";
 import { Button } from "react-bootstrap";
+import { AlertContext } from "../../context/AlertContext";
 
 function CommentCreateForm(props) {
     const { post, setPost, setComments, profileImage, profile_id } = props;
     const [content, setContent] = useState("");
+    const { setAlert } = useContext(AlertContext);
 
     const handleChange = (event) => {
         setContent(event.target.value);
@@ -38,7 +40,8 @@ function CommentCreateForm(props) {
                 ],
             }));
             setContent("");
-        } catch (err) {}
+        } catch (err) { }
+        setAlert("Your comment was created!");
     };
 
     return (

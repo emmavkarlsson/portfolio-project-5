@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Media, Modal, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
@@ -7,6 +7,7 @@ import { useCurrentUser } from "../../context/CurrentUserContext";
 import { MoreDropdown } from "../../components/MoreDropdown";
 import { axiosRes } from "../../api/axiosDefaults";
 import CommentEditForm from "./CommentEditForm";
+import { AlertContext } from "../../context/AlertContext";
 
 const Comment = (props) => {
     const {
@@ -22,6 +23,7 @@ const Comment = (props) => {
 
     const [showEditForm, setShowEditForm] = useState(false);
     const [showConfirmDelete, setShowConfirmDelete] = useState(false);
+    const { setAlert } = useContext(AlertContext);
 
     const currentUser = useCurrentUser();
     const is_owner = currentUser?.username === owner;
@@ -47,6 +49,7 @@ const Comment = (props) => {
                 results: prevComments.results.filter((comment) => comment.id !== id),
             }));
         } catch (err) { }
+        setAlert("Your comment has been deleted!");
     };
 
     return (
