@@ -26,7 +26,9 @@ class Reports(models.Model):
     report_status = models.CharField(
         max_length=15, choices=REPORT_STATUS, default="awaiting_review"
     )
-    report_reason = models.CharField(max_length=25, choices=REPORT_REASON_CHOICES)
+    report_reason = models.CharField(
+        max_length=25, choices=REPORT_REASON_CHOICES
+        )
     post = models.ForeignKey(
         Post, related_name="reports", on_delete=models.CASCADE, null=True
     )
