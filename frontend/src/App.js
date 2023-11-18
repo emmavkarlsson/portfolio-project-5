@@ -69,6 +69,14 @@ function App() {
             </Container>
           )}
         />
+        <Route exact
+          path="/usermessages/"
+          render={() => (
+            <Container className={styles.Main}>
+              <UserMessagesList message="You don't have any messages."
+              />
+            </Container>)}
+        />
         <Route exact path="/signin" render={() => <Container className={styles.Main}><SignInForm /></Container>} />
         <Route exact path="/signup" render={() => <Container className={styles.Main}><SignUpForm /></Container>} />
         <Route exact path="/posts/create" render={() => <Container className={styles.Main}><PostCreateForm /></Container>} />
@@ -79,7 +87,6 @@ function App() {
         <Route exact path="/profiles/:id/edit/password" render={() => <Container className={styles.Main}><UserPasswordForm /></Container>} />
         <Route exact path="/profiles/:id/edit" render={() => <Container className={styles.Main}><ProfileEditForm /></Container>} />
         <Route exact path="/profiles/:id/edit_cover_image" render={() => <Container className={styles.Main}><EditCoverImageForm /></Container>} />
-        <Route exact path="/usermessages/" render={() => <Container className={styles.Main}><UserMessagesList /></Container>} />
         <Route path="/createreport/posts/:id" render={() => <Container className={styles.Main}><ReportsCreateForm /></Container>} />
         <Route path="/reports/:id/edit" render={() => <Container className={styles.Main}><ReportEditForm /></Container>} />
         <Route exact path="/reports/" render={() => <Container className={styles.Main}><ReportsList /></Container>} />

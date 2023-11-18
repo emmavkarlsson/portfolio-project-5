@@ -35,16 +35,16 @@ function UserMessagesList({ message }) {
 
     return (
         <div>
+            <Row className="mt-3 mb-3 text-center">
+                <Col>
+                    <h3>My messages</h3>
+                </Col>
+            </Row>
             {hasLoaded ? (
                 <>
                     {userMessages.results.length ? (
                         <>
                             <Container>
-                                <Row className="mt-3 mb-3 text-center">
-                                    <Col>
-                                        <h3>My messages</h3>
-                                    </Col>
-                                </Row>
                                 <Row className={styles.flexRow}>
                                     {/* displays the messages the user has sent */}
                                     <Col lg={6} className="mt-2">
@@ -102,8 +102,5 @@ function UserMessagesList({ message }) {
         </div>
     );
 }
-
-
-
 
 export default UserMessagesList;
