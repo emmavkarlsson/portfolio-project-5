@@ -123,8 +123,8 @@ Besides from these, I have multiple other components like Popular Profiles, whic
 I have used the W3C Code Validator to test my HTML. The results showed no errors or warnings, but 9 info messages all informing about trailing slashes.
 <details>
 <summary>W3C HTML Validation</summary>
-<img src="documentation/testing/validation/html1.png">
-<img src="documentation/testing/validation/html2.png">
+<img src="documentation/testing/validation/html/html1.png">
+<img src="documentation/testing/validation/html/html2.png">
 </details>
 
 #### CSS
@@ -315,6 +315,8 @@ I have used the W3C Validator to validate my CSS. All CSS files came back with n
 | Dropdown | Click | Clicking the edit icon leads me to the edit post page | Pass |
 | Dropdown | Click | Clicking the trash icon lets me delete my comment | Pass |
 | Post | Display/Click | All other functionality displays and works as on the home page | Pass |
+| Alert | Display | I can see an Alert when I update my comment saying my comment has been updated | Pass |
+| Alert | Display | I can see an Alert when I delete my comment saying my comment has been deleted | Pass |
 
 
 #### Create post page
@@ -427,6 +429,8 @@ I have used the W3C Validator to validate my CSS. All CSS files came back with n
 | Menu | Click | Clicking the pen opens the form and let's me type | Pass |
 | Update message | Click | Clicking cancel does not change the message and closes the form | Pass |
 | Update message | Click | Clicking update changes the message and closes the form | Pass |
+| Alert | Display | I can see an Alert when I save informing me my message has been updated | Pass |
+| Alert | Display | I can see an Alert when I delete informing me my message has been deleted | Pass |
 
 
 #### Create Report Page
@@ -491,6 +495,7 @@ I have used the W3C Validator to validate my CSS. All CSS files came back with n
 | Button | Click | Clicking cancel takes me back to my profile page | Pass |
 | Button | Click | Clicking save takes me back to my profile page | Pass |
 | Button | Click | Clicking save updates my profile if I have made changes | Pass |
+| Alert | Display | I can see an Alert when I save informing me my profile has been changed | Pass |
 
 
 #### Edit Cover Photo
@@ -504,6 +509,7 @@ I have used the W3C Validator to validate my CSS. All CSS files came back with n
 | Button | Click | Clicking cancel takes me back to my profile page | Pass |
 | Button | Click | Clicking save takes me back to my profile page | Pass |
 | Button | Click | Clicking save updates my cover photo if I have made changes | Pass |
+| Alert | Display | I can see an Alert when I save informing me my photo has been changed | Pass |
 
 
 #### Change username
@@ -516,6 +522,7 @@ I have used the W3C Validator to validate my CSS. All CSS files came back with n
 | Button | Click | Clicking save takes me back to my profile page | Pass |
 | Button | Click | Clicking save updates username | Pass |
 | Error | Display | I get an error if the username I have chosen doesn't meet the requirements | Pass |
+| Alert | Display | I can see an Alert when I submit informing me my username has been changed | Pass |
 
 
 #### Change password
@@ -529,3 +536,31 @@ I have used the W3C Validator to validate my CSS. All CSS files came back with n
 | Button | Click | Clicking save takes me back to my profile page | Pass |
 | Button | Click | Clicking save updates username | Pass |
 | Error | Display | I get an error if passwords don't match or don't meet the requirements | Pass |
+| Alert | Display | I can see an Alert informing me that my password has changed | Pass |
+
+
+#### Sign in page
+
+|Feature  | Action | Expected result | Pass/Fail |
+|--|--|--|--|
+| Form | Display | I can see a username and password field | Pass |
+| Form | Click | I can type in the username and password field | Pass |
+| Error | Display | If the username or password is not correct, I can see an error | Pass |
+| Link | Click | Clicking the Sign Up Now link takes me to the sign up page | Pass |
+| Button | Click | Clicking "sign in" signs me in if I have provided correct credentials | Pass |
+| Button | Click | Clicking "sign in" sends me to the Home page | Pass |
+| Alert | Display | I can see an Alert when I sign in informing me I have been signed in | Pass |
+
+
+#### Sign up page
+
+|Feature  | Action | Expected result | Pass/Fail |
+|--|--|--|--|
+| Form | Display | I can see a username and password field | Pass |
+| Form | Display | I can see a confirm field | Pass |
+| Form | Click | I can type in all the fields | Pass |
+| Error | Display | If the passwords don't match, I can see an error message | Pass |
+| Link | Click | Clicking the Sign In link takes me to the sign in page | Pass |
+| Button | Click | Clicking "sign up" signs me up if I have provided correct credentials | Pass |
+| Button | Click | Clicking "sign up" sends me to the Sign In | Pass |
+| Alert | Display | I can see an Alert when I sign up informing me that my account has been created | Pass |
