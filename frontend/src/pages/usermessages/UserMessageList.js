@@ -8,19 +8,13 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 import styles from "../../styles/UserMessage.module.css";
 
-
 import UserMessage from "./UserMessage";
 import { Card, Col, Row } from "react-bootstrap";
 
-
-
-
 function UserMessagesList({ message }) {
-
 
     const [userMessages, setUserMessages] = useState({ results: [] });
     const [hasLoaded, setHasLoaded] = useState(false);
-
 
     useEffect(() => {
         const fetchUserMessages = async () => {
@@ -38,9 +32,6 @@ function UserMessagesList({ message }) {
             clearTimeout(timer);
         };
     }, []);
-
-
-
 
     return (
         <div>

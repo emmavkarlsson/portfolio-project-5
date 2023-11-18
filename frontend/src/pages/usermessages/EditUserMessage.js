@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import btnStyles from "../../styles/Button.module.css";
 import { axiosRes } from "../../api/axiosDefaults";
+import { AlertContext } from "../../context/AlertContext";
 
 function EditUserMessage(props) {
     const { id, content, setShowEditForm, setUserMessages } = props;
 
     const [formContent, setFormContent] = useState(content);
+    const { setAlert } = useContext(AlertContext);
 
     const handleChange = (event) => {
         setFormContent(event.target.value);
@@ -20,29 +22,29 @@ function EditUserMessage(props) {
             // Fetch the current state of the usermessage
             const response = await axiosRes.get(`/usermessages/${id}/`);
             const currentUsermessage = response.data;
-      
-            // Update the usermessage
+
+            // Updates the usermessage
             await axiosRes.put(`/usermessages/${id}/`, {
                 ...currentUsermessage,
                 content: formContent.trim(),
             });
-      
-            // Update the local state
+
+            // Updates the local state
             setUserMessages((prevUserMessages) => ({
                 ...prevUserMessages,
                 results: prevUserMessages.results.map((usermessage) => {
                     return usermessage.id === id
-                      ? {
-                          ...usermessage,
-                          content: formContent.trim(),
-                      }
-                      : usermessage;
+                        ? {
+                            ...usermessage,
+                            content: formContent.trim(),
+                        }
+                        : usermessage;
                 }),
             }));
-      
             setShowEditForm(false);
-        } catch (err) {}
-      };
+            setAlert("Your message has been updated!");
+        } catch (err) { }
+    };
 
     return (
         <Form onSubmit={handleSubmit}>
