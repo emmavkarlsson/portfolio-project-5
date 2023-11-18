@@ -24,9 +24,8 @@ import { AlertContext } from "../../context/AlertContext";
 import { setTokenTimestamp } from "../../utils/utils";
 
 function SignInForm() {
-  useRedirect("loggedIn");
-
   const setCurrentUser = useSetCurrentUser();
+  useRedirect("loggedIn");
 
   const [signInData, setSignInData] = useState({
     username: "",

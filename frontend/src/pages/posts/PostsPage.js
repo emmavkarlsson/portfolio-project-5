@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { useLocation } from "react-router-dom";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 // React Bootstrap imports
 import Form from "react-bootstrap/Form";
@@ -23,13 +24,21 @@ import Asset from "../../components/Asset";
 import NoResults from "../../assets/no-results.png";
 import PopularProfiles from "../profiles/PopularProfiles";
 
-function PostsPage({ message, filter = "" }) {
+function PostsPage({ message, filter = "", secure="false" }) {
   const [posts, setPosts] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
+  const history = useHistory();
 
   const [query, setQuery] = useState("");
   const currentUser = useCurrentUser();
+  if (
+    secure === "true"
+  ) {
+    if (!currentUser) {
+      history.push("/signin");
+    }
+  }
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -116,6 +125,7 @@ function PostsPage({ message, filter = "" }) {
                   <Form.Control
                     value={query}
                     onChange={(event) => setQuery(event.target.value)}
+                    id="global-searchbar"
                     type="text"
                     className="mr-sm-2"
                     placeholder="Search posts"
@@ -139,9 +149,8 @@ function PostsPage({ message, filter = "" }) {
                       <InfiniteScroll
                         className={styles.horizontalScroll}
                         children={posts.results.map((post) => (
-                          <Container className={styles.postContainer}>
+                          <Container className={styles.postContainer} key={post.id}>
                             <PostSmall
-                              key={post.id}
                               {...post}
                               setPosts={setPosts}
                             />
