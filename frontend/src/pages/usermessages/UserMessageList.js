@@ -16,10 +16,13 @@ import NoResults from "../../assets/no-results.png";
 import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
 import UserMessage from "./UserMessage";
+import { useAuthorized } from "../../hooks/useAuthorized";
 
 function UserMessagesList({ message }) {
   const [userMessages, setUserMessages] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
+
+  useAuthorized();
 
   useEffect(() => {
     const fetchUserMessages = async () => {
