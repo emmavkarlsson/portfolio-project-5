@@ -4,6 +4,29 @@ PhotoStream is a dynamic photosharing website that let's users share images with
 
 Deployed project: [Link](https://evk-pp5-cf55770a5b07.herokuapp.com/).
 
+---
+## Table of Contents
+
+ - ## [Introduction](#introduction-1)
+
+ - ## [Table of Contents](#table-of-contents-1)
+
+ - ## [UX](#UX-1)
+
+ - ## [Features](#features-1)
+
+ - ## [Reusable Components](#reusable-components-1)
+    
+- ## [Testing Frontend](#testing-frontend-1)
+    - ## [Automated testing](#automated-testing-2)
+    - ## [Manual Testing](#manual-testing-2)
+
+- ## [Testing Backend](#testing-backend-1)
+    - ## [Automated testing](#automated-testing-3)
+    - ## [Manual Testing](#manual-testing-3)
+
+---
+
 ## Design
 ### Colors
 I have chosen 3 main colors for my page, these are:
