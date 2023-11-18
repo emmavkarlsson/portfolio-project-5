@@ -1,21 +1,32 @@
+// React imports
 import React, { useContext, useEffect, useState } from "react";
-import { Container, Navbar, Nav, Modal, Button } from "react-bootstrap";
-import axios from "axios";
-import logo from "../assets/photostream-logo-simple.png";
-import styles from "../styles/NavBar.module.css";
-import { NavLink } from "react-router-dom";
-import { useCurrentUser, useSetCurrentUser } from "../context/CurrentUserContext";
-import Avatar from "./Avatar";
-import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { NavLink } from "react-router-dom";
+
+// React Bootstrap imports
+import { Container, Navbar, Nav, Modal, Button } from "react-bootstrap";
+
+// Styling imports
+import styles from "../styles/NavBar.module.css";
+
+// Toastify imports
 import { toast } from "react-toastify";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
+// Other imports
+import {
+  useCurrentUser,
+  useSetCurrentUser,
+} from "../context/CurrentUserContext";
+import axios from "axios";
+import logo from "../assets/photostream-logo-simple.png";
+import Avatar from "./Avatar";
+import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 import { AlertContext } from "../context/AlertContext";
 import { removeTokenTimestamp } from "../utils/utils";
 
 const NavBar = () => {
-
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
   const history = useHistory();
@@ -37,7 +48,8 @@ const NavBar = () => {
       removeTokenTimestamp();
     } catch (err) {
       console.log(err);
-    } setShowConfirmSignout(false)
+    }
+    setShowConfirmSignout(false);
   };
 
   const addPostIcon = (
@@ -48,7 +60,7 @@ const NavBar = () => {
     >
       <i className="far fa-plus-square"></i>Add post
     </NavLink>
-  )
+  );
 
   const loggedInIcons = (
     <>
@@ -66,21 +78,18 @@ const NavBar = () => {
       >
         <i className="fa-solid fa-message"></i>Messages
       </NavLink>
-      <NavLink
-        className={styles.NavLink}
-        onClick={handleSignout}
-        to="/"
-      >
+      <NavLink className={styles.NavLink} onClick={handleSignout} to="/">
         <i className="fas fa-sign-out-alt"></i>Sign out
       </NavLink>
-      <NavLink
-      to={`/profiles/${currentUser?.profile_id}`}
-    >
-      <Avatar src={currentUser?.profile_image} text={currentUser?.username} height={40} />
-    </NavLink>
+      <NavLink to={`/profiles/${currentUser?.profile_id}`}>
+        <Avatar
+          src={currentUser?.profile_image}
+          text={currentUser?.username}
+          height={40}
+        />
+      </NavLink>
     </>
   );
-
 
   const loggedOutIcons = (
     <>
@@ -127,11 +136,13 @@ const NavBar = () => {
           <Navbar.Toggle
             ref={ref}
             onClick={() => setExpanded(!expanded)}
-            aria-controls="basic-navbar-nav" />
+            aria-controls="basic-navbar-nav"
+          />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ml-auto text-left">
               <NavLink
-                exact to="/"
+                exact
+                to="/"
                 className={styles.NavLink}
                 activeClassName={styles.Active}
               >
@@ -145,8 +156,12 @@ const NavBar = () => {
 
       {/* Modal to confirm signout */}
 
-      <Modal show={showConfirmSignout} onHide={() => setShowConfirmSignout(false)}>
-        <Modal.Body className="text-center">Are you sure you want to signout?
+      <Modal
+        show={showConfirmSignout}
+        onHide={() => setShowConfirmSignout(false)}
+      >
+        <Modal.Body className="text-center">
+          Are you sure you want to signout?
         </Modal.Body>
         <Modal.Footer className="justify-content-center">
           <Button
@@ -155,16 +170,12 @@ const NavBar = () => {
           >
             Cancel
           </Button>
-          <Button
-            variant="danger"
-            onClick={confirmSignout}
-          >
+          <Button variant="danger" onClick={confirmSignout}>
             Signout
           </Button>
         </Modal.Footer>
       </Modal>
     </>
-
   );
 };
 
