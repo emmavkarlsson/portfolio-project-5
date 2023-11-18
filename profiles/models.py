@@ -7,20 +7,19 @@ class Profile(models.Model):
     """
     Model for user profile
     """
+
     owner = models.OneToOneField(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     name = models.CharField(max_length=255, blank=True)
     content = models.TextField(blank=True)
-    image = models.ImageField(
-        upload_to='images/', default='../default_profile_hhowzl'
-    )
+    image = models.ImageField(upload_to="images/", default="../default_profile_hhowzl")
     cover_image = models.ImageField(
-        upload_to='images/', default='../default_post_eji6md'
+        upload_to="images/", default="../default_post_eji6md"
     )
 
     class Meta:
-        ordering = ['-created_at']
+        ordering = ["-created_at"]
 
     def __str__(self):
         return f"{self.owner}'s profile"
