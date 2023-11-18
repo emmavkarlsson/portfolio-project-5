@@ -10,14 +10,16 @@ Deployed project: [Link](https://evk-pp5-cf55770a5b07.herokuapp.com/).
  - ## [Introduction](#introduction-1)
 
  - ## [Table of Contents](#table-of-contents-1)
+ 
+ - ## [Project Goals](#project-goals-1)
 
  - ## [UX](#UX-1)
 
  - ## [Features](#features-1)
 
  - ## [Reusable Components](#reusable-components-1)
-    
-- ## [Testing Frontend](#testing-frontend-1)
+ 
+ - ## [Testing Frontend](#testing-frontend-1)
     - ## [Automated testing](#automated-testing-2)
     - ## [Manual Testing](#manual-testing-2)
 
@@ -26,6 +28,9 @@ Deployed project: [Link](https://evk-pp5-cf55770a5b07.herokuapp.com/).
     - ## [Manual Testing](#manual-testing-3)
 
 ---
+
+## Project Goals
+This project aimed to create a website for sharing photos easily. My goal was to let people upload, view, and comment on pictures in a friendly online space. To keep the website friendly, I have added a report function that let's users report images that doesn't follow community guidelines. I wanted users to interact by commenting, liking, and following others. I have also added a messaging system for conversing with other users without anyone else seeing the messages. I also wanted to add a save picture function, so that users could save their images in own place, without it being visible for anyone else than them. My goal was to make a simple website which is easy to navigate. I also wanted to encourage people to sign up by disabling certain functionality for logged out users.
 
 ## Design
 ### Colors
