@@ -987,3 +987,27 @@ All python files have been tested using the CI Python Linter, and came back with
 | Posts | using api/posts/ | The image url of the post changes when the image is updated | Pass |
 | Posts | using api/posts/ | The post is removed when the post is deleted | Pass |
 | Posts | using api/posts/id | Detail not found is displayed when the post has been deleted | Pass |
+
+#### Profiles
+|Feature  | Action | Expected result | Pass/Fail |
+|--|--|--|--|
+| Profiles | using api/profiles | I can see all profiles | Pass |
+| Profiles | using api/profiles/{id} | I can see a specific profile | Pass |
+| Profiles| using api/profiles/ | I can see is_owner:True to a profile I own | Pass |
+| Profiles | using api/posts/ | I can see is_owner:False to a profile I don't own | Pass |
+| Profiles | using api/posts/ | I can see the profile owner | Pass |
+| Profiles | using api/posts/ | I can see the the profile id profile's owner | Pass |
+| Profiles | using api/posts/ | I can when a profile was created | Pass |
+| Profiles | using api/posts/ | I can when a profile was updated | Pass |
+| Profiles | using api/posts/ | I can see a profile's name and bio if | Pass |
+| Profiles | using api/posts/ | I can see the following count of a profile | Pass |
+| Profiles | using api/posts/ | I can see the followers count of a profile | Pass |
+| Profiles | using api/posts/ | I can see the post count of a profile | Pass |
+| Profiles | using api/posts/ | Following count increases/decreases when the profile follows/unfollows a profile | Pass |
+| Profiles | using api/posts/ | Followers count increases/decreases when the profile get/loses a follower | Pass |
+| Profiles | using api/posts/ | Post count increases when the profile adds a post | Pass |
+| Profiles | using api/posts/ | Post count decreases when the profile removes a post | Pass |
+| Profiles | using api/posts/ | The name changes when a profile changes its name | Pass |
+| Profiles | using api/posts/ | The bio changes when profile changes the bio | Pass |
+| Profiles | using api/posts/ | The image url of the profile changes when the image is updated | Pass |
+| Profiles | using api/posts/ | The cover image url of the profile changes when the cover image is updated | Pass |
