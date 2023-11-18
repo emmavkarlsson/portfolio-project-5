@@ -54,7 +54,7 @@ function ProfilePage() {
                 }));
                 setProfilePosts(profilePosts);
                 setHasLoaded(true);
-            } catch (err) {}
+            } catch (err) { }
         };
         fetchData();
     }, [id, setProfileData]);
@@ -126,20 +126,20 @@ function ProfilePage() {
                 {currentUser &&
                     is_owner &&
                     (
-                        <>                    
-                        <Row>
-                        <Col>
-                        <a href="/liked">
-                        <Button className={`${btnStyles.ProfileButton} ${btnStyles.Beige}`}>
-                            Liked posts
-                        </Button></a>
-                    </Col>
-                    <Col>
-                        <a href="/saved"><Button className={`${btnStyles.ProfileButton} ${btnStyles.Beige}`}>
-                            Saved posts
-                        </Button></a>
-                    </Col>
-                    </Row>
+                        <>
+                            <Row>
+                                <Col>
+                                    <a href="/liked">
+                                        <Button className={`${btnStyles.ProfileButton} ${btnStyles.Beige}`}>
+                                            Liked posts
+                                        </Button></a>
+                                </Col>
+                                <Col>
+                                    <a href="/saved"><Button className={`${btnStyles.ProfileButton} ${btnStyles.Beige}`}>
+                                        Saved posts
+                                    </Button></a>
+                                </Col>
+                            </Row>
                         </>
                     )}
             </Col>
@@ -147,14 +147,15 @@ function ProfilePage() {
 
     const sendUserMessage = (
         <>
-        <hr />
-        {currentUser &&
-            !is_owner &&
-            <CreateMessageForm profile_id={profile?.id} />}
-            <hr />
-            </>
+            {currentUser &&
+                !is_owner &&
+                <>
+                    <hr />
+                    <CreateMessageForm profile_id={profile?.id} />
+                </>
+            }
+        </>
     );
-
 
     const mainProfilePosts = (
         <>
