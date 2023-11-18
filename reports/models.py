@@ -23,15 +23,17 @@ class Reports(models.Model):
     created_on = models.DateField(auto_now_add=True)
     subject = models.CharField(max_length=255)
     message = models.TextField()
-    report_status = models.CharField(max_length=15, choices=REPORT_STATUS, default="awaiting_review")
+    report_status = models.CharField(
+        max_length=15, choices=REPORT_STATUS, default="awaiting_review"
+    )
     report_reason = models.CharField(max_length=25, choices=REPORT_REASON_CHOICES)
     post = models.ForeignKey(
-        Post, related_name='reports', on_delete=models.CASCADE, null=True
+        Post, related_name="reports", on_delete=models.CASCADE, null=True
     )
 
     class Meta:
-        ordering = ['-updated_on']
-        unique_together = ['owner', 'post']
+        ordering = ["-updated_on"]
+        unique_together = ["owner", "post"]
 
     def __str__(self):
-        return f'{self.id}'
+        return f"{self.id}"

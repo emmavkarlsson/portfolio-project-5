@@ -6,21 +6,25 @@ import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('posts', '0001_initial'),
+        ("posts", "0001_initial"),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('reports', '0001_initial'),
+        ("reports", "0001_initial"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='reports',
-            name='post',
-            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, related_name='reports', to='posts.post'),
+            model_name="reports",
+            name="post",
+            field=models.ForeignKey(
+                null=True,
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="reports",
+                to="posts.post",
+            ),
         ),
         migrations.AlterUniqueTogether(
-            name='reports',
-            unique_together={('owner', 'post')},
+            name="reports",
+            unique_together={("owner", "post")},
         ),
     ]
