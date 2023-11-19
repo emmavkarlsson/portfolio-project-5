@@ -22,12 +22,14 @@ Deployed project: [Link](https://evk-pp5-cf55770a5b07.herokuapp.com/).
  - ## [Reusable Components](#reusable-components-1)
  
  - ## [Testing Frontend](#testing-frontend-1)
-    - ## [Automated testing](#automated-testing-2)
-    - ## [Manual Testing](#manual-testing-2)
+    - ### [Automated testing](#automated-testing-2)
+    - ### [Manual Testing](#manual-testing-2)
 
 - ## [Testing Backend](#testing-backend-1)
-    - ## [Automated testing](#automated-testing-3)
-    - ## [Manual Testing](#manual-testing-3)
+    - ### [Automated testing](#automated-testing-3)
+    - ### [Manual Testing](#manual-testing-3)
+
+- ## [Deployment](#deployment-1)
 
 ---
 
@@ -1062,3 +1064,35 @@ All python files have been tested using the CI Python Linter, and came back with
 | Profiles | using api/posts/ | The bio changes when profile changes the bio | Pass |
 | Profiles | using api/posts/ | The image url of the profile changes when the image is updated | Pass |
 | Profiles | using api/posts/ | The cover image url of the profile changes when the cover image is updated | Pass |
+
+
+## Deployment
+These deployment instructions are only relevant to those who wish to have their backend files and front end files in the same workspace
+
+### Backend setup
+
+1. run 'pip3 install django<4' in the terminal 
+2. create an app using the command 'django-admin startproject yourapp .' ("yourapp should be changed to what you want your app to be named). Install Cloudinary with 'pip
+3. install django-cloudinary-storage'
+4. Install Pillow with 'pip install Pillow'
+5. Add Cloudinary to INSTALLED_APPS in your settings.py file by placing 'cloudinary_storage' below the first 5 django.contrib-apps, and 'cloudinary' under the 'django.contrib.staticfiles'
+6. Create an env.py file in the root directory
+7. 'import os' to the top of the env.py file
+8. In the settings.py file, import os and add "if os.path.exists('env.py'): import env"
+9. In the settings.py file, copy the SECRET_KEY
+10. In env.py, add the copied SECRET_KEY by: 'os.environ['SECRET_KEY'] = 'yourownsecretkey' 
+11. In settings.py, add "SECRET_KEY = os.environ.get('SECRET_KEY)"
+12. Copy the API Environment variable in your Cloudinary account
+13. In env.py, add this line "os.environ['CLOUDINARY_URL'] = 'yourcloudinaryurl' ". Note that you need to remove 'CLOUDINARY_URL' from the url you copied.
+14. In settings.py, add "CLOUDINARY_STORAGE = { 'CLOUDINARY_URL': os.environ.get('CLOUDINARY_URL') }
+Create a 'frontend' folder in the root directory via the terminal with 'mkdir frontend'.
+
+### Frontend setup
+
+ 1. Create the front end by typing the command 'mkdir frontend' and navigate to it by typing 'cd frontend'
+ 2. Run the following command: "npx create-react-app . --template git+https://github.com/Code-Institute-Org/cra-template-moments.git --use-npm" and press 'y'
+ 3. Remove the extra .git folder, the README file and .gitignore from the frontend
+ 4. In the terminal, run 'npm start' to see if you have successfully created your frontend and that it works. You need to be in the frontend terminal to do this. To get to the frontend, type 'cd frontend' in the terminal (you can go back to your root directory by typing cd .. ). Note that you might have to first run 'nvm install 16' and 'nvm use 16', before 'npm start' works.
+ 5. In env.py, add a local file by adding: '   os.environ['ALLOWED_HOST'] = '8000-username-repository-other.gitpod.io', with your own url which is displayed when you have the backend open in the browser.
+ 6. In settings.py, add: "ALLOWED_HOSTS = ['localhost', os.environ.get('ALLOWED_HOST')]" and "CORS_ALLOWED_ORIGINS = [os.environ.get('CLIENT_ORIGIN')] and "CORS_ALLOW_CREDENTIALS = True"
+ 7. in the package.json file in your frontend directory, add the localhost by adding " 'proxy': 'http://localhost:8000/ " at the end of the file. Note that you need to add a comma after the curly braces above the line you just added, and a curly brace after the line you just added in.
