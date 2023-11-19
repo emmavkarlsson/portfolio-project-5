@@ -51,6 +51,8 @@ I have used Montserrat in my project, which is a popular sans-serif font among d
 I have used GitHub project to manage my tasks and user stories. All user stories have their own requirements and tasks, which makes it easy to set up the workflow and sprints. GitHub uses "milestones", as sprints. I have categorized my User Stories with 3 different labels: must have, should have and could have. 1 user story was not implemented, categorized "should have", as I did not have enough time to finish it. 
 The milestones are grouped into 7 differents sprints, where one milestone contains all tasks and user stories related to a feature, as it makes the workflow a lot easier when you can focus on one function at a time. For example, all tasks / user stories related to the reports function, is part of the Milestone "Reports" and the tasks/user stories were all implemented in the same sprint.
 
+Link to GitHub project [Here](https://github.com/users/emmavkarlsson/projects/4)
+
 <details>
 <summary>Kanban board</summary>
 <img src="documentation/images/userstories.png">
