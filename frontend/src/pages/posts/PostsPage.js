@@ -64,6 +64,7 @@ function PostsPage({ message, filter = "", secure="false" }) {
               <Form.Control
                 value={query}
                 onChange={(event) => setQuery(event.target.value)}
+                id="logged-in-searchbar"
                 type="text"
                 className="mr-sm-2"
                 placeholder="Search posts"
@@ -116,7 +117,7 @@ function PostsPage({ message, filter = "", secure="false" }) {
                   <Form.Control
                     value={query}
                     onChange={(event) => setQuery(event.target.value)}
-                    id="global-searchbar"
+                    id="logged-out-searchbar"
                     type="text"
                     className="mr-sm-2"
                     placeholder="Search posts"
