@@ -45,36 +45,30 @@ function App() {
           exact
           path="/feed"
           render={() => (
-            <Container className={styles.Main}>
               <PostsPage
                 message="No results found. Adjust the search keyword or follow a user."
                 filter={`owner__followed__owner__profile=${profile_id}&`}
               />
-            </Container>
           )}
         />
         <Route
           exact
           path="/liked"
           render={() => (
-            <Container className={styles.Main}>
               <PostsPage
                 message="No results found. Adjust the search keyword or like a post."
                 filter={`likes__owner__profile=${profile_id}&ordering=-likes__created_at&`}
               />
-            </Container>
           )}
         />
         <Route
           exact
           path="/saved"
           render={() => (
-            <Container className={styles.Main}>
               <PostsPage
                 message="No results found. Adjust the search keyword or save a post."
                 filter={`saved__owner__profile=${profile_id}&ordering=-saved_posts__created_at&`}
               />
-            </Container>
           )}
         />
         <Route
