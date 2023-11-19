@@ -16,6 +16,9 @@ Deployed project: [Link](https://evk-pp5-cf55770a5b07.herokuapp.com/).
  - ## [UX](#UX-1)
 
  - ## [User Stories](#user-stories-1)
+	- ### [Colors](#colors-1)
+	- ### [Fonts](#fonts-1)
+	- ### [Wireframes](#wireframes-1)
 
  - ## [Structure and database](#structure-and-database-1)
 	- ### [Models](#models-1)
@@ -45,22 +48,45 @@ Deployed project: [Link](https://evk-pp5-cf55770a5b07.herokuapp.com/).
 
 - ## [Deployment](#deployment-1)
 
----
+
 
 ## Project Goals
 This project aimed to create a website for sharing photos easily. My goal was to let people upload, view, and comment on pictures in a friendly online space. To keep the website friendly, I have added a report function that let's users report images that doesn't follow community guidelines. I wanted users to interact by commenting, liking, and following others. I have also added a messaging system for conversing with other users without anyone else seeing the messages. I also wanted to add a save picture function, so that users could save their images in own place, without it being visible for anyone else than them. My goal was to make a simple website which is easy to navigate. I also wanted to encourage people to sign up by disabling certain functionality for logged out users.
 
+
 ## UX
 ### Colors
 I have chosen 3 main colors for my page, these are:
-#0b0b0b, a dark, almost black color
-#efede6, a light beige color
-#7b6557, a brown color
-#ffffff
+* #0b0b0b, a dark, almost black color
+* #efede6, a light beige color
+* #7b6557, a brown color
+* #ffffff
+<br>
+
 These colors are used for most of the buttons, the text as well as the Navbar. 
 
 ### Font
 I have used Montserrat in my project, which is a popular sans-serif font among designers, and is available on Google Fonts.
+
+### Wireframes
+The wireframes were created in the middle of the project, which is why they are very similar to the end result. The biggest difference for my design, comparing the wireframes to the end result, is the profile page. My initial idea was to have the avatar centered on the profile page and placed on top of the cover photo, however, in the end result it is placed to the left under the cover photo.
+<details>
+<summary>Wireframe Home page - logged out</summary>
+<img src="documentation/images/wireframe_homepage_loggedout.png">
+</details>
+<details>
+<summary>Wireframe Home page - logged in</summary>
+<img src="documentation/images/wireframe_homepage_loggedin.png">
+</details>
+<details>
+<summary>Wireframe Profile page</summary>
+<img src="documentation/images/wireframe_profilepage.png">
+</details>
+<details>
+<summary>Wireframe Messages page</summary>
+<img src="documentation/images/wireframe_messages.png">
+</details>
+
 
 ## User Stories
 
