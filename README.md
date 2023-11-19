@@ -38,6 +38,11 @@ Deployed project: [Link](https://evk-pp5-cf55770a5b07.herokuapp.com/).
 
 - ## [Bugs](#bugs-1)
 
+- ## [Technologies](#technologies-1)
+	- ## [Languages and Frameworks](#languages-and-frameworks-1)
+	- ## [Libraries and packages and modules](#libraries-and-packages-and-modules-1)
+	- ## [Other websites used](#other-websites-used-1)
+
 - ## [Deployment](#deployment-1)
 
 ---
@@ -1231,6 +1236,33 @@ All python files have been tested using the CI Python Linter, and came back with
 | Alert messages would not display | The Alert messages informing the user they had sent/updated/deleted data would not display. I solved this by placing the Alert container in the NavBar (which is visible on all pages across the platform). | Yes |
 | Not logged in users are able to access certain pages they should not be able to access | I have not found any solutions for this yet, but I have tried many different approaches. One of them being implementing the useAuthorized hook. This works properly on the "Messages" page, but did not work for the "Reports" page. I also tried adding an if statement to the PostsPage (and adding "secure='true'" in App.js for liked and saved.) This worked for a bit, but after a while it started sending both unauthorized and authorized users to the signin page. I have since removed that line. As of today, some pages are accessible for non authorized users that shouldn't be. | No |
 | Messages model | When first creating the messages model, the page stopped working, as messages was already a django model. I solved this by renaming the model to "usermessages" instead. | Yes |
+
+## Technologies
+### Languages and Frameworks
+- HTML5
+- CSS
+- Python
+- Javascript
+- Django
+
+### Libraries and Packages and Modules
+- React
+- React Bootstrap
+- Psycopg2 - a database adapter for python
+-   Dj3-cloudinary-storage - a Django package that provides Cloudinary storages
+-   Django-allauth - Django application that addresses authentication, registration and account management.
+-   Gunicorn - a Python WSGI HTTP server
+-   Toastify - a library to easily display alerts
+
+### Other websites used
+-  Github was used to store the project.
+-  Gitpod was used to create the site and push to GitHub.
+- Heroku is used to deploy the project.
+- Cloudinary is used to host all images.
+- ElephantSQL is used as the database.
+- Lucidchart was used to create the Entity Relationship Diagram as well as the Flowchart.
+- Google Fonts was used for the fonts.
+- FontsAwesome was used for the icons on the page.
 
 ## Deployment
 These deployment instructions are only relevant to those who wish to have their backend files and front end files in the same workspace
