@@ -198,7 +198,7 @@ Shared posts in chronological order, latest post first, with infinite scroll. Th
 The search bar is visible for all users.
 
 #### *Visible for not logged in users*
-Users who are not logged in, are greeted with the text "Welcome to PhotoStream", and below it, the shared posts displayed horizontally. The user can scroll through the posts horizontally and infinitely. 
+Users who are not logged in, are greeted with the text "Welcome to PhotoStream", and below it, the shared posts displayed horizontally. The user can scroll through the last 10 posts that have been published. 
 
 #### *Visible for logged in users*
 Users who are logged in can see the posts displayed vertically and can scroll through them infinitely. Compared to logged out visitors, logged in users can see the description of the post, a heart icon with a likes count that let's them like the post and see how many likes the post have, a comment icon that links to the post page, and a saved button that let's them save the post. They can also see when each post was posted, a report icon that let's them report the post, as well as a container of the most popular profiles, displayed on the right hand side of the posts (on desktop, on mobile it is displayed above the posts). 
@@ -567,7 +567,6 @@ I have used the W3C Validator to validate my CSS. All CSS files came back with n
 | Navbar | Click | The Sign In link leads to the Sign In Page | Pass |
 | Navbar | Click | The Sign Up link leads to the Sign Up page | Pass |
 | Search bar | Search | Images related to the search word shows up when searched | Pass |
-| Content | InfiniteScroll | The posts loads infinitely when scrolling through them | Pass |
 
 
 * User is logged in
