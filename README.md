@@ -17,6 +17,8 @@ Deployed project: [Link](https://evk-pp5-cf55770a5b07.herokuapp.com/).
 
  - ## [User Stories](#user-stories-1)
 
+ - ## [FlowChart](#flowchart-1)
+
  - ## [Features](#features-1)
 
  - ## [Reusable Components](#reusable-components-1)
@@ -68,6 +70,12 @@ Link to GitHub project [Here](https://github.com/users/emmavkarlsson/projects/4
 <img src="documentation/images/milestones_2.png">
 </details>
 
+## Flowchart
+
+<details>
+<summary>Lucidchart Flowchart</summary>
+<img src="documentation/images/flowchart.png">
+</details>
 
 ## Features
 ### Navbar
