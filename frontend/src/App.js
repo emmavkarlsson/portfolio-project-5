@@ -60,7 +60,6 @@ function App() {
             <Container className={styles.Main}>
               <PostsPage
                 message="No results found. Adjust the search keyword or like a post."
-                secure="true"
                 filter={`likes__owner__profile=${profile_id}&ordering=-likes__created_at&`}
               />
             </Container>
@@ -73,7 +72,6 @@ function App() {
             <Container className={styles.Main}>
               <PostsPage
                 message="No results found. Adjust the search keyword or save a post."
-                secure="true"
                 filter={`saved__owner__profile=${profile_id}&ordering=-saved_posts__created_at&`}
               />
             </Container>

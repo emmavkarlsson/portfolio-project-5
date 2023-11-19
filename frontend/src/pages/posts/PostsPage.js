@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { useLocation } from "react-router-dom";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 // React Bootstrap imports
 import Form from "react-bootstrap/Form";
@@ -28,17 +27,9 @@ function PostsPage({ message, filter = "", secure="false" }) {
   const [posts, setPosts] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
-  const history = useHistory();
 
   const [query, setQuery] = useState("");
   const currentUser = useCurrentUser();
-  if (
-    secure === "true"
-  ) {
-    if (!currentUser) {
-      history.push("/signin");
-    }
-  }
 
   useEffect(() => {
     const fetchPosts = async () => {
