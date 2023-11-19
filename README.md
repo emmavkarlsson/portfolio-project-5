@@ -31,6 +31,8 @@ Deployed project: [Link](https://evk-pp5-cf55770a5b07.herokuapp.com/).
     - ### [Automated testing](#automated-testing-3)
     - ### [Manual Testing](#manual-testing-3)
 
+- ## [Future improvements](#future-improvements-1)
+
 - ## [Deployment](#deployment-1)
 
 ---
@@ -1207,6 +1209,15 @@ All python files have been tested using the CI Python Linter, and came back with
 | Reports | using api/reports/{id} | The details of a report cannot be found when the report has been deleted | Pass |
 
 > Please note that the usermessages have not been tested through the API, because the usermessages are only visible for the user who has sent or received the message. However, usermessages have been tested through the front end, showing that the owner and receiver works correctly, that the usermessage content is displayed and updates for both the receiver and the owner when the owner updates the message, is deleted for both the receiver and the owner when the owner deletes the message. You can see the frontend testing of the usermessages [here](#messages-page-1).
+
+## Future improvements
+
+| Feature | Description |
+|--|--|
+| Contact | I want the users to be able to contact the site owner, in case they run into issues or have any questions. This feature is not available as per today. This could be a simple contact form, but preferably a chat function where the user can have instant contact with support |
+| Messages | The message function today is very simple, and I want it to be easier to interact with other users, preferable through a chat function. |
+| Messages | Right now, it is possible to edit and delete a message that has been sent a long time ago. I would have wanted the delete / edit to have an expiration date, so that it is only possible to edit and delete messages that has been sent within, let's say, the past 24 hours. Taking it even further, I would have wanted to implement a function where it is only possible to delete / edit a message that the receiver has not seen yet. |
+| Messages | I want the receiver of the message to be notified when they have received a new message. Right now, an alert is displayed for the owner of the message when it has been sent, but no alert is displayed for the receiver. |
 
 
 ## Deployment
