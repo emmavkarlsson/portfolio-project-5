@@ -1055,23 +1055,35 @@ All python files have been tested using the CI Python Linter, and came back with
 | Profiles | using api/profiles | I can see all profiles | Pass |
 | Profiles | using api/profiles/{id} | I can see a specific profile | Pass |
 | Profiles| using api/profiles/ | I can see is_owner:True to a profile I own | Pass |
-| Profiles | using api/posts/ | I can see is_owner:False to a profile I don't own | Pass |
-| Profiles | using api/posts/ | I can see the profile owner | Pass |
-| Profiles | using api/posts/ | I can see the the profile id profile's owner | Pass |
-| Profiles | using api/posts/ | I can when a profile was created | Pass |
-| Profiles | using api/posts/ | I can when a profile was updated | Pass |
-| Profiles | using api/posts/ | I can see a profile's name and bio if | Pass |
-| Profiles | using api/posts/ | I can see the following count of a profile | Pass |
-| Profiles | using api/posts/ | I can see the followers count of a profile | Pass |
-| Profiles | using api/posts/ | I can see the post count of a profile | Pass |
-| Profiles | using api/posts/ | Following count increases/decreases when the profile follows/unfollows a profile | Pass |
-| Profiles | using api/posts/ | Followers count increases/decreases when the profile get/loses a follower | Pass |
-| Profiles | using api/posts/ | Post count increases when the profile adds a post | Pass |
-| Profiles | using api/posts/ | Post count decreases when the profile removes a post | Pass |
-| Profiles | using api/posts/ | The name changes when a profile changes its name | Pass |
-| Profiles | using api/posts/ | The bio changes when profile changes the bio | Pass |
-| Profiles | using api/posts/ | The image url of the profile changes when the image is updated | Pass |
-| Profiles | using api/posts/ | The cover image url of the profile changes when the cover image is updated | Pass |
+| Profiles | using api/profiles | I can see is_owner:False to a profile I don't own | Pass |
+| Profiles | using api/profiles/ | I can see the profile owner | Pass |
+| Profiles | using api/profiles/ | I can see the the profile id profile's owner | Pass |
+| Profiles | using api/profiles/ | I can when a profile was created | Pass |
+| Profiles | using api/profiles/ | I can when a profile was updated | Pass |
+| Profiles | using api/profiles/ | I can see a profile's name and bio if | Pass |
+| Profiles | using api/profiles/ | I can see the following count of a profile | Pass |
+| Profiles | using api/profiles/ | I can see the followers count of a profile | Pass |
+| Profiles | using api/profiles/ | I can see the post count of a profile | Pass |
+| Profiles | using api/profiles/ | Following count increases/decreases when the profile follows/unfollows a profile | Pass |
+| Profiles | using api/profiles/ | Followers count increases/decreases when the profile get/loses a follower | Pass |
+| Profiles | using api/profiles/ | Post count increases when the profile adds a post | Pass |
+| Profiles | using api/profiles/ | Post count decreases when the profile removes a post | Pass |
+| Profiles | using api/profiles/ | The name changes when a profile changes its name | Pass |
+| Profiles | using api/profiles/ | The bio changes when profile changes the bio | Pass |
+| Profiles | using api/profiles/ | The image url of the profile changes when the image is updated | Pass |
+| Profiles | using api/profiles/ | The cover image url of the profile changes when the cover image is updated | Pass |
+
+#### Saved
+|Feature  | Action | Expected result | Pass/Fail |
+|--|--|--|--|
+| Saved | using api/saved | I can see all saves | Pass |
+| Saved | using api/saved/{id} | I can see a specific save | Pass |
+| Saved | using api/saved/ | I can see the id of the owner of the save | Pass |
+| Saved | using api/saved/ | I can see the owner of the save | Pass |
+| Saved | using api/saved/ | I can when the post was saved | Pass |
+| Saved | using api/saved/ | I can which post has been saved | Pass |
+| Saved | using api/saved/ | The save is removed when the post has been unsaved | Pass |
+| Saved | using api/saved/id | Detail not found is displayed when the save has been removed | Pass |
 
 
 ## Deployment
