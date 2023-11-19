@@ -36,25 +36,10 @@
       display: none;
     }
 
-  /* .heroImage {
-    height: 100vh;
-    width: 100vw;
-    background-color: #efede6;
-  }
-
-  .displayFlex {
-    display: flex;
-    flex-direction: column;
-    height: calc(100vh - 81px);
-  }
-
-  .postsRow {
-    margin-top: auto;
-  } */
-
   .heroImage {
     height: 100vh;
     width: 100vw;
+    margin-top: -81px;
     background: url(https://res.cloudinary.com/emmavkarlsson/image/upload/v1700300462/hero-image_aedohm.png) no-repeat center center fixed;
     background-size: cover;
   }

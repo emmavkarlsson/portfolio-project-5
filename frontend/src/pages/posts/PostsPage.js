@@ -23,7 +23,7 @@ import Asset from "../../components/Asset";
 import NoResults from "../../assets/no-results.png";
 import PopularProfiles from "../profiles/PopularProfiles";
 
-function PostsPage({ message, filter = "", secure="false" }) {
+function PostsPage({ message, filter = "", secure = "false" }) {
   const [posts, setPosts] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
@@ -104,8 +104,8 @@ function PostsPage({ message, filter = "", secure="false" }) {
 
   const loggedOutView = (
     <>
-      <div className={styles.heroImage}>
-        <div className={appStyles.Main}>
+      <div className={appStyles.Main}>
+        <div className={styles.heroImage}>
           <Container className={styles.displayFlex}>
             <Row className="h-50">
               <Col>
@@ -141,11 +141,11 @@ function PostsPage({ message, filter = "", secure="false" }) {
                       <InfiniteScroll
                         className={styles.horizontalScroll}
                         children={posts.results.map((post) => (
-                          <Container className={styles.postContainer} key={post.id}>
-                            <PostSmall
-                              {...post}
-                              setPosts={setPosts}
-                            />
+                          <Container
+                            className={styles.postContainer}
+                            key={post.id}
+                          >
+                            <PostSmall {...post} setPosts={setPosts} />
                           </Container>
                         ))}
                         dataLength={posts.results.length}
