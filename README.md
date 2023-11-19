@@ -425,6 +425,35 @@ Besides from these, I have multiple other components like Popular Profiles, whic
 
 ## Testing Frontend
 ### Automated testing
+
+#### Lighthouse
+I have generated two different Lighthouse reports (developer tools), one for the home page when the user is logged out, and one for when they are logged in, as I display a different home page based on the logged in status.
+
+##### Logged out scores
+- 100 for Accessability
+- 100 for Best practices
+- 100 for SEO
+- 73 for Performance
+
+<details>
+<summary>Lighthouse Logged out</summary>
+<img src="documentation/testing/lighthouse_loggedout.png">
+</details>
+
+##### Logged in scores
+- 100 for Accessability
+- 100 for Best practices
+- 100 for SEO
+- 73 for Performance
+
+<details>
+<summary>Lighthouse Logged In</summary>
+<img src="documentation/testing/lighthouse_loggedin.png">
+</details>
+
+##### Comments
+The low performance score is due to the images of the page. The maximum image size for posts are 2MB, however from the start, I didn't have any restrictions on the profile image size or the cover photo size. This has been implemented now but larger images might still be used for profile images and cover photos. Had I had more time, I would have implemented a function that would resize images and converted them to the webp format. Profile pictures are never shown in full size - the maximum size of which the profile picture is ever displayed is 250x250px (on the profile page on screens smaller than 991px).
+
 #### HTML
 I have used the W3C Code Validator to test my HTML. The results showed no errors or warnings, but 9 info messages all informing about trailing slashes.
 <details>
@@ -730,11 +759,11 @@ I have used the W3C Validator to validate my CSS. All CSS files came back with n
 | Menu | Click | Clicking the three dot menu opens a dropdown of edit and delete | Pass |
 | Menu | Click | Clicking the trash can opens a model to confirm the deletion | Pass |
 | Modal| Click | Clicking cancel does not delete my sent message | Pass |
-| Modal| Click | Clicking Delete in the modal deletes my sent message and removes it | Pass |
+| Modal| Click | Clicking Delete in the modal deletes my sent message and removes it both from my sent messages and the receivers received messages | Pass |
 | Alert | Display | I get an Alert when my message has been deleted | Pass |
 | Menu | Click | Clicking the pen opens the form and let's me type | Pass |
 | Update message | Click | Clicking cancel does not change the message and closes the form | Pass |
-| Update message | Click | Clicking update changes the message and closes the form | Pass |
+| Update message | Click | Clicking update changes the message for both me and the user and closes the form | Pass |
 | Alert | Display | I can see an Alert when I save informing me my message has been updated | Pass |
 | Alert | Display | I can see an Alert when I delete informing me my message has been deleted | Pass |
 
@@ -1158,6 +1187,26 @@ All python files have been tested using the CI Python Linter, and came back with
 | Saved | using api/saved/ | I can which post has been saved | Pass |
 | Saved | using api/saved/ | The save is removed when the post has been unsaved | Pass |
 | Saved | using api/saved/id | Detail not found is displayed when the save has been removed | Pass |
+
+#### Reports
+|Feature  | Action | Expected result | Pass/Fail |
+|--|--|--|--|
+| Reports | using api/reports/{id} | I can see a specific report | Pass |
+| Reports | using api/reports/{id} | I can see the report id | Pass |
+| Reports | using api/reports/{id} | I can see the post id of which the report belongs to | Pass |
+| Reports | using api/reports/{id} | I can the owner of the report | Pass |
+| Reports | using api/reports/{id} | I can see when the report was created and updated | Pass |
+| Reports | using api/reports/{id} | I can see the report reason | Pass |
+| Reports | using api/reports/{id} | I can see the report subject | Pass |
+| Reports | using api/reports/{id} | I can see the report message | Pass |
+| Reports | using api/reports/{id} | I can see the report status | Pass |
+| Reports | using api/reports/{id} | The report reason updates when a user changes the report reason | Pass |
+| Reports | using api/reports/{id} | The subject updates when a user changes the subject | Pass |
+| Reports | using api/reports/{id} | The message updates when a user changes the message | Pass |
+| Reports | using api/reports/{id} | The report status updates when the admin changes the status | Pass |
+| Reports | using api/reports/{id} | The details of a report cannot be found when the report has been deleted | Pass |
+
+> Please note that the usermessages have not been tested through the API, because the usermessages are only visible for the user who has sent or received the message. However, usermessages have been tested through the front end, showing that the owner and receiver works correctly, that the usermessage content is displayed and updates for both the receiver and the owner when the owner updates the message, is deleted for both the receiver and the owner when the owner deletes the message. You can see the frontend testing of the usermessages [here](#messages-page-1).
 
 
 ## Deployment
