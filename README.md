@@ -15,6 +15,8 @@ Deployed project: [Link](https://evk-pp5-cf55770a5b07.herokuapp.com/).
 
  - ## [UX](#UX-1)
 
+ - ## [User Stories](#user-stories-1)
+
  - ## [Features](#features-1)
 
  - ## [Reusable Components](#reusable-components-1)
@@ -32,7 +34,7 @@ Deployed project: [Link](https://evk-pp5-cf55770a5b07.herokuapp.com/).
 ## Project Goals
 This project aimed to create a website for sharing photos easily. My goal was to let people upload, view, and comment on pictures in a friendly online space. To keep the website friendly, I have added a report function that let's users report images that doesn't follow community guidelines. I wanted users to interact by commenting, liking, and following others. I have also added a messaging system for conversing with other users without anyone else seeing the messages. I also wanted to add a save picture function, so that users could save their images in own place, without it being visible for anyone else than them. My goal was to make a simple website which is easy to navigate. I also wanted to encourage people to sign up by disabling certain functionality for logged out users.
 
-## Design
+## UX
 ### Colors
 I have chosen 3 main colors for my page, these are:
 #0b0b0b, a dark, almost black color
@@ -43,6 +45,25 @@ These colors are used for most of the buttons, the text as well as the Navbar.
 
 ### Font
 I have used Montserrat in my project, which is a popular sans-serif font among designers, and is available on Google Fonts.
+
+## User Stories
+
+I have used GitHub project to manage my tasks and user stories. All user stories have their own requirements and tasks, which makes it easy to set up the workflow and sprints. GitHub uses "milestones", as sprints. I have categorized my User Stories with 3 different labels: must have, should have and could have. 1 user story was not implemented, categorized "should have", as I did not have enough time to finish it. 
+The milestones are grouped into 7 differents sprints, where one milestone contains all tasks and user stories related to a feature, as it makes the workflow a lot easier when you can focus on one function at a time. For example, all tasks / user stories related to the reports function, is part of the Milestone "Reports" and the tasks/user stories were all implemented in the same sprint.
+
+<details>
+<summary>Kanban board</summary>
+<img src="documentation/images/userstories.png">
+</details>
+<details>
+<summary>Milestones 1</summary>
+<img src="documentation/images/milestones_1.png">
+</details>
+<details>
+<summary>Milestones 1</summary>
+<img src="documentation/images/milestones_2.png">
+</details>
+
 
 ## Features
 ### Navbar
