@@ -104,6 +104,32 @@ The milestones are grouped into 7 differents sprints, where one milestone contai
 
 Link to GitHub project [Here](https://github.com/users/emmavkarlsson/projects/4)
 
+| **Milestone(Sprint)** | **ID** | **User Story** | **Completed** |
+|-----------------------|--------|----------------|---------------|
+| Profile (1) | 12 | As a User, I can visit other people's profiles so that I can view their shared content and learn more about them. | :heavy_check_mark: |
+| Profile (1) | 13 | As a User, I can follow and unfollow other profiles so that I can customize my feed. | :heavy_check_mark: |
+| Profile (1) | 14 | As a User, I can see most popular profiles so that I can discover new and popular content. | :heavy_check_mark: |
+| Profile (1) | 18 | As a User, I can edit my profile so that I can update my personal information and preferences. | :heavy_check_mark: |
+| Profile (1) | 19 | As a User, I can create an account so I can start using the platform. | :heavy_check_mark: |
+| Posts (2) | 1 | As a User, I can share posts so that I can share my work with others. | :heavy_check_mark: |
+| Posts (2) | 2 | As a User, I can edit my own posts so that I can correct any mistakes, change the image or add additional information. | :heavy_check_mark: |
+| Posts (2) | 3 | As a User, I can delete my own posts so that I can remove content that I no longer want to share. | :heavy_check_mark: |
+| Posts (2) | 4 | As a User, I can like others' posts so that I can show my appreciation for their work. | :heavy_check_mark: |
+| Posts (2) | 5 | As a User, I can save others' posts so that I can revisit them later. | :heavy_check_mark: |
+| Comment (3) | 9 | As a User, I can comment on posts so that I can share my thoughts on the post. | :heavy_check_mark: |
+| Comment (3) | 10 | As a User, I can edit my comments so that I can correct any mistakes or add something. | :heavy_check_mark: |
+| Comment (3) | 11 | As a User, I can delete my comments so that I can remove content that I no longer want to share. | :heavy_check_mark: |
+| Report (4) | 6 | As a User, I can report others' posts so that I can flag content that violates the community guidelines. | :heavy_check_mark: |
+| Report (4) | 7 | As a User, I can edit my report so that I can correct any mistakes or provide additional information. | :heavy_check_mark: |
+| Report (4) | 8 | As a User, I can delete my report so that I can retract a report that I no longer believe is necessary. | :heavy_check_mark: |
+| Messages (5) | 15 | As a User, I can send messages to others' profiles so that I can communicate directly with other users. | :heavy_check_mark: |
+| Messages (5) | 16 | As a User, I can edit the messages I have sent so that I can correct any mistakes or add additional information. | :heavy_check_mark: |
+| Messages (5) | 17 | As a User, I can delete messages I have sent so that I can remove content that I no longer want to share. | :heavy_check_mark: |
+| Other (6) | 20 | As a User, I get a notification whenever I perform any changes on the platform | :heavy_check_mark: |
+| Contact form (-) | 20 | As a User, I can contact the site owner if I have any issues or questions. | - |
+
+
+
 <details>
 <summary>Kanban board</summary>
 <img src="documentation/images/userstories.png">
@@ -113,7 +139,7 @@ Link to GitHub project [Here](https://github.com/users/emmavkarlsson/projects/4
 <img src="documentation/images/milestones_1.png">
 </details>
 <details>
-<summary>Milestones 1</summary>
+<summary>Milestones 2</summary>
 <img src="documentation/images/milestones_2.png">
 </details>
 
@@ -601,6 +627,7 @@ To try if this was actually correct, I added a "/" to one of my files and tested
 
 
 ### Manual testing
+
 #### Home Page
 
 * User is not logged in
@@ -963,6 +990,13 @@ To try if this was actually correct, I added a "/" to one of my files and tested
 | Button | Click | Clicking "sign up" signs me up if I have provided correct credentials | Pass |
 | Button | Click | Clicking "sign up" sends me to the Sign In | Pass |
 | Alert | Display | I can see an Alert when I sign up informing me that my account has been created | Pass |
+
+#### 404 page
+
+|Feature  | Action | Expected result | Pass/Fail |
+|--|--|--|--|
+| Content | Display | When I type in an url which is not correct, I get sent to the 404 page | Pass |
+| Button | Click | Clicking the 'Go Home' button sends me to the home page | Pass |
 
 
 ## Testing Backend
