@@ -1343,23 +1343,24 @@ All python files have been tested using the CI Python Linter, and came back with
 - Django
 
 ### Libraries and Packages and Modules
-- React
-- React Bootstrap
-- Psycopg2 - a database adapter for python
--   Dj3-cloudinary-storage - a Django package that provides Cloudinary storages
--   Django-allauth - Django application that addresses authentication, registration and account management.
--   Gunicorn - a Python WSGI HTTP server
--   Toastify - a library to easily display alerts
+- React [Link](https://react.dev/)
+- React Bootstrap [Link](https://react-bootstrap.netlify.app/)
+- Psycopg2 - a database adapter for python [Link](https://pypi.org/project/psycopg2/)
+- Dj3-cloudinary-storage - a Django package that provides Cloudinary storages [Link](https://pypi.org/project/dj3-cloudinary-storage/)
+- Django-allauth - Django application that addresses authentication, registration and account management [Link](https://docs.allauth.org/en/latest/)
+- Gunicorn - a Python WSGI HTTP server [Link](https://gunicorn.org/)
+- Toastify - a library to easily display alerts [Link](https://www.npmjs.com/package/react-toastify)
 
 ### Other websites used
--  Github was used to store the project.
--  Gitpod was used to create the site and push to GitHub.
-- Heroku is used to deploy the project.
-- Cloudinary is used to host all images.
-- ElephantSQL is used as the database.
-- Lucidchart was used to create the Entity Relationship Diagram as well as the Flowchart.
-- Google Fonts was used for the fonts.
-- FontsAwesome was used for the icons on the page.
+- Github was used to store the project. [Link](https://github.com/)
+- Gitpod was used to create the site and push to GitHub. [Link](https://gitpod.io/)
+- Heroku is used to deploy the project. [Link](https://heroku.com/)
+- Cloudinary is used to host all images. [Link](https://cloudinary.com/)
+- ElephantSQL is used as the database. [Link](https://www.elephantsql.com/)
+- Lucidchart was used to create the Entity Relationship Diagram as well as the Flowchart. [Link](https://lucid.app/)
+- Google Fonts was used for the fonts. [Link](https://fonts.google.com/)
+- FontAwesome was used for the icons on the page. [Link](https://fontawesome.com/)
+- Adobe Photoshop was used to create the wireframes. [Link](https://www.adobe.com/products/photoshop.html)
 
 ## Deployment
 These deployment instructions are only relevant to those who wish to have their backend files and front end files in the same workspace
