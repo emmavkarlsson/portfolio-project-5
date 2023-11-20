@@ -13,6 +13,7 @@ import btnStyles from "../../styles/Button.module.css";
 import { AlertContext } from "../../context/AlertContext";
 import { axiosReq, axiosRes } from "../../api/axiosDefaults";
 import Asset from "../../components/Asset";
+import { useRedirect } from "../../hooks/useRedirect";
 
 function ReportsList() {
   const [reportsData, setReportsData] = useState([]);
@@ -22,6 +23,8 @@ function ReportsList() {
   const [deleteId, setDeleteId] = useState(null);
   const [isDeleted, setIsDeleted] = useState(false);
   const { setAlert } = useContext(AlertContext);
+
+  useRedirect("loggedOut");
 
   const REPORT_STATUS = {
     awaiting_review: "Awaiting Review",

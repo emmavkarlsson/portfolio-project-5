@@ -16,13 +16,13 @@ import NoResults from "../../assets/no-results.png";
 import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
 import UserMessage from "./UserMessage";
-import { useAuthorized } from "../../hooks/useAuthorized";
+import { useRedirect } from "../../hooks/useRedirect";
 
 function UserMessagesList({ message }) {
   const [userMessages, setUserMessages] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
 
-  useAuthorized();
+  useRedirect("loggedOut");
 
   useEffect(() => {
     const fetchUserMessages = async () => {
