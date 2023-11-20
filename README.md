@@ -1051,6 +1051,7 @@ To try if this was actually correct, I added a "/" to one of my files and tested
 
 ### Automated testing
 All python files have been tested using the CI Python Linter, and came back with no errors.
+Note: When I made my first commit, I hadn't yet removed the SECRET_KEY from the settings.py file. This key has since been changed.
 
 #### Comments
 <details>
