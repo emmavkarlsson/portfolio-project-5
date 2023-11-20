@@ -582,6 +582,24 @@ I have used the W3C Validator to validate my CSS. All CSS files came back with n
 </details>
 
 
+#### Javascript
+I have used Eslint, an extension you can install on gitpod, to test my JavaScript code. Eslint works in the way that if you run a file, and there's no errors, nothing will be added in the terminal. I tested all my javascript files, and none of them showed any errors.
+<details>
+<summary>Javascript testing</summary>
+<img src="documentation/testing/validation/javascript/javascript_testing.png">
+</details>
+
+To try if this was actually correct, I added a "/" to one of my files and tested it. It showed up with an error, and when it was removed and the code was fixed, nothing showed up, confirming that Eslint couldn't find any errors in the code I had tested.
+<details>
+<summary>Eslint showing error</summary>
+<img src="documentation/testing/validation/javascript/javascript_testingexample.png">
+</details>
+<details>
+<summary>Eslint after fixing the error</summary>
+<img src="documentation/testing/validation/javascript/javascript_testingexample2.png">
+</details>
+
+
 ### Manual testing
 #### Home Page
 
