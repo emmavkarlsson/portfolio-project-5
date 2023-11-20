@@ -71,6 +71,11 @@ function ReportsList({ message }) {
 
   return (
     <Container>
+      <Row className="mt-3 mb-3 text-center">
+        <Col>
+          <h3>My reports</h3>
+        </Col>
+      </Row>
       {hasLoaded ? (
         reportsData.length ? (
           <div>
