@@ -1248,6 +1248,16 @@ All python files have been tested using the CI Python Linter, and came back with
 | Comments | using api/comments/ | The comment is removed when the comment is deleted | Pass |
 | Comments | using api/comments/id | Detail not found is displayed when the comment has been deleted | Pass |
 
+<details>
+<summary>Comments list</summary>
+<img src="documentation/testing/backend/comments_all.png">
+</details>
+<details>
+<summary>Comments detail</summary>
+<img src="documentation/testing/backend/comments_detail.png">
+</details>
+
+
 #### Posts
 |Feature  | Action | Expected result | Pass/Fail |
 |--|--|--|--|
@@ -1260,12 +1270,23 @@ All python files have been tested using the CI Python Linter, and came back with
 | Posts | using api/posts/ | I can when a post was created and updated | Pass |
 | Posts | using api/posts/ | I can see the title of the post | Pass |
 | Posts | using api/posts/ | I can see the content of the post | Pass |
+| Posts | using api/posts/ | I can see how many likes the post has | Pass |
+| Posts | using api/posts/ | I can see how many comments the post has | Pass |
 | Posts | using api/posts/ | Updated_at changes when the post is updated | Pass |
 | Posts | using api/posts/ | The title of the post changes when the title is updated | Pass |
 | Posts | using api/posts/ | The content of the post changes when the content is updated | Pass |
 | Posts | using api/posts/ | The image url of the post changes when the image is updated | Pass |
 | Posts | using api/posts/ | The post is removed when the post is deleted | Pass |
 | Posts | using api/posts/id | Detail not found is displayed when the post has been deleted | Pass |
+
+<details>
+<summary>Posts list</summary>
+<img src="documentation/testing/backend/posts_all.png">
+</details>
+<details>
+<summary>Posts detail</summary>
+<img src="documentation/testing/backend/posts_detail.png">
+</details>
 
 #### Profiles
 |Feature  | Action | Expected result | Pass/Fail |
@@ -1291,6 +1312,15 @@ All python files have been tested using the CI Python Linter, and came back with
 | Profiles | using api/profiles/ | The image url of the profile changes when the image is updated | Pass |
 | Profiles | using api/profiles/ | The cover image url of the profile changes when the cover image is updated | Pass |
 
+<details>
+<summary>Profiles list</summary>
+<img src="documentation/testing/backend/profiles_all.png">
+</details>
+<details>
+<summary>Profiles detail</summary>
+<img src="documentation/testing/backend/profiles_detail.png">
+</details>
+
 #### Saved
 |Feature  | Action | Expected result | Pass/Fail |
 |--|--|--|--|
@@ -1302,6 +1332,15 @@ All python files have been tested using the CI Python Linter, and came back with
 | Saved | using api/saved/ | I can which post has been saved | Pass |
 | Saved | using api/saved/ | The save is removed when the post has been unsaved | Pass |
 | Saved | using api/saved/id | Detail not found is displayed when the save has been removed | Pass |
+
+<details>
+<summary>Saved list</summary>
+<img src="documentation/testing/backend/saved_all.png">
+</details>
+<details>
+<summary>Saved detail</summary>
+<img src="documentation/testing/backend/saved_detail.png">
+</details>
 
 #### Reports
 |Feature  | Action | Expected result | Pass/Fail |
@@ -1321,7 +1360,13 @@ All python files have been tested using the CI Python Linter, and came back with
 | Reports | using api/reports/{id} | The report status updates when the admin changes the status | Pass |
 | Reports | using api/reports/{id} | The details of a report cannot be found when the report has been deleted | Pass |
 
-> Please note that the usermessages have not been tested through the API, because the usermessages are only visible for the user who has sent or received the message. However, usermessages have been tested through the front end, showing that the owner and receiver works correctly, that the usermessage content is displayed and updates for both the receiver and the owner when the owner updates the message, is deleted for both the receiver and the owner when the owner deletes the message. You can see the frontend testing of the usermessages [here](#messages-page-1).
+<details>
+<summary>Reports detail</summary>
+<img src="documentation/testing/backend/reports_detail.png">
+</details>
+<br>
+
+> Please note that the usermessages have not been tested through the API, because the usermessages are only visible for the user who has sent or received the message, and nobody else should be able to view the messages. However, usermessages have been tested through the front end, showing that the owner and receiver works correctly, that the usermessage content is displayed and updates for both the receiver and the owner when the owner updates the message, is deleted for both the receiver and the owner when the owner deletes the message. You can see the frontend testing of the usermessages [here](#messages-page-1).
 
 ## Future improvements
 
