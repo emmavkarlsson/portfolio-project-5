@@ -434,6 +434,13 @@ The update password page is a simple page with a two field form, where users can
 <img src="documentation/images/changepasswordpage.png">
 </details>
 
+### 404 page
+The 404 page is the landing page for when the users have tried to access a url on the page that does not exist. It has a simple design that guides users back to the home page.
+<details>
+<summary>404 page</summary>
+<img src="documentation/images/404page.png">
+</details>
+
 ## Components
 Components are extremely handy to use, as every react component acts separately and you can import the component wherever you like. This means, you can change a part of your code in one place, and don't have to do the same update in multiple different files. This also means you can use the same component in each area of the app and change the individual pieces. Updates become more streamlined, reducing the overall update workload and enhancing efficiency. It also makes it a lot easier to fix errors, as you only have to fix it in one place. 
 
