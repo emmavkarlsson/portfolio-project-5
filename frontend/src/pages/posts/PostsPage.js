@@ -23,7 +23,7 @@ import Asset from "../../components/Asset";
 import NoResults from "../../assets/no-results.png";
 import PopularProfiles from "../profiles/PopularProfiles";
 
-function PostsPage({ message, filter = "", secure = "false" }) {
+function PostsPage({ message, filter = "" }) {
   const [posts, setPosts] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();

@@ -8,14 +8,16 @@ import { Button, Col, Modal, Row } from "react-bootstrap";
 
 // Styling imports
 import btnStyles from "../../styles/Button.module.css";
+import appStyles from "../../App.module.css";
 
 // Other imports
 import { AlertContext } from "../../context/AlertContext";
 import { axiosReq, axiosRes } from "../../api/axiosDefaults";
 import Asset from "../../components/Asset";
+import NoResults from "../../assets/no-results.png";
 import { useRedirect } from "../../hooks/useRedirect";
 
-function ReportsList() {
+function ReportsList({ message }) {
   const [reportsData, setReportsData] = useState([]);
   const [hasLoaded, setHasLoaded] = useState(false);
   const history = useHistory();
@@ -148,12 +150,13 @@ function ReportsList() {
             </Modal>
           </div>
         ) : (
-          <p>You haven't reported any pictures.</p>
+          <Container className={appStyles.Content}>
+            <Asset src={NoResults} message={message} />
+          </Container>
         )
       ) : (
-        <Container className="text-center justify-content-center">
+        <Container className={appStyles.Content}>
           <Asset spinner />
-          <p>Loading...</p>
         </Container>
       )}
     </Container>

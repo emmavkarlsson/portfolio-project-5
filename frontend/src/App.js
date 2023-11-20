@@ -191,7 +191,7 @@ function App() {
           path="/reports/"
           render={() => (
             <Container className={styles.Main}>
-              <ReportsList />
+              <ReportsList message="You haven't reported any pictures."/>
             </Container>
           )}
         />
