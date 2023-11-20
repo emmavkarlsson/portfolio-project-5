@@ -441,6 +441,29 @@ The 404 page is the landing page for when the users have tried to access a url o
 <img src="documentation/images/404page.png">
 </details>
 
+### Alerts
+Whenever the user make changes to the data, they get an alert displayed on the top of the screen. This is used throughout the whole website. See examples below:
+<details>
+<summary>Alert signed in</summary>
+<img src="documentation/images/alert_loggedin.png">
+</details>
+<details>
+<summary>Alert delete comment</summary>
+<img src="documentation/images/alert_delete.png">
+</details>
+<details>
+<summary>Alert edit post</summary>
+<img src="documentation/images/alert_editpost.png">
+</details>
+<details>
+<summary>Alert message</summary>
+<img src="documentation/images/alert_message.png">
+</details>
+<details>
+<summary>Alert report</summary>
+<img src="documentation/images/alert_report.png">
+</details>
+
 ## Components
 Components are extremely handy to use, as every react component acts separately and you can import the component wherever you like. This means, you can change a part of your code in one place, and don't have to do the same update in multiple different files. This also means you can use the same component in each area of the app and change the individual pieces. Updates become more streamlined, reducing the overall update workload and enhancing efficiency. It also makes it a lot easier to fix errors, as you only have to fix it in one place. 
 
