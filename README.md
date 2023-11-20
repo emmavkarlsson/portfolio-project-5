@@ -1320,3 +1320,91 @@ Create a 'frontend' folder in the root directory via the terminal with 'mkdir fr
  5. In env.py, add a local file by adding: '   os.environ['ALLOWED_HOST'] = '8000-username-repository-other.gitpod.io', with your own url which is displayed when you have the backend open in the browser.
  6. In settings.py, add: "ALLOWED_HOSTS = ['localhost', os.environ.get('ALLOWED_HOST')]" and "CORS_ALLOWED_ORIGINS = [os.environ.get('CLIENT_ORIGIN')] and "CORS_ALLOW_CREDENTIALS = True"
  7. in the package.json file in your frontend directory, add the localhost by adding " 'proxy': 'http://localhost:8000/ " at the end of the file. Note that you need to add a comma after the curly braces above the line you just added, and a curly brace after the line you just added in.
+
+### Creating the Database
+1. Install gunicorn and libraries by typing these commands in the terminal: 
+	- pip3 install 'django<4' gunicorn
+	- pip3 install dj_database_url==0.5.0 psycopg2
+	- update the requirements.txt file by typing 'pip3 freeze --local > requirements.txt'
+2. Create a new instance on ElephantSQL.
+3. Copy the url for your database.
+
+### Setting up Heroku
+1. Create a new app on Heroku.
+2. Go to the settings tab and click "reveal confiq vars". Add the following keys and values:
+
+| KEY | VALUE |
+|--|--|
+| DATABASE_URL | the ElephantSQL url (make sure it starts with postgres://) |
+| SECRET_KEY | the SECRET_KEY you have in your env.py file |
+| CLOUDINARY_URL | the cloudinary url you have in your env.py file |
+| DISABLE_COLLECTSTATIC | 1 |
+
+### One last thing before deploying...
+
+> Add this line of code to your settings.py file:<br>
+if 'DEV' in
+> os.environ: 	DATABASES = { 		'default': { 			'ENGINE':
+> 'django.db.backends.sqlite3', 			'NAME': BASE_DIR / 'db.sqlite3', 	}}
+> else:  	DATABASES = { 		'default':
+> 'dj_database_url.parse(os.environ.get("DATABASE_URL")) }
+
+### Deployment
+In the terminal:
+- pip3 install whitenoise==6.4.0
+- pip3 freeze > requirements.txt
+
+#### In settings.py
+- in INSTALLED_APPS, move the cloudinary lines below the django.contrib.staticfiles, and add 'corsheaders' to the installed apps
+- in MIDDLEWARE, add 'whitenoise.middleware.WhiteNoiseMiddleware' below the django.middleware.security.SecurityMiddleware line, and add "'corsheaders.middleware.CorsMiddleware'," to the top of the list
+- in TEMPLATES, add 'os.path.join(BASE_DIR, "staticfiles", "build")' under the BACKEND line
+- add 'STATIC_ROOT = BASE_DIR / "staticfiles"' and 'WHITENOISE_ROOT = BASE_DIR / "staticfiles" / "build"' under STATIC_URL
+
+#### In urls.py (in the backend)
+- add 'from django.views.generic import TemplateView' to imports
+- replace the root_route with 'path("", TemplateView.as_view(template_name="index.html")),'
+- add 'TemplateView.as_view(template_name="index.html")'
+- for all urls, add 'api/' to the beginning of the url, for example, 
+	- path('api/dj-rest-auth/logout/', logout_route),
+	- path('api/', include('profiles.urls')),
+
+#### In the frontend
+- create a folder named 'api'
+- within the 'api' folder, create a filed named 'axiosDefault.js'
+- place the following code in your axiosDefault file:
+
+	import axios from "axios"; 
+	<br>axios.defaults.baseURL = "/api";
+	<br>axios.defaults.headers.post["Content-Type"] = "multipart/form-data";
+	<br>axios.defaults.withCredentials = true;
+	<br>export const axiosReq = axios.create();
+	<br>export const axiosRes = axios.create();
+
+#### In the backend
+- create a file named Procfile in your root directory and add these lines:
+	- release: python manage.py makemigrations && python manage.py migrate
+	- web: gunicorn drf_api.wsgi
+	- create a file named 'runtime.txt' and add 'python-3.9.16' to it
+- create staticfiles by in the terminal typing:
+	- mkdir staticfiles
+	- python3 manage.py collectstatic
+
+Close both terminals, and run this command in the frontend terminal (if you're not in the terminal, first type the command 'cd frontend'):
+'npm run build && rm -rf ../staticfiles/build && mv build ../staticfiles/.' 
+
+*NOTE*. Everytime you make changes to your code, you need to rerun that last command before you push your code.
+
+Deploying the project
+1. In Heroku, go to the Deploy tab of the app you wish to deploy.
+2. Click "Connect to Github"
+3. Choose the repo you wish to deploy
+4. Under "manual deploy", click "deploy branch".
+5. When the app is deployed, open it and copy the url
+6. Go back to the settings tab and click reveal confiq vars
+7. Add these two keys and values:
+| KEY | VALUE |
+|--|--|
+| ALLOWED_HOST | the url for your app you just copied - remove the https:// in the beginning and the / at the end |
+| CLIENT_ORIGIN | the url for your app you just copied - keep the https:// in the beginning but remove the / at the end  |
+
+You have successfully deployed your app! Now remember, anytime you make changes to your code and want to deploy it again, you need to run 'npm run build && rm -rf ../staticfiles/build && mv build ../staticfiles/.' before you push.
