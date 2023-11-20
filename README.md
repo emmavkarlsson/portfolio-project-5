@@ -367,13 +367,17 @@ If a user is viewing their own profile, neither the "send message" box nor the "
 
 
 ### Messages Page
-The messages page contains the users sent and received messages, if they have any. They are displayed in two different containers, with Sent Messages on the left and Received Messages on the right. On mobile, Received Messages are placed above Sent Messages. The containers have a fixed height, and when it is filled with messages, the users can scroll through them vertically. 
+The messages page contains the users sent and received messages, if they have any. They are displayed in two different containers, with Sent Messages on the left and Received Messages on the right. On mobile, Received Messages are placed above Sent Messages. The containers have a fixed height, and when it is filled with messages, the users can scroll through them vertically. If the user hasn't received any messages, they will see a search icon and a message telling them they haven't received any messages.
 Both the sent messages and received messages contain the other user's profile picture, username, the date of which the message was sent, as well as the message content. 
 For each sent message, there's a three dots icon, which when clicked will let the user either update or delete the message. 
 
 <details>
 <summary>Messages page</summary>
 <img src="documentation/images/messagespage.png">
+</details>
+<details>
+<summary>Messages page empty</summary>
+<img src="documentation/images/messagespage_empty.png">
 </details>
 
 ### Create Report Page
@@ -386,11 +390,15 @@ Under the form are two buttons, cancel and report. Cancel will send the user bac
 </details>
 
 ### Reports List Page
-The reports list page, or "My Reports" is accessed through a users own profile. The Reports List Page is a simple page where the user can see all the reports it has filed, with the subject and message details. It can see the current status of the report (either Awaiting Review, Reviewed or Closed). The user can also see an edit icon, as well as a trash can icon. The first will send the user to the Edit Report Page, while the second will let the user delete the report. 
+The reports list page, or "My Reports" is accessed through a users own profile. The Reports List Page is a simple page where the user can see all the reports it has filed, with the subject and message details. It can see the current status of the report (either Awaiting Review, Reviewed or Closed). If the user hasn't reported any pictures, it will see a search icon and a message telling them they haven't reported any pictures. The user can also see an edit icon, as well as a trash can icon. The first will send the user to the Edit Report Page, while the second will let the user delete the report. 
 
 <details>
 <summary>Reports page</summary>
 <img src="documentation/images/reportslistpage.png">
+</details>
+<details>
+<summary>Reports page empty</summary>
+<img src="documentation/images/reportslistpage_empty.png">
 </details>
 
 ### Edit Reports List Page
