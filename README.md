@@ -4,6 +4,13 @@ PhotoStream is a dynamic photosharing website that let's users share images with
 
 Deployed project: [Link](https://evk-pp5-cf55770a5b07.herokuapp.com/).
 
+<img src="documentation/images/photostream_responsive_loggedout.png">
+
+<details>
+<summary>See the different screens for logged in view here</summary>
+<img src="documentation/images/photostream_responsive_loggedin.png">
+</details>
+
 ---
 ## Table of Contents
 
@@ -47,6 +54,8 @@ Deployed project: [Link](https://evk-pp5-cf55770a5b07.herokuapp.com/).
 	- ## [Other websites used](#other-websites-used-1)
 
 - ## [Deployment](#deployment-1)
+
+- ## [Credits](#credits-1)
 
 
 
@@ -1408,3 +1417,10 @@ Deploying the project
 | CLIENT_ORIGIN | the url for your app you just copied - keep the https:// in the beginning but remove the / at the end  |
 
 You have successfully deployed your app! Now remember, anytime you make changes to your code and want to deploy it again, you need to run 'npm run build && rm -rf ../staticfiles/build && mv build ../staticfiles/.' before you push.
+
+
+## Credits
+- This project is based on Code Institute's walkthrough project 'moments'.
+- Code Institutes tutors have been a great support when I had issues connecting my front end to the backend.
+- A big thanks to my mentor Rohit Sharma, for inputs on the project as well as making sure that my models and views were correct when I had doubts.
+- Last but not least, a big thank you to my fellow Code Institute student [Gustaf](https://github.com/gStarhigh/) who has helped me troubleshoot, assisted me with connecting frontend to backend and has continuously offered his support throughout this project!
