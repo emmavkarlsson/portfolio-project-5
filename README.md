@@ -96,6 +96,18 @@ The wireframes were created in the middle of the project, which is why they are 
 <img src="documentation/images/wireframe_messages.png">
 </details>
 
+### React Libraries / Components
+I have used different React libraries/components to improve the User Experience of the website. Here are some of them which has improved the UX:
+
+#### Infinite Scroll
+I have used the React Component Infinite Scroll, which is a loading component that allows for infinite scrolling on a website. It uses the technique lazy loading, to load only the content that is currently visible to the user (I have used 10 posts), and as the user scrolls down, it loads more content automatically. This improves User Experience as users don't have to manually click to see new posts, and also improves the response time compared to when all posts are visible immediately.
+
+#### Toastify
+I have used Toastify, a React toast package, which displays alerts to users when they have made changes in the data. The reason I chose Toastify is that it is very easy to include in your code, and provides clean and nicely styled auto expiring notifications.
+
+#### React Bootstrap
+React Bootstrap is a frontend framework that I have used for the overall design of the website. The great thing about Bootstrap is that it is very easy to create responsive design, keeping the design consistent while it also provides a great library of buttons, forms, etc. 
+
 
 ## User Stories
 
@@ -127,8 +139,6 @@ Link to GitHub project [Here](https://github.com/users/emmavkarlsson/projects/4
 | Messages (5) | 17 | As a User, I can delete messages I have sent so that I can remove content that I no longer want to share. | :heavy_check_mark: |
 | Other (6) | 20 | As a User, I get a notification whenever I perform any changes on the platform | :heavy_check_mark: |
 | Contact form (-) | 20 | As a User, I can contact the site owner if I have any issues or questions. | - |
-
-
 
 <details>
 <summary>Kanban board</summary>
